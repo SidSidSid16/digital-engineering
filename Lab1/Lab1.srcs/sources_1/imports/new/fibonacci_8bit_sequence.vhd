@@ -23,11 +23,23 @@ signal enable_debounced : STD_LOGIC;
 signal counter_output_address : UNSIGNED (3 downto 0);
 
 begin
-
+    --  This debouncer is used to debounce the count button input.
+    --  When the user clicks the count button, it is debounced and
+    --  inputted into the counter as enable.
+    enable_input_debouncer : entity work.efficient_debouncer
+    port map (
+        clk => clk,
+        --  Raw signal is inputted
+        input_raw => count,
+        --  Debounced signal outputted
+        output_debounced => enable_debounced
+    );
+    
+    
     --  This debouncer is used to debounce the reset button input.
     --  When the user clicks the reset button, it is debounced and
     --  inputted to the counter as reset.
-    reset_input_debouncer : entity work.input_debouncer 
+    reset_input_debouncer : entity work.efficient_debouncer 
     port map (
         clk => clk,
         --  Raw user input is inputted
@@ -36,17 +48,6 @@ begin
         output_debounced => reset_debounced
     );
 
-    --  This debouncer is used to debounce the count button input.
-    --  When the user clicks the count button, it is debounced and
-    --  inputted into the counter as enable.
-    enable_input_debouncer : entity work.input_debouncer
-    port map (
-        clk => clk,
-        --  Raw signal is inputted
-        input_raw => count,
-        --  Debounced signal outputted
-        output_debounced => enable_debounced
-    );
 
     --  The debounced reset and count signals are inputted as reset and count.
     --  When count is pressed, the debounced signal comes in as enable and enables
