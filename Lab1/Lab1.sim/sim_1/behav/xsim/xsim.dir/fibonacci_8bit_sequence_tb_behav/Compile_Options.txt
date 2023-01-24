@@ -1,0 +1,1 @@
+-wto "b92b348f5a01451eb245afe2b8e10b93" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "fibonacci_8bit_sequence_tb_behav" "xil_defaultlib.fibonacci_8bit_sequence_tb" -log "elaborate.log" 

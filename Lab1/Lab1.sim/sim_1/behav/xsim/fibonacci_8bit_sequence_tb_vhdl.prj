@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Lab1.srcs/sources_1/imports/Digital Engineering/DigEng.vhd" \
+"../../../../Lab1.srcs/sources_1/new/d_type_flip_flop.vhd" \
+"../../../../Lab1.srcs/sources_1/new/parameterizable_counter.vhd" \
+"../../../../Lab1.srcs/sources_1/new/efficient_debouncer.vhd" \
+"../../../../Lab1.srcs/sources_1/imports/new/fibonacci_8bit_async_read_rom.vhd" \
+"../../../../Lab1.srcs/sources_1/imports/new/sync_enable_4bit_counter.vhd" \
+"../../../../Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd" \
+"../../../../Lab1.srcs/sim_1/imports/new/fibonacci_8bit_sequence_tb.vhd" \
+
+# Do not sort compile order
+nosort
