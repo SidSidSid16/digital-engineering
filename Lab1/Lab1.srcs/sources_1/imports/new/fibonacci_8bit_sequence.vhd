@@ -3,6 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity fibonacci_8bit_sequence is
+generic (LIMIT : NATURAL := 50000000);
     Port ( clk : in STD_LOGIC;
            --  Count raw user input, translates to 'enable' signal close to the counter
            count : in STD_LOGIC;
@@ -27,6 +28,9 @@ begin
     --  When the user clicks the count button, it is debounced and
     --  inputted into the counter as enable.
     enable_input_debouncer : entity work.efficient_debouncer
+    generic map (
+        LIMIT => LIMIT
+    )
     port map (
         clk => clk,
         --  Raw signal is inputted
@@ -39,7 +43,10 @@ begin
     --  This debouncer is used to debounce the reset button input.
     --  When the user clicks the reset button, it is debounced and
     --  inputted to the counter as reset.
-    reset_input_debouncer : entity work.efficient_debouncer 
+    reset_input_debouncer : entity work.efficient_debouncer
+    generic map (
+        LIMIT => LIMIT
+    )
     port map (
         clk => clk,
         --  Raw user input is inputted

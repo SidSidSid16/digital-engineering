@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 use work.DigEng.all;
 
 entity efficient_debouncer is
-generic (LIMIT : NATURAL := 50000000);
+generic (LIMIT : NATURAL := 17);
     Port ( clk : in STD_LOGIC;
            input_raw : in STD_LOGIC;
            output_debounced : out STD_LOGIC);
