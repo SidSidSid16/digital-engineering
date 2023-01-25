@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity fibonacci_8bit_sequence_tb is
     -- Adjustable value for the # of clock cycles the debouncer counts for.
     -- Default set to 6 for a much quicker debounce, essential for testbench
-    -- simulations. The debouncer will trigger for a pulse with with at least
+    -- simulations. The debouncer will activate for a pulse with at least
     -- 5 rising clock edges.
     generic (LIMIT : NATURAL := 6);
 end fibonacci_8bit_sequence_tb;
