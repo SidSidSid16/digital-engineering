@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue Jan 24 15:22:23 2023
-# Process ID: 12984
+# Start of session at: Wed Jan 25 19:39:11 2023
+# Process ID: 11856
 # Current directory: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.runs/synth_1
 # Command line: vivado.exe -log fibonacci_8bit_sequence.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fibonacci_8bit_sequence.tcl
 # Log file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.runs/synth_1/fibonacci_8bit_sequence.vds
