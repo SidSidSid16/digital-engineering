@@ -90,7 +90,7 @@ begin
     --
     d_type_flip_flop : entity work.d_type_flip_flop
     port map (
-        -- (Again self explanatory)
+        -- (Again, self explanatory)
         clk => clk,
         -- The output from the 'max_detector' signal is mapped to the data input
         -- of the flip flop, this is stored until the next clock rising edge.

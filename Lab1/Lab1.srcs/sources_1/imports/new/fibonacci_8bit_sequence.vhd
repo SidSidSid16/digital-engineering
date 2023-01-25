@@ -3,6 +3,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity fibonacci_8bit_sequence is
+-- Adjustable value for the # of clock cycles the debouncer counts for.
+-- Default set to 50x10^6 for a debounce of approx. 0.5 seconds for a
+-- 100MHz processor.
 generic (LIMIT : NATURAL := 50000000);
     Port ( clk : in STD_LOGIC;
            --  Count raw user input, translates to 'enable' signal close to the counter
