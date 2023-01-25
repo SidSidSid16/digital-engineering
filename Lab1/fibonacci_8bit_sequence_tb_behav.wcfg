@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="141000001fs"></ZoomEndTime>
-      <Cursor1Time time="98200000fs"></Cursor1Time>
+      <ZoomStartTime time="3320280000fs"></ZoomStartTime>
+      <ZoomEndTime time="3604416366fs"></ZoomEndTime>
+      <Cursor1Time time="3392703000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="203"></NameColumnWidth>
-      <ValueColumnWidth column_width="67"></ValueColumnWidth>
+      <ValueColumnWidth column_width="63"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
    <wvobject fp_name="/fibonacci_8bit_sequence_tb/LIMIT" type="other">

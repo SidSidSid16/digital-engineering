@@ -4,4 +4,19 @@ Running: H:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto b92b348f5a
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.digeng
+Compiling architecture behavioural of entity xil_defaultlib.parameterizable_counter [\parameterizable_counter(limit=6...]
+Compiling architecture behavioral of entity xil_defaultlib.d_type_flip_flop [d_type_flip_flop_default]
+Compiling architecture behavioral of entity xil_defaultlib.efficient_debouncer [\efficient_debouncer(limit=6)\]
+Compiling architecture behavioral of entity xil_defaultlib.sync_enable_4bit_counter [sync_enable_4bit_counter_default]
+Compiling architecture behavioral of entity xil_defaultlib.fibonacci_8bit_async_read_rom [fibonacci_8bit_async_read_rom_de...]
+Compiling architecture behavioral of entity xil_defaultlib.fibonacci_8bit_sequence [\fibonacci_8bit_sequence(limit=6...]
+Compiling architecture behavioral of entity xil_defaultlib.fibonacci_8bit_sequence_tb
+Built simulation snapshot fibonacci_8bit_sequence_tb_behav

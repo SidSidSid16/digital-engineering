@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1674573740">
   <File Type="PA-TCL" Name="fibonacci_8bit_sequence.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="fibonacci_8bit_sequence_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="fibonacci_8bit_sequence_reports.tcl"/>
   <File Type="RDS-RDS" Name="fibonacci_8bit_sequence.vds"/>
   <File Type="RDS-UTIL" Name="fibonacci_8bit_sequence_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="fibonacci_8bit_sequence_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="fibonacci_8bit_sequence.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fibonacci_8bit_sequence_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="fibonacci_8bit_sequence_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/Digital Engineering/DigEng.vhd">

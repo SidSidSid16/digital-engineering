@@ -3,6 +3,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity fibonacci_8bit_sequence_tb is
+    -- Adjustable value for the # of clock cycles the debouncer counts for.
+    -- Default set to 6 for a much quicker debounce, essential for testbench
+    -- simulations. The debouncer will trigger for a pulse with with at least
+    -- 5 rising clock edges.
     generic (LIMIT : NATURAL := 6);
 end fibonacci_8bit_sequence_tb;
 
@@ -37,22 +41,28 @@ begin
     --  TEST STRATEGY
     --      TEST 1:
     --      After a reset, a 'for' loop will be used to toggle the enable
-    --      signal 19 times, allowing the counter to counter to count to 16,
-    --      reset then count up twice. This is to test the counting behaviour
-    --      and the reset transition.
+    --      signal 19 times, allowing the counter to count to 16, roll-over
+    --      then count up twice. This is to test the counting behaviour
+    --      and the roll-over transition.
     --
     --      TEST 2:
-    --      Following from test 1, a reset signal will be sent to the counter,
-    --      the counter should reset back to 0, and the first value of the
-    --      fibonacci sequence should output.
+    --      We can send a reset pulse lasting for 2 clock rising edges (less 
+    --      than the ~5 needed for the deboucer to activate) to verify that 
+    --      the debouncer does indeed work as intended.
     --
     --      TEST 3:
-    --      Following from test 2, the counter will be toggled with another
+    --      Following from test 2, a reset signal will be sent to the counter
+    --      (the reset pulse lasting >5 clock rising edges), the counter
+    --      should reset back to 0, and the first value of the Fibonacci
+    --      sequence should output.
+    --
+    --      TEST 4:
+    --      Following from test 3, the counter will be toggled with another
     --      'for' loop 10 times, this is to verify whether the counter can
     --      count up even after a reset.
     --
-    --      TEST 4:
-    --      Following from test 3, this test will toggle the reset and count
+    --      TEST 5:
+    --      Following from test 4, this test will toggle the reset and count
     --      inputs at the same time.
 
     test : process
@@ -86,9 +96,20 @@ begin
         reset <= '1';
         count <= '0';
         
-        wait for clk_period*10;
+        wait for clk_period*2;
+        
+        reset <= '0';
+        count <= '0';
+        
+        wait for clk_period*2;
         
         --  TEST 3
+        reset <= '1';
+        count <= '0';
+        
+        wait for clk_period*10;
+        
+        --  TEST 4
         count_to_12 : for i in 0 to 12 loop
             reset <= '0';
             count <= '0';
@@ -98,7 +119,12 @@ begin
             wait for clk_period*10;
         end loop count_to_12;
         
-        --  TEST 4
+        --  TEST 5
+        reset <= '0';
+        count <= '0';
+        
+        wait for clk_period*5;
+        
         reset <= '1';
         count <= '1';
         
