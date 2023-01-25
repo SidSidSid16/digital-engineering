@@ -1,18 +1,19 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=2.54cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{minted}
 
 \title{Digital Engineering\\Lab 1}
-\author{Y3890959\\Y\#\#\#}
+\author{Y3890959\\Y3878784}
 \date{24th January 2023}
 
 \pagestyle{fancy}
-
 \fancyhead{}
+\setlength{\headheight}{14pt}
 \fancyhead[L]{Lab 1}
-\fancyhead[R]{Y3890959, Y\#\#\#}
-
+\fancyhead[R]{Y3890959, Y3878784}
 \fancyfoot{}
 \fancyfoot[L]{Digital Engineering}
 \fancyfoot[R]{\thepage}
@@ -20,6 +21,11 @@
 \makeatletter
 \let\ps@plain\ps@fancy 
 \makeatother
+
+\setminted {
+    fontsize=\footnotesize,
+    frame=single,
+}
 
 \begin{document}
 
@@ -30,18 +36,23 @@
 \subsection*{VHDL Code}
 
 \subsubsection*{Top-Level Entity}
+\inputminted{vhdl}{../../Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd}
 
 \subsubsection*{Efficient (Updated) Debouncer Entity}
+\inputminted{vhdl}{../../Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd}
 
 \subsubsection*{Counter Entity}
+\inputminted{vhdl}{../../Lab1/Lab1.srcs/sources_1/new/parameterizable_counter.vhd}
 
 \subsubsection*{ROM Entity}
+\inputminted{vhdl}{../../Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_async_read_rom.vhd}
 
 
 
 \subsection*{Testbenches and Simulation}
 
 \subsubsection*{Testbech VHDL Code}
+\inputminted{vhdl}{../../Lab1/Lab1.srcs/sim_1/imports/new/fibonacci_8bit_sequence_tb.vhd}
 
 \subsubsection*{Testbench Waveforms}
 
@@ -56,10 +67,10 @@
 
 \subsubsection*{Schematics}
 
-\paragraph*{RTL Top Level (ROM Expanded)}
+\paragraph*{\small{RTL Top Level (ROM Expanded)}}
 
-\paragraph*{RTL Debouncer}
+\paragraph*{\small{RTL Debouncer}}
 
-\paragraph*{Synthesis Top Level (ROM Expanded)}
+\paragraph*{\small{Synthesis Top Level (ROM Expanded)}}
 
 \end{document}
