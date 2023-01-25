@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity fibonacci_8bit_sequence_tb is
-generic (LIMIT : NATURAL := 6);
+    generic (LIMIT : NATURAL := 6);
 end fibonacci_8bit_sequence_tb;
 
 architecture Behavioral of fibonacci_8bit_sequence_tb is

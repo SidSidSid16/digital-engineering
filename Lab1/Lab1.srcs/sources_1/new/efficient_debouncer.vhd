@@ -9,8 +9,8 @@ use work.DigEng.all;
 -- enforce a duration for the raw input signal to be high before the debounced
 -- output of high is generated.
 entity efficient_debouncer is
--- Adjustable value for the # of clock cycles until the counter resets.
-generic (LIMIT : NATURAL := 17);
+    -- Adjustable value for the # of clock cycles until the counter resets.
+    generic (LIMIT : NATURAL := 17);
     Port ( 
            clk : in STD_LOGIC;
            -- The raw user input is mapped
