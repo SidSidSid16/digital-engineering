@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.DigEng.all;
 
--- counter to LIMIT (0 to LIMIT-1) with sychronous reset and enable
+-- counter to LIMIT (0 to LIMIT-1) with synchronous reset and enable
 entity parameterizable_counter is
     -- Adjustable value to count to before the counter resets.
     -- The counter will count from 0 to LIMIT-1.
