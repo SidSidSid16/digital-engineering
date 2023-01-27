@@ -2,11 +2,11 @@
 2017.4
 Dec 15 2017
 21:07:18
-C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sim_1/imports/new/fibonacci_8bit_sequence_tb.vhd,1674671787,vhdl,,,,fibonacci_8bit_sequence_tb,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sim_1/imports/new/fibonacci_8bit_sequence_tb.vhd,1674672179,vhdl,,,,fibonacci_8bit_sequence_tb,,,,,,,,
 C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/Digital Engineering/DigEng.vhd,1674567218,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd;C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/parameterizable_counter.vhd,,,digeng,,,,,,,,
-C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_async_read_rom.vhd,1637240968,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd,,,fibonacci_8bit_async_read_rom,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_async_read_rom.vhd,1674680111,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd,,,fibonacci_8bit_async_read_rom,,,,,,,,
 C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd,1674670342,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sim_1/imports/new/fibonacci_8bit_sequence_tb.vhd,,,fibonacci_8bit_sequence,,,,,,,,
 C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/sync_enable_4bit_counter.vhd,1637241518,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd,,,sync_enable_4bit_counter,,,,,,,,
 C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/d_type_flip_flop.vhd,1674571504,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd,,,d_type_flip_flop,,,,,,,,
 C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd,1674670367,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/imports/new/fibonacci_8bit_sequence.vhd,,,efficient_debouncer,,,,,,,,
-C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/parameterizable_counter.vhd,1674670355,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd,,,parameterizable_counter,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/parameterizable_counter.vhd,1674851625,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab1/Lab1.srcs/sources_1/new/efficient_debouncer.vhd,,,parameterizable_counter,,,,,,,,
