@@ -93,20 +93,16 @@ begin
         end loop count_to_18;
         
         --  TEST 2
+        count <= '0';
+        wait for clk_period*10;
         reset <= '1';
-        count <= '0';
-        
         wait for clk_period*2;
-        
         reset <= '0';
-        count <= '0';
         
-        wait for clk_period*2;
+        wait for clk_period*10;
         
         --  TEST 3
         reset <= '1';
-        count <= '0';
-        
         wait for clk_period*10;
         
         --  TEST 4
