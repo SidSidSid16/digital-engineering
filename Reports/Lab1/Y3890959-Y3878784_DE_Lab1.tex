@@ -5,6 +5,7 @@
 \usepackage{xcolor}
 \usepackage{minted}
 \usepackage{graphicx}
+\usepackage[parfill]{parskip}
 
 \title{Digital Engineering\\Lab 1}
 \author{Y3890959\\Y3878784}
@@ -69,7 +70,7 @@ The above waveform screenshot shows the entire sequence from time 0 to output 1 
 \begin{figure}[H]
     \includegraphics[width=\columnwidth]{Reports/Lab1/Waveforms/02_initial-reset-and-counting.png}
 \end{figure}
-The above waveform shows the initial global reset, verifying a successful activation of both the "reset" and "count" debouncers and a successful reset and increment of the overall circuit. 
+The above waveform shows the initial global reset, verifying a successful activation of both the `reset' and `count' debouncers and a successful reset and increment of the overall circuit. 
 
 \subsubsection*{Test 1, Waveform 2 - Counting up}
 \begin{figure}[H]
@@ -87,13 +88,14 @@ This waveform verifies that the maximum Fibonacci sequence value is reached, and
 \begin{figure}[H]
     \includegraphics[width=\columnwidth]{Reports/Lab1/Waveforms/05_quick-reset-pulse.png}
 \end{figure}
-This waveform verifies that the debouncer is functioning as intended by showing the parameterizable counter on board the debouncer incrementing when the reset signal is high but resetting as soon as it goes low before the 'LIMIT' is reached, thus invalidating the reset input.
+This waveform verifies that the debouncer is functioning as intended by showing the parameterizable counter on board the debouncer incrementing when the reset signal is high but resetting as soon as it goes low before the `LIMIT' is reached, thus invalidating the reset input.
 
 \subsubsection*{Test 3 - Longer reset pulse}
 \begin{figure}[H]
     \includegraphics[width=\columnwidth]{Reports/Lab1/Waveforms/06_longer-reset-pulse.png}
 \end{figure}
-This waveform verifies that the debouncer successfully activates with a longer reset pulse of a valid clock duration. The counter in the debouncer increments with each clock cycle while the reset is high, and outputs a high debounced output once 'LIMIT' is reached.
+
+This waveform verifies that the debouncer successfully activates with a longer reset pulse of a valid clock duration. The counter in the debouncer increments with each clock cycle while the reset is high, and outputs a high debounced output once `LIMIT' is reached.
 
 \subsubsection*{Test 4 - Resume after mid-operation reset}
 \begin{figure}[H]
@@ -106,11 +108,20 @@ This waveform verifies that the circuit successfully resumes counting after a mi
     \includegraphics[width=\columnwidth]{Reports/Lab1/Waveforms/08_holding-reset-and-count.png}
 \end{figure}
 
+
+
+
 \section*{Circuit Analysis and Synthesis}
 
 \subsection*{RTL Componenet Statistics}
+\inputminted[firstline=65,lastline=76]{text}{../../Lab1/Lab1.runs/synth_1/fibonacci_8bit_sequence.vds}
 
 \subsection*{RTL Hierarchical Component Statistics}
+\inputminted[firstline=83,lastline=107]{text}{../../Lab1/Lab1.runs/synth_1/fibonacci_8bit_sequence.vds}
+
+From the circuit design phase of this lab, we developed the `LIMIT' parameter to have a size of 50,000,000 so that when running on a 1MHz FPGA, inputs lasting less than 0.5 seconds would be ignored. As the `parameterizable\_counter' entity on board each debouncer will have to count up to the `LIMIT' parameter, the entity will need to be 26 bits in size ($\log_2(50,000,000)=25.58\approx26$). So it makes sense that the counter has been synthesised as 26 bits in size.
+
+
 
 \subsection*{Schematics}
 
