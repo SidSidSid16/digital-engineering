@@ -125,10 +125,27 @@ From the circuit design phase of this lab, we developed the `LIMIT' parameter to
 
 \subsection*{Schematics}
 
+
 \subsubsection*{RTL Top Level (ROM Expanded)}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab1/Schematics/01_rtl-tl-rom-expanded.png}
+\end{figure}
+As designed, there's a debouncer each for the `reset' and `count' raw input signals. These debounced signals are what control the 4-bit counter which accesses the Fibonacci ROM.
+
+
 
 \subsubsection*{RTL Debouncer}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab1/Schematics/02_rtl-debouncer.png}
+\end{figure}
+The clock signal is input along with the raw input for debouncing. Whilst the raw input is high and the max value (`LIMIT') hasn't been reached, the counter will increment. Once the `LIMIT' has been reached, `enable' goes low, which stops the counter from incrementing. The counter is reset once the raw input goes low.
+
+When the `LIMIT' has been reached, a high signal output from the `max\_detector' is stored in the d-type flip flop. The same output is compared with an AND gate with an inverted output from the d-type flip flop, this is to ensure the debouncer doesn't activate for more than one clock cycle.
 
 \subsubsection*{Synthesis Top Level (ROM Expanded)}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab1/Schematics/03_synth-tl-rom-expanded.png}
+\end{figure}
+There are input buffers for each input pin. The clock pin has an additional buffer (BUFG) which is used to distribute high fan-out clock signals. The ROM is synthesised as an array of look-up tables. And finally, each signal in the output bus has an output buffer.
 
 \end{document}
