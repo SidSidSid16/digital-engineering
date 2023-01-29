@@ -2,3 +2,6 @@ Running: xsim.dir/fibonacci_8bit_sequence_tb_behav/xsimk.exe -simmode gui -wdb f
 Design successfully loaded
 Design Loading Memory Usage: 7532 KB (Peak: 7532 KB)
 Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 8308 KB (Peak: 8308 KB)
+Simulation CPU Usage: 62 ms
