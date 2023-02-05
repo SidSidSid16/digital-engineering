@@ -18,7 +18,7 @@ architecture Behavioral of algorithm_tb is
     -- Output
     signal Output : STD_LOGIC_VECTOR(data_size*2-1 downto 0);
     
-    constant clk_period : time := 120ns; -- Clock period
+    constant clk_period : time := 50ns;  -- Clock period
     constant latency : natural := 2;     -- Circuit latency
     
     -- Defining a record of test patterns to verify the circuit
@@ -166,8 +166,10 @@ begin
                integer'image(to_integer(unsigned(InputC))) & 
                " D = " & 
                integer'image(to_integer(unsigned(InputD))) & 
-               " O = " & 
-               integer'image(to_integer(unsigned(Output)))
+               " O_observed = " &
+               integer'image(to_integer(unsigned(Output))) &
+               " O_expected = " & 
+               integer'image(to_integer(unsigned(test_vectors(i).Output)))
         severity failure;
         
         report "TEST VECTOR " & integer'image(i) & " PASS."
