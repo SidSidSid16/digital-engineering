@@ -117,5 +117,34 @@ The behaviour for the Output signal is also quite consistent with the one from 1
 
 \chapter*{Task B: Tool Optimisations}
 
+\section*{1.2.1 Design Runs With Varying Timing Contraints}
+\subsection*{80ns Clock Period}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/80ns_design-runs.png}
+\end{figure}
+From the WNS value we got from our implementation with an 80ns clock, we can run our circuit with a clock signal as fast as 79.703ns, or around 12.55MHz. With an 80ns clock signal in the testbench, we can indeed verify that the implementation works as the self-checking testbench passes.
+
+\subsection*{75ns Clock Period}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/75ns_design-runs.png}
+\end{figure}
+From the WNS value we got from our implementation with a 75ns clock, we can run our circuit with a clock signal as fast as 74.268ns, or around 13.37MHz. Running the testbench with a 75ns simulated clock period, we can notice a fail in test vector \#4, where the inputs, A, B and C are 65535, and D is 2. Test vectors \#0-3 all pass. This can be explained as the WNS is only 0.232ns, this is such a small margin to work with and due to propagation delays and other limitations of a physical (real-life) device, this margin cannot be maintained.
+
+\subsection*{70ns Clock Period}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/70ns_design-runs.png}
+\end{figure}
+This time, Xilinx couldn't meet the timing requirements that we set. With the displayed value, the maximum clock period has to be 73.951ns, or around 13.52MHz. It is however surprising that, just like for the 75ns clock period above, test vectors \#0-3 are passing, and only vector \#4 is failing instead of all of them.
+
+\subsection*{Explanation}
+As there are an infinite number of device arrangements for the logic, the process of implementation is an iterative one. The Xilinx tools will iterate until an implementation that complies with the defined timing constraints is found. After it has tried hard enough (iterated a maximum defined number of times), the tools may not be able to find a configuration that complies with the constraints, in this case, it will display a negative value in red, meaning that a valid clock period where the circuit will work is off by that value. Running a timing simulation when the timing is not met results in a lot of metastabilities within the internal signals, which leads to inaccurate and extremely unstable outputs and failing testbenches.
+
+\section*{1.2.2 Setup Violation and Critical Path}
+Setup time relates to the short duration required for a signal to be present before the clock edge for a sequential device. When this condition is not met, a setup violation will arise. To mitigate this violation, the clock period can be decreased, allowing for more time for the clock signal to propagate, or the delay of the incoming data path logic can be reduced. This will result in an increase in the critical path.
+
+\section*{1.2.3 Post-Route Timing Report: Max Path Delay}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/1.2.3_max-path-delay.png}
+\end{figure}
 
 \end{document}
