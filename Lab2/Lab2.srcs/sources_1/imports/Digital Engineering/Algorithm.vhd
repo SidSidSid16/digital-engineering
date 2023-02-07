@@ -97,8 +97,8 @@ INT4 <= INT3 / INTD;
 -- so that the adders aren't exactly one after the other operations 
 -- in INT1 and INT2. In the previous design, this logic would've 
 -- been carried out by INTO, we need to make sure that the to_unsigned 
--- function has the correct size parameter (width of INTC)
-INT5 <= INTC + to_unsigned(5, INTC'length);
+-- function has the correct size parameter (width of INTC + 1)
+INT5 <= INTC + to_unsigned(5, INTC'length+1);
 -- Bringing the INT5 logic forward needs to be implemented, therefore
 -- INTO has been adapted to take into account this change. Critical 
 -- path is reduced as the INT5 adder is along side the rest of the
