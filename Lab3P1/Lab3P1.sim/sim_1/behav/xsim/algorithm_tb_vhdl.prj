@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd" \
+"../../../../Lab3P1.srcs/sim_1/imports/new/algorithm_tb.vhd" \
+
+# Do not sort compile order
+nosort
