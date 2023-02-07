@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sun Feb  5 20:03:33 2023
+// Date        : Mon Feb  6 23:08:35 2023
 // Host        : SidS-MacBook-Pro running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab2/Lab2.sim/sim_1/impl/timing/xsim/algorithm_tb_time_impl.v

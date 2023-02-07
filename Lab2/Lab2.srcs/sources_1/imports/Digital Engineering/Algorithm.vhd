@@ -60,8 +60,12 @@ signal INT1 : UNSIGNED (data_size+1 downto 0);   -- INTA + 3
 signal INT2 : UNSIGNED (data_size*2-1 downto 0); -- INTB * INTC
 signal INT3 : UNSIGNED (data_size*2-1 downto 0); -- INT1 + INT2
 signal INT4 : UNSIGNED (data_size*2-1 downto 0); -- INT3 / INTD
-signal INT5 : UNSIGNED (data_size*2-1 downto 0); -- INTC + INT4
-signal INTO : UNSIGNED (data_size*2-1 downto 0); -- INT5 + 5
+-- INT5 needs to be resized to match INTC, as this vector size
+-- is larger than the required vector size for a decimal '5'
+signal INT5 : UNSIGNED (data_size-1 downto 0);   -- [UPDATED] INTC + 5
+-- INTO needs to be resized to match INT4, as this is the larger
+-- vector size compared to INT5 as we updated that to be smaller
+signal INTO : UNSIGNED (data_size*2-1 downto 0); -- [UPDATED] INT4 + INT5
 
 begin
 
@@ -89,8 +93,18 @@ INT1 <= INTA * to_unsigned(3, 2);
 INT2 <= INTB * INTC;
 INT3 <= INT1 + INT2;
 INT4 <= INT3 / INTD;
-INT5 <= INTC + INT4;
-INTO <= INT5 + to_unsigned(5, INT5'length);
+-- This logic has been moved forward along side the multiplication 
+-- so that the adders aren't exactly one after the other operations 
+-- in INT1 and INT2. In the previous design, this logic would've 
+-- been carried out by INTO, we need to make sure that the to_unsigned 
+-- function has the correct size parameter (width of INTC)
+INT5 <= INTC + to_unsigned(5, INTC'length);
+-- Bringing the INT5 logic forward needs to be implemented, therefore
+-- INTO has been adapted to take into account this change. Critical 
+-- path is reduced as the INT5 adder is along side the rest of the
+-- logic, INTO doesn't have to wait for INT5 like before in the
+-- pre-modifications design.
+INTO <= INT4 + INT5;
 
 -- Input registers (D-type, rising edge, synchronous reset)
 output_regs: process (clk) is
