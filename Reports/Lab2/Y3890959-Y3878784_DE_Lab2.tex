@@ -147,4 +147,24 @@ Setup time relates to the short duration required for a signal to be present bef
     \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/1.2.3_max-path-delay.png}
 \end{figure}
 
+
+\chapter*{Task C: Logic Optimisations}
+
+\section*{1.3.1 Modified Algorithm Circuit}
+\subsection*{Modified VHDL Code}
+\inputminted{vhdl}{../../Lab2/Lab2.srcs/}
+
+\subsection*{Design Runs}
+\subsubsection*{70ns Clock Period}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/taskc_70ns_design-runs.png}
+\end{figure}
+Although this timing constraint still fails, we can see an improvement of almost 1ns when compared to the pre-modification case.
+
+\subsubsection*{80ns Clock Period}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/taskc_80ns_design-runs.png}
+\end{figure}
+In this case, the timing constraint passes. When compared to the pre-modification case, we can notice a drastic improvement of 189ns.
+
 \end{document}
