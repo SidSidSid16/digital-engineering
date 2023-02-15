@@ -232,7 +232,11 @@ The best period where the constraints are met is at 5ns with a WNS of 0.739ns. T
 \end{figure}
 From this report, I think I can derive that the new critical path lies within the divider IP block component. This is between the first and second pipeline stages, and parallel to the pipeline array. It isn't much of a surprise to see a divider operation becoming part of the critical path, as the division operation is quite demanding in terms of hardware.
 
-\section*{2.2.9 VHDL Code}
-\inputminted{vhdl}{../../Lab3TaskBP3/Lab3TaskBP3.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd}
+\section*{2.2.9 Code and Component Statistics}
+\subsection*{VHDL Code}
+\inputminted[firstline=23]{vhdl}{"../../Lab3TaskBP3/Lab3TaskBP3.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd"}
+
+\subsection*{RTL Component Statistics}
+\inputminted[firstline=92, lastline=102]{text}{"../../Lab3TaskBP3/Lab3TaskBP3.runs/synth_1/algorithm.vds"}
 
 \end{document}
