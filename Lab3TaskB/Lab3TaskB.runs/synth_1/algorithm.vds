@@ -1,0 +1,371 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Feb 14 20:26:14 2023
+# Process ID: 7532
+# Current directory: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1
+# Command line: vivado.exe -log algorithm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source algorithm.tcl
+# Log file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1/algorithm.vds
+# Journal file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source algorithm.tcl -notrace
+Command: synth_design -top algorithm -part xc7z020clg484-1 -max_dsp 0
+Starting synth_design
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/ip/divider/divider.xco
+
+INFO: [IP_Flow 19-2162] IP 'divider' is locked:
+* IP definition 'Divider Generator (3.0)' for IP 'divider' has a newer major version in the IP Catalog.
+* Current project part 'xc7z020clg484-1' and the part 'xc6slx45csg324-3' used to customize the IP 'divider' do not match.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Vivado_Tcl 4-287] User specified maximum number of block DSP allowed in design is 0
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13028 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 351.754 ; gain = 101.059
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'algorithm' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:54]
+	Parameter data_size bound to: 16 - type: integer 
+INFO: [Synth 8-637] synthesizing blackbox instance 'my_divider' of component 'divider' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:101]
+INFO: [Synth 8-256] done synthesizing module 'algorithm' (1#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:54]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 403.953 ; gain = 153.258
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 403.953 ; gain = 153.258
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/constrs_1/imports/new/algorithm_cnstr.xdc]
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/constrs_1/imports/new/algorithm_cnstr.xdc]
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 768.406 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for my_divider. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element INTA_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:115]
+WARNING: [Synth 8-6014] Unused sequential element INTB_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:116]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               17 Bit    Registers := 36    
+	               16 Bit    Registers := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module algorithm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               17 Bit    Registers := 36    
+	               16 Bit    Registers := 5     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'INTC_reg[15:0]' into 'INTC_reg[15:0]' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:117]
+WARNING: [Synth 8-6014] Unused sequential element INTC_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:117]
+WARNING: [Synth 8-6014] Unused sequential element INTA_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:115]
+WARNING: [Synth 8-6014] Unused sequential element INTB_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:116]
+DSP Report: Generating DSP INT1, operation Mode is: A2*(B:0x3).
+DSP Report: register INTA_reg is absorbed into DSP INT1.
+DSP Report: operator INT1 is absorbed into DSP INT1.
+DSP Report: Generating DSP INT3_pipe1_reg, operation Mode is: (PCIN+A2*B2)'.
+DSP Report: register INTC_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: register INTB_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: register INT3_pipe1_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: operator INT3 is absorbed into DSP INT3_pipe1_reg.
+DSP Report: operator INT2 is absorbed into DSP INT3_pipe1_reg.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 2, Available = 0. Use report_utilization command for details.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|algorithm   | A2*(B:0x3)    | 16     | 2      | -      | -      | 18     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|algorithm   | (PCIN+A2*B2)' | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 1    | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 768.406 ; gain = 517.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'INTC_reg[1]__0' (FDR) to 'INTC_reg[1]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[3]' (FDR) to 'INTC_reg[3]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[4]' (FDR) to 'INTC_reg[4]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[2]' (FDR) to 'INTC_reg[2]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[5]' (FDR) to 'INTC_reg[5]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[6]' (FDR) to 'INTC_reg[6]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[7]' (FDR) to 'INTC_reg[7]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[8]' (FDR) to 'INTC_reg[8]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[9]' (FDR) to 'INTC_reg[9]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[10]' (FDR) to 'INTC_reg[10]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[11]' (FDR) to 'INTC_reg[11]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[12]' (FDR) to 'INTC_reg[12]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[13]' (FDR) to 'INTC_reg[13]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[14]' (FDR) to 'INTC_reg[14]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[15]' (FDR) to 'INTC_reg[15]__0'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[0]' (FDR) to 'INTC_reg[0]__0'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name           | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|algorithm   | INT5_pipe2_reg[16] | 36     | 17    | YES          | NO                 | YES               | 0      | 34      | 
++------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |divider       |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |divider_bbox_0 |     1|
+|2     |BUFG           |     1|
+|3     |CARRY4         |    67|
+|4     |LUT1           |     9|
+|5     |LUT2           |   174|
+|6     |LUT3           |    26|
+|7     |LUT4           |    35|
+|8     |LUT5           |    24|
+|9     |LUT6           |   166|
+|10    |SRLC32E        |    34|
+|11    |FDRE           |   243|
+|12    |FDSE           |     2|
+|13    |IBUF           |    66|
+|14    |OBUF           |    32|
++------+---------------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   928|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 793.121 ; gain = 177.973
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 793.121 ; gain = 542.426
+INFO: [Project 1-571] Translating synthesized netlist
+Release 14.7 - ngc2edif P_INT.20171106 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design divider.ngc ...
+WARNING:NetListWriters:298 - No output is written to divider.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file divider.edif ...
+ngc2edif: Total memory usage is 4326448 kilobytes
+
+Reading core file 'c:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.srcs/sources_1/ip/divider/divider.ngc' for (cell view 'divider', library 'work')
+Parsing EDIF File [./.ngc2edfcache/divider_ngc_bd1e4835.edif]
+Finished Parsing EDIF File [./.ngc2edfcache/divider_ngc_bd1e4835.edif]
+INFO: [Netlist 29-17] Analyzing 3527 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'algorithm' is not ideal for floorplanning, since the cellview 'divider_div_gen_v3_0_xst_1' defined in file 'divider.ngc' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P_INT.20171106
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2437 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 165 instances
+  FDR => FDRE: 1073 instances
+  FDS => FDSE: 1105 instances
+  INV => LUT1: 77 instances
+  MULT_AND => LUT2: 17 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+34 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 804.730 ; gain = 563.480
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3TaskB/Lab3TaskB.runs/synth_1/algorithm.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file algorithm_utilization_synth.rpt -pb algorithm_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.063 . Memory (MB): peak = 804.730 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Feb 14 20:27:03 2023...

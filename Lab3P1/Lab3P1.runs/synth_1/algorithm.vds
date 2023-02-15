@@ -1,0 +1,323 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Feb  7 15:25:06 2023
+# Process ID: 12784
+# Current directory: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.runs/synth_1
+# Command line: vivado.exe -log algorithm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source algorithm.tcl
+# Log file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.runs/synth_1/algorithm.vds
+# Journal file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source algorithm.tcl -notrace
+Command: synth_design -top algorithm -part xc7z020clg484-1 -max_dsp 0
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Vivado_Tcl 4-287] User specified maximum number of block DSP allowed in design is 0
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13300 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 342.797 ; gain = 99.824
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'algorithm' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:54]
+	Parameter data_size bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'algorithm' (1#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:54]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 395.035 ; gain = 152.062
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 395.035 ; gain = 152.062
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/constrs_1/imports/new/algorithm_cnstr.xdc]
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/constrs_1/imports/new/algorithm_cnstr.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 758.797 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element INTA_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:84]
+WARNING: [Synth 8-6014] Unused sequential element INTB_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:85]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module algorithm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'INTC_reg[15:0]' into 'INTC_reg[15:0]' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:86]
+WARNING: [Synth 8-6014] Unused sequential element INTC_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:86]
+WARNING: [Synth 8-6014] Unused sequential element INTA_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:84]
+WARNING: [Synth 8-6014] Unused sequential element INTB_reg was removed.  [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.srcs/sources_1/imports/sources_1/imports/Digital Engineering/Algorithm.vhd:85]
+DSP Report: Generating DSP INT1, operation Mode is: A2*(B:0x3).
+DSP Report: register INTA_reg is absorbed into DSP INT1.
+DSP Report: operator INT1 is absorbed into DSP INT1.
+DSP Report: Generating DSP INT3_pipe1_reg, operation Mode is: (PCIN+A2*B2)'.
+DSP Report: register INTC_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: register INTB_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: register INT3_pipe1_reg is absorbed into DSP INT3_pipe1_reg.
+DSP Report: operator INT3 is absorbed into DSP INT3_pipe1_reg.
+DSP Report: operator INT2 is absorbed into DSP INT3_pipe1_reg.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 2, Available = 0. Use report_utilization command for details.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|algorithm   | A2*(B:0x3)    | 16     | 2      | -      | -      | 18     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|algorithm   | (PCIN+A2*B2)' | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 1    | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 758.797 ; gain = 515.824
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'INTC_reg[3]__0' (FDR) to 'INTC_reg[3]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[0]__0' (FDR) to 'INTC_reg[0]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[2]__0' (FDR) to 'INTC_reg[2]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[1]__0' (FDR) to 'INTC_reg[1]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[5]__0' (FDR) to 'INTC_reg[5]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[4]__0' (FDR) to 'INTC_reg[4]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[6]__0' (FDR) to 'INTC_reg[6]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[8]__0' (FDR) to 'INTC_reg[8]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[7]__0' (FDR) to 'INTC_reg[7]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[9]__0' (FDR) to 'INTC_reg[9]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[11]__0' (FDR) to 'INTC_reg[11]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[10]__0' (FDR) to 'INTC_reg[10]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[12]__0' (FDR) to 'INTC_reg[12]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[14]__0' (FDR) to 'INTC_reg[14]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[13]__0' (FDR) to 'INTC_reg[13]'
+INFO: [Synth 8-3886] merging instance 'INTC_reg[15]__0' (FDR) to 'INTC_reg[15]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   227|
+|3     |LUT1   |    24|
+|4     |LUT2   |   184|
+|5     |LUT3   |   521|
+|6     |LUT4   |    34|
+|7     |LUT5   |    29|
+|8     |LUT6   |   164|
+|9     |FDRE   |   159|
+|10    |FDSE   |     2|
+|11    |IBUF   |    66|
+|12    |OBUF   |    32|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |  1443|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 782.895 ; gain = 176.160
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 782.895 ; gain = 539.922
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 293 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'algorithm' is not ideal for floorplanning, since the cellview 'algorithm' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+31 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 782.895 ; gain = 552.602
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/Lab3P1/Lab3P1.runs/synth_1/algorithm.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file algorithm_utilization_synth.rpt -pb algorithm_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 782.895 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Feb  7 15:25:49 2023...
