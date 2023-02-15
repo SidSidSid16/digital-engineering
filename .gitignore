@@ -85,7 +85,6 @@
 *.pb
 *.dcp
 *.hwdef
-*.vds
 *.veo
 *.wdf
 *.vdi
