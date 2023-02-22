@@ -213,7 +213,7 @@ After this process, we are left with the following 10 faults:
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\bf As-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf As-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & D & 1 & & & & & D & & & & & & & \\
@@ -233,7 +233,7 @@ Step 6 & D & 1 & X & 0 & 0 & 0 & D & 0 & 0 & 0 & 0 & D' & 0 & D' \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf As-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf As-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & D' & 1 & & & & & D' & & & & & & & \\
@@ -254,7 +254,7 @@ Step 6 & D' & 1 & X & 0 & 0 & 0 & D' & 0 & 0 & 0 & 0 & D & 0 & D \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf I\textsubscript{0}s-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf I\textsubscript{0}s-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & & & & & 0 & & 1 & D & 1 & D' & & \\
@@ -275,7 +275,7 @@ I\textsubscript{0}s-a-1 is an undetectable fault. The yellow highlighted cells s
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Ds-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Ds-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & 1 & D' & & & & D' & & & & & & \\
@@ -296,7 +296,7 @@ Step 6 & 1 & 1 & 1 & D' & 0 & 0 & 1 & D' & D' & D' & D' & 0 & D' & D' \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Es-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Es-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & & & D & & & 0 & D & D & D & & & \\
@@ -317,7 +317,7 @@ Step 6 & 1 & 1 & X & 0 & D & 0 & 1 & 0 & D & D & D & 0 & D & D \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf I\textsubscript{1}s-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf I\textsubscript{1}s-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & & & 0 & & & 1 & 1 & 1 & D & & & \\
@@ -336,7 +336,7 @@ Step 5 & X & X & 1 & 1 & 0 & 0 & X & 1 & 1 & 1 & D & 0 & D & D \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Bs-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Bs-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & 1 & D' & & & & & D' & & & & & & & \\
@@ -356,7 +356,7 @@ Step 5 & 1 & D' & X & 0 & 0 & 0 & D' & 0 & 0 & 0 & 0 & D & 0 & D \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Cs-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Cs-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & D & 1 & & & & D & & & & & & \\
@@ -378,7 +378,7 @@ Step 6 & 1 & 1 & D & 1 & 0 & 0 & 1 & D & D & D & D & 0 & D & D \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Cs-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Cs-a-1 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & D' & 1 & & & & D' & & & & & & \\
@@ -399,7 +399,7 @@ Step 6 & 1 & 1 & D' & 1 & 0 & 0 & 1 & D' & D' & D' & D' & 0 & D' & D' \\
 
 \begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c| }
 \hline
-\bf Fs-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & \bf L \\
+\bf Fs-a-0 & \bf A & \bf B & \bf C & \bf D & \bf E & \bf F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & \bf L \\
 \hline
 \hline
 Step 1 & & & & & & D & & & & & 0 & & D & \\
@@ -502,7 +502,7 @@ Fs-a-0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 \\
 \section*{3.1.6 Fault Simulation}
 \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-Pattern & A & B & C & D & E & F & G & H & I & I\textsubscript{0} & I\textsubscript{0} & J & K & L \\
+Pattern & A & B & C & D & E & F & G & H & I & I\textsubscript{0} & I\textsubscript{1} & J & K & L \\
 \hline
 \hline
 As-a-1 & s-a-1 & & & & & s-a-1 & s-a-1 & & & s-a-1 & s-a-1 & s-a-0 & s-a-1 & s-a-1 \\
@@ -520,5 +520,10 @@ Es-a-0 & & & & & s-a-0 & & & & s-a-0 & & & & & \\
 Fs-a-0 & & & & & & s-a-0 & & & & & & & s-a-0 & s-a-0 \\
 \hline
 \end{tabular}
+
+
+
+\chapter*{Task B: Built-In Self-Test (BIST)}
+\section*{3.2.1 Memory Content File}
 
 \end{document}
