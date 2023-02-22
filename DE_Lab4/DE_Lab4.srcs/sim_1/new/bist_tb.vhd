@@ -1,12 +1,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
---use IEEE.NUMERIC_STD.ALL;
 
 entity bist_tb is
 end bist_tb;
 
 architecture Behavioral of bist_tb is
 
+-- Instantiating the signals
 signal GCLK, B_RST, B_TEST, L_OUT, L_ERR : STD_LOGIC;
 signal INPUTS : STD_LOGIC_VECTOR (5 downto 0);
 signal B_F : STD_LOGIC_VECTOR (1 downto 0);
@@ -17,6 +17,7 @@ constant clk_period : time := 10ns;
 begin
 
 UUT : entity work.top_level
+    -- Mapping the signals to for the UUT
     PORT MAP (
         GCLK => GCLK,
         B_RST => B_RST,
