@@ -49,16 +49,13 @@ UUT : entity work.top_level
         
         -- GLOBAL RESET
         B_RST <= '0';
+        B_TEST <= '0';
+        B_F <= "00";
+        INPUTS <= "000000";
         wait for clk_period*6;
         B_RST <= '1';
         wait for clk_period*6;
         B_RST <= '0';
-        wait for clk_period*6;
-        
-        B_TEST <= '0';
-        B_F <= "00";
-        INPUTS <= "000000";
-        
         wait for clk_period*12;
         
         -- Test 1:
@@ -67,11 +64,27 @@ UUT : entity work.top_level
         B_F <= "00";
         B_TEST <= '0';
         INPUTS <= "000000";
+        wait for clk_period*12;
+        --  Reset
+        B_RST <= '1';
         wait for clk_period*6;
+        B_RST <= '0';
+        wait for clk_period*12;
+        
         B_F <= "00";
         B_TEST <= '0';
         INPUTS <= "111111";
         wait for clk_period*12;
+        --  Reset
+        B_RST <= '1';
+        wait for clk_period*6;
+        B_RST <= '0';
+        wait for clk_period*12;
+        
+        -- Reset back to 0, not necessary but
+        -- helps with reducing distractions
+        -- when reading the other waveforms
+        INPUTS <= "000000";
         
         -- Test 2:
         --  Initialise B_F=00 (no fault)
@@ -80,6 +93,11 @@ UUT : entity work.top_level
         wait for clk_period*6;
         B_TEST <= '0';
         wait for clk_period*12;
+        --  Reset
+        B_RST <= '1';
+        wait for clk_period*6;
+        B_RST <= '0';
+        wait for clk_period*12;
         
         -- Test 3:
         --  Initialise B_F=01 (Es-a-1)
@@ -87,7 +105,7 @@ UUT : entity work.top_level
         B_TEST <= '1';
         wait for clk_period*6;
         B_TEST <= '0';
-        wait for clk_period*6;
+        wait for clk_period*12;
         --  Reset
         B_RST <= '1';
         wait for clk_period*6;
@@ -117,8 +135,7 @@ UUT : entity work.top_level
         wait for clk_period*6;
         B_RST <= '0';
         wait for clk_period*12;
-        
-        
+
         wait;
     end process;
 
