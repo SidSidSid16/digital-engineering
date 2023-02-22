@@ -539,7 +539,41 @@ Fs-a-0 & & & & & & s-a-0 & & & & & & & s-a-0 & s-a-0 \\
 
 \subsection*{Waveform 1: Global Reset \& Initialisation}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/}
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_reset.png}
 \end{figure}
+
+\subsection*{Waveform 2: Test 1}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test1.png}
+\end{figure}
+
+\subsection*{Waveform 3: Test 2}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test2.png}
+\end{figure}
+
+\subsection*{Waveform 4: Test 3}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test3.png}
+\end{figure}
+
+We can see `L\_ERR' turning high as the Es-a-1 fault is detected by the first test vector in memory, the one that detects the Ds-a-1 fault (111000). This verifies that the tests are correct as the table in section 3.1.6 shows Ds-a-1 can verify Es-a-1.
+
+
+\subsection*{Waveform 5: Test 4}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test4.png}
+\end{figure}
+
+Here we can see `L\_ERR' going high as the Hs-a-0 fault is detected by the third test vector in memory, the one that detects the Cs-a-0 fault (111100). Again, this verifies that the tests are correct as the table in section 3.1.6 shows Cs-a-0 can verify the Hs-a-0 fault.
+
+
+\subsection*{Waveform 5: Test 5}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test5.png}
+\end{figure}
+
+The signal `L\_ERR' goes high as the Fs-a-0 fault is detected by the last test vector in memory, the one that detects the Fs-a-0 fault (110001).
+
 
 \end{document}
