@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="bist_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="bist_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="157089699fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="173"></NameColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/bist_tb/GCLK" type="logic">
+      <obj_property name="ElementShortName">GCLK</obj_property>
+      <obj_property name="ObjectShortName">GCLK</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider44">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/B_RST" type="logic">
+      <obj_property name="ElementShortName">B_RST</obj_property>
+      <obj_property name="ObjectShortName">B_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/B_TEST" type="logic">
+      <obj_property name="ElementShortName">B_TEST</obj_property>
+      <obj_property name="ObjectShortName">B_TEST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/INPUTS" type="array">
+      <obj_property name="ElementShortName">INPUTS[5:0]</obj_property>
+      <obj_property name="ObjectShortName">INPUTS[5:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/UUT/TEST" type="array">
+      <obj_property name="ElementShortName">TEST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TEST[5:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/B_F" type="array">
+      <obj_property name="ElementShortName">B_F[1:0]</obj_property>
+      <obj_property name="ObjectShortName">B_F[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider48">
+      <obj_property name="label">Internals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/UUT/MODE" type="logic">
+      <obj_property name="ElementShortName">MODE</obj_property>
+      <obj_property name="ObjectShortName">MODE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/UUT/Inst_BIST/TestVectorRAM/a" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">a[3:0]</obj_property>
+      <obj_property name="ObjectShortName">a[3:0]</obj_property>
+      <obj_property name="label">TestVectorRAM_addr</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/UUT/Inst_BIST/TestVectorRAM/d" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">d[6:0]</obj_property>
+      <obj_property name="ObjectShortName">d[6:0]</obj_property>
+      <obj_property name="label">TestVectorRAM_data</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider45">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/L_OUT" type="logic">
+      <obj_property name="ElementShortName">L_OUT</obj_property>
+      <obj_property name="ObjectShortName">L_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/L_ERR" type="logic">
+      <obj_property name="ElementShortName">L_ERR</obj_property>
+      <obj_property name="ObjectShortName">L_ERR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bist_tb/L_ID" type="array">
+      <obj_property name="ElementShortName">L_ID[3:0]</obj_property>
+      <obj_property name="ObjectShortName">L_ID[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>
