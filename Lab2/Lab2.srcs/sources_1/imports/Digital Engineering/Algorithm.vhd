@@ -63,6 +63,7 @@ signal INT4 : UNSIGNED (data_size*2-1 downto 0); -- INT3 / INTD
 -- INT5 needs to be resized to match INTC+1, as this vector size
 -- is larger than the required vector size for a decimal '5'
 signal INT5 : UNSIGNED (data_size downto 0);   -- [UPDATED] INTC + 5
+
 -- INTO needs to be resized to match INT4, as this is the larger
 -- vector size compared to INT5 as we updated that to be smaller
 signal INTO : UNSIGNED (data_size*2-1 downto 0); -- [UPDATED] INT4 + INT5

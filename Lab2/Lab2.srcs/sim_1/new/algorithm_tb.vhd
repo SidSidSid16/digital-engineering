@@ -33,6 +33,16 @@ architecture Behavioral of algorithm_tb is
     type test_vector_array is array
         (natural range <>) of test_vector;
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     -- Test strategy:
     --
     --  Initialisation:
@@ -91,9 +101,10 @@ architecture Behavioral of algorithm_tb is
         (X"FFFF", X"FFFF", X"FFFA", X"0001", X"FFFD0002"),  -- TEST 5
         (X"FFFF", X"FFFF", X"FFFF", X"0002", X"80018003")   -- TEST 6
     );
+   
+    
     
 begin
-
 
 UUT : entity work.algorithm
     PORT MAP (

@@ -41,21 +41,21 @@
 \section*{1.1.2 Behavioural Simulation}
 \subsection*{Waveform 1: Global Initialisation/Reset}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_behavioural_global-reset.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_behavioural_global-reset.png}
 \end{figure}
 \subsection*{Waveform 2: Test Sequence}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_behavioural_test-sequence.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_behavioural_test-sequence.png}
 \end{figure}
 \subsection*{Console Output}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_behavioural-console.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_behavioural-console.png}
 \end{figure}
 
 
 \section*{1.1.3 Design Runs - WNS}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/design_runs-WNS.png}
+    \includegraphics[width=\columnwidth]{Waveforms/design_runs-WNS.png}
 \end{figure}
 The implementation process consists of 3 steps: `Translate', where the netlist and constraints are merged into an Xilinx design file. `Map', where the design is implemented on the target device. And finally, `place and route', where the components are placed and routes are designed according to the timing constraints. This process incorporates proprietary and classified algorithms that rely on random factors, therefore, the same design will never be implemented twice.
 
@@ -67,34 +67,34 @@ From the WNS value we got from our implementation, we can run our circuit with a
 \section*{1.1.4 Timing Simulation (120ns Clock)}
 \subsection*{Waveform 1: Global Initialisation/Reset}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_timing_sim-global-reset.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_timing_sim-global-reset.png}
 \end{figure}
 \subsection*{Waveform 2: Test Sequence}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_timing_sim-test-sequence.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_timing_sim-test-sequence.png}
 \end{figure}
 \subsection*{Console Output}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/120ns_timing_sim-console.png}
+    \includegraphics[width=\columnwidth]{Waveforms/120ns_timing_sim-console.png}
 \end{figure}
 
 
 \section*{1.1.5 Timing Simulation (50ns Clock)}
 \subsection*{Waveform 1: Global Initialisation/Reset}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/50ns_timing_sim-global-reset.png}
+    \includegraphics[width=\columnwidth]{Waveforms/50ns_timing_sim-global-reset.png}
 \end{figure}
 \subsection*{Waveform 2: Test Sequence (Vector \#1-3)}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/50ns_timing_sim-test-sequence-1-3.png}
+    \includegraphics[width=\columnwidth]{Waveforms/50ns_timing_sim-test-sequence-1-3.png}
 \end{figure}
 \subsection*{Waveform 3: Test Sequence (Vector \#3-6)}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/50ns_timing_sim-test-sequence-3-6.png}
+    \includegraphics[width=\columnwidth]{Waveforms/50ns_timing_sim-test-sequence-3-6.png}
 \end{figure}
 \subsection*{Console Output}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/50ns_timing_sim-console.png}
+    \includegraphics[width=\columnwidth]{Waveforms/50ns_timing_sim-console.png}
 \end{figure}
 
 
@@ -120,19 +120,21 @@ The behaviour for the Output signal is also quite consistent with the one from 1
 \section*{1.2.1 Design Runs With Varying Timing Contraints}
 \subsection*{80ns Clock Period}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/80ns_design-runs.png}
+    \includegraphics[width=\columnwidth]{Waveforms/80ns_design-runs.png}
 \end{figure}
 From the WNS value we got from our implementation with an 80ns clock, we can run our circuit with a clock signal as fast as 79.703ns, or around 12.55MHz. With an 80ns clock signal in the testbench, we can indeed verify that the implementation works as the self-checking testbench passes.
 
+When the clock period is changed in the constraints file (.XDC), Xilinx has to recalculate the WNS. If the clock period is reduced, the logic will have less time to execute before the next clock edge arrives, this can reduce the WNS value. 
+
 \subsection*{75ns Clock Period}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/75ns_design-runs.png}
+    \includegraphics[width=\columnwidth]{Waveforms/75ns_design-runs.png}
 \end{figure}
 From the WNS value we got from our implementation with a 75ns clock, we can run our circuit with a clock signal as fast as 74.268ns, or around 13.37MHz. Running the testbench with a 75ns simulated clock period, we can notice a fail in test vector \#4, where the inputs, A, B and C are 65535, and D is 2. Test vectors \#0-3 all pass. This can be explained as the WNS is only 0.232ns, this is such a small margin to work with and due to propagation delays and other limitations of a physical (real-life) device, this margin cannot be maintained.
 
 \subsection*{70ns Clock Period}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/70ns_design-runs.png}
+    \includegraphics[width=\columnwidth]{Waveforms/70ns_design-runs.png}
 \end{figure}
 This time, Xilinx couldn't meet the timing requirements that we set. With the displayed value, the maximum clock period has to be 73.951ns, or around 13.52MHz. It is however surprising that, just like for the 75ns clock period above, test vectors \#0-3 are passing, and only vector \#4 is failing instead of all of them.
 
@@ -144,7 +146,7 @@ Setup time relates to the short duration required for a signal to be present bef
 
 \section*{1.2.3 Post-Route Timing Report: Max Delay Path}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/1.2.3_max-path-delay.png}
+    \includegraphics[width=\columnwidth]{Waveforms/1.2.3_max-path-delay.png}
 \end{figure}
 
 
@@ -157,13 +159,13 @@ Setup time relates to the short duration required for a signal to be present bef
 \subsection*{Design Runs}
 \subsubsection*{70ns Clock Period}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/taskc_70ns_design-runs.png}
+    \includegraphics[width=\columnwidth]{Waveforms/taskc_70ns_design-runs.png}
 \end{figure}
 Although this timing constraint still fails, we can see an improvement of almost 1ns when compared to the pre-modification case.
 
 \subsubsection*{80ns Clock Period}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab2/Waveforms/taskc_80ns_design-runs.png}
+    \includegraphics[width=\columnwidth]{Waveforms/taskc_80ns_design-runs.png}
 \end{figure}
 In this case, the timing constraint passes. When compared to the pre-modification case, we can notice a drastic improvement of 189ns.
 
