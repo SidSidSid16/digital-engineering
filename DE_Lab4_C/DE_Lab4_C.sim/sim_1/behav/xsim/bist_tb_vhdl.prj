@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd" \
+"../../../../DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/Debouncer.vhd" \
+"../../../../DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/UUT.vhd" \
+"../../../../DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd" \
+"../../../../DE_Lab4_C.srcs/sim_1/new/bist_tb.vhd" \
+
+# Do not sort compile order
+nosort

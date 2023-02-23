@@ -60,7 +60,20 @@ architecture Behavioral of top_level is
 	signal B_RST_DB, B_TEST_DB: STD_LOGIC;
 	-- Output of the UUT
 	signal UUT_OUT: STD_LOGIC;
-
+	
+	-- Xilinx compiler directives to prevent signal from being
+	-- removed or renamed during the synthesis process so ILA
+	-- can be used to analyse the logic.
+	attribute mark_debug : string;
+    attribute mark_debug of B_TEST_DB : signal is "true";
+    attribute mark_debug of B_RST_DB : signal is "true";
+    attribute mark_debug of VECTOR : signal is "true";
+    attribute mark_debug of UUT_OUT : signal is "true";
+    attribute mark_debug of B_F_SET : signal is "true";
+    attribute mark_debug of L_ERR : signal is "true";
+    attribute mark_debug of L_ID : signal is "true";
+    
+    
 begin
 
 -- Instantiate the clock manager for the 25MHz clk

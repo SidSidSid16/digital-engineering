@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../DE_Lab4_C.srcs/sources_1/ip/clock_manager" \
+"../../../../DE_Lab4_C.srcs/sources_1/ip/Test_Pattern_RAM/sim/Test_Pattern_RAM.v" \
+"../../../../DE_Lab4_C.srcs/sources_1/ip/clock_manager/clock_manager_clk_wiz.v" \
+"../../../../DE_Lab4_C.srcs/sources_1/ip/clock_manager/clock_manager.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

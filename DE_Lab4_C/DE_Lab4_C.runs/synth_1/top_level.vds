@@ -1,0 +1,335 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Feb 23 17:51:54 2023
+# Process ID: 5712
+# Current directory: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1
+# Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/top_level.vds
+# Journal file: C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top_level.tcl -notrace
+Command: synth_design -top top_level -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8344 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 354.066 ; gain = 99.363
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:43]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:37]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:40]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:52]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:54]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:60]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:60]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:62]
+INFO: [Synth 8-638] synthesizing module 'clock_manager' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/realtime/clock_manager_stub.vhdl:14]
+INFO: [Synth 8-638] synthesizing module 'Debouncer' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/Debouncer.vhd:10]
+INFO: [Synth 8-256] done synthesizing module 'Debouncer' (1#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/Debouncer.vhd:10]
+INFO: [Synth 8-638] synthesizing module 'UUT' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/UUT.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'UUT' (2#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/UUT.vhd:20]
+INFO: [Synth 8-638] synthesizing module 'BIST_Ctrl' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:37]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:44]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:46]
+INFO: [Synth 8-226] default block is never used [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'Test_Pattern_RAM' [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/realtime/Test_Pattern_RAM_stub.vhdl:16]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'TestVectorRAM'. This will prevent further optimization [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:120]
+INFO: [Synth 8-256] done synthesizing module 'BIST_Ctrl' (3#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/new/BIST_Ctrl.vhd:37]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Inst_Debouncer_TEST'. This will prevent further optimization [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:94]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Inst_Debouncer_RST'. This will prevent further optimization [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:89]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Inst_UUT'. This will prevent further optimization [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:117]
+INFO: [Synth 8-256] done synthesizing module 'top_level' (4#1) [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd:43]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 406.512 ; gain = 151.809
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 406.512 ; gain = 151.809
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp2/Test_Pattern_RAM_in_context.xdc] for cell 'Inst_BIST/TestVectorRAM'
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp2/Test_Pattern_RAM_in_context.xdc] for cell 'Inst_BIST/TestVectorRAM'
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp3/clock_manager_in_context.xdc] for cell 'dcm_mgr'
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp3/clock_manager_in_context.xdc] for cell 'dcm_mgr'
+Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/constrs_1/new/BIST.xdc]
+Finished Parsing XDC File [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/constrs_1/new/BIST.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.srcs/constrs_1/new/BIST.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 762.184 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for GCLK. (constraint file  C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp3/clock_manager_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for GCLK. (constraint file  C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/.Xil/Vivado-5712-SidS-MacBook-Pro/dcp3/clock_manager_in_context.xdc, line 5).
+Applied set_property DONT_TOUCH = true for Inst_BIST/TestVectorRAM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for dcm_mgr. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "Fsa0" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Hsa0" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Esa1" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "test_complete" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top_level 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module Debouncer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 3     
+Module UUT 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module BIST_Ctrl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'dcm_mgr/clk_out1' to pin 'dcm_mgr/bbstub_clk_out1/O'
+INFO: [Synth 8-5578] Moved timing constraint from pin 'dcm_mgr/clk_out2' to pin 'dcm_mgr/bbstub_clk_out2/O'
+INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 762.184 ; gain = 507.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 771.012 ; gain = 516.309
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |Test_Pattern_RAM |         1|
+|2     |clock_manager    |         1|
++------+-----------------+----------+
+
+Report Cell Usage: 
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |Test_Pattern_RAM |     1|
+|2     |clock_manager    |     1|
+|3     |LUT1             |     1|
+|4     |LUT2             |     2|
+|5     |LUT3             |    12|
+|6     |LUT4             |     2|
+|7     |LUT6             |     3|
+|8     |FDRE             |    13|
+|9     |IBUF             |    10|
+|10    |OBUF             |     6|
++------+-----------------+------+
+
+Report Instance Areas: 
++------+----------------------+-------------+------+
+|      |Instance              |Module       |Cells |
++------+----------------------+-------------+------+
+|1     |top                   |             |    58|
+|2     |  Inst_Debouncer_RST  |Debouncer__1 |     4|
+|3     |  Inst_Debouncer_TEST |Debouncer    |     4|
+|4     |  Inst_UUT            |UUT          |     2|
+|5     |  Inst_BIST           |BIST_Ctrl    |    21|
++------+----------------------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:28 . Memory (MB): peak = 781.105 ; gain = 170.730
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 781.105 ; gain = 526.402
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+43 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 781.312 ; gain = 538.102
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4_C/DE_Lab4_C.runs/synth_1/top_level.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 781.312 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 23 17:52:43 2023...
