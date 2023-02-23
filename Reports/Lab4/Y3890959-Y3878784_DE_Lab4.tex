@@ -576,4 +576,74 @@ Here we can see `L\_ERR' going high as the Hs-a-0 fault is detected by the third
 The signal `L\_ERR' goes high as the Fs-a-0 fault is detected by the last test vector in memory, the one that detects the Fs-a-0 fault (110001).
 
 
+\section*{3.3.1 Phase Shift and Duty Cycle in a Clock Signal}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.1_diagrams.png}
+\end{figure}
+
+The phase shift of a clock signal refers to the displacement of the signal in time relative to some reference point such as a rising edge. For example, if we have a clock signal with a period of 1 microsecond and a phase shift of 90$^{\circ}$, the clock signal will be shifted by 0.5 microseconds relative to the rising edge reference point. The diagram above shows phase shifts of 0$^{\circ}$, 90$^{\circ}$, 180$^{\circ}$ and 270$^{\circ}$.
+
+The duty cycle of a clock signal is the percentage of time that the signal is in the `high' state. It is the ratio of the time that the signal spends in the `high' state to the total period of the signal. For example, if we have a clock signal with a period of 1 microsecond and a duty cycle of 50\%, the signal will be high for 0.5 microseconds and low for the remaining 0.5 microseconds. The diagram above shows duty cycles of 25\%, 50\% and 75\%.
+
+
+
+
+\section*{3.3.2 Behavioural Simulation}
+\subsection*{Waveform 1: Global Reset \& Initialisation}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_reset.png}
+\end{figure}
+
+\subsection*{Waveform 2: Test 1}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test1.png}
+\end{figure}
+
+\subsection*{Waveform 3: Test 2}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test2.png}
+\end{figure}
+
+\subsection*{Waveform 4: Test 3}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test3.png}
+\end{figure}
+
+\subsection*{Waveform 5: Test 4}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test4.png}
+\end{figure}
+
+\subsection*{Waveform 5: Test 5}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test5.png}
+\end{figure}
+
+
+\section*{3.3.3 ILA Simulation}
+\subsection*{Waveform 1: Fault Free Cycle}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-free.png}
+\end{figure}
+
+\subsection*{Waveform 2: Es-a-1 Fault}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-1.png}
+\end{figure}
+
+\subsection*{Waveform 3: Hs-a-0 Fault}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-2.png}
+\end{figure}
+
+\subsection*{Waveform 4: Fs-a-0 Fault}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-3.png}
+\end{figure}
+
+\section*{3.3.4 Nyquist Theorem and the ILA}
+The Nyquist theorem states that a signal must be sampled with a rate of at least twice the highest frequency of the signal. However, with an internal logic analyser (ILA), digital signals are sampled instead of analogue ones.
+
+Digital signals are represented by discrete `high’ and `low’ voltage states, therefore, the required sampling rate is not dependent on the highest frequency of the signal, but instead is dependent on the rate of level change of the signals.
+
 \end{document}
