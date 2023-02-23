@@ -7,8 +7,19 @@ entity fibonacci_8bit_async_read_rom is
            DataOut : out STD_LOGIC_VECTOR (7 downto 0)); -- Data that is retrieved
 end fibonacci_8bit_async_read_rom;
 
-architecture Behavioral of fibonacci_8bit_async_read_rom is
 
+
+
+
+
+
+
+
+
+
+
+
+architecture Behavioral of fibonacci_8bit_async_read_rom is
 --  With 8-bits, a maximum of 14 sequence elements can be stored,
 --  any larger (144 + 233) requires more bits.
 type ROM_Array is array (0 to 15) of std_logic_vector(7 downto 0);
