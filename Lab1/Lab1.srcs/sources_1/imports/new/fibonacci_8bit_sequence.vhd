@@ -34,6 +34,11 @@ begin
     generic map (
         LIMIT => LIMIT
     )
+    
+    
+    
+    
+    
     port map (
         clk => clk,
         --  Raw signal is inputted
