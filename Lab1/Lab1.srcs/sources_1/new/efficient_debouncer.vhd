@@ -3,6 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.DigEng.all;
 
+
 -- The efficient debouncer implements a counter which counts to a defined limit
 -- whilst the raw input signal is high and doesn't bounce to low, and the limit
 -- hasn't been reached. By defining a limit (# of clock cycles), this design can
