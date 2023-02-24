@@ -29,6 +29,7 @@ UUT : entity work.top_level
         L_ID => L_ID
     );
     
+    
     clk_process : process
     begin
         GCLK <= '0';
@@ -85,6 +86,10 @@ UUT : entity work.top_level
         -- helps with reducing distractions
         -- when reading the other waveforms
         INPUTS <= "000000";
+        
+        
+        
+        
         
         -- Test 2:
         --  Initialise B_F=00 (no fault)

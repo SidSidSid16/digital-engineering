@@ -60,6 +60,10 @@ INPUT XY & DESIRED Z & Xs-a-0 & Xs-a-1 & Ys-a-0 & Ys-a-1 & Zs-a-0 & Zs-a-1
 \hline
 \end{tabular}
 
+Looking at the last row in the table above, we've for one test vector `11' being able to test 3 faults (Xs-a-0, Ys-a-0, and Zs-a-0) these faults are equivalent.
+Looking at the middle two rows with test vectors `01' and `10', the Zs-a-1 fault is being tested twice with the Xs-a-1 and Ys-a-1 faults, so we can say that Zs-a-1 is
+dominated by Xs-a-1 and Ys-a-1.
+
 \begin{tabular}{ |c|c|c| }
 \hline
 Equivalent & Dominant & Dominated
@@ -77,7 +81,7 @@ Zs-a-0 & &
 \hline
 \end{tabular}
 
-
+The same equivalent, dominant, and dominated rules are applied to the `OR' and `NOR' gates below.
 
 \subsection*{OR Gate}
 \begin{tabular}{ |c|c|c|c|c|c|c|c| }
@@ -539,22 +543,22 @@ Fs-a-0 & & & & & & s-a-0 & & & & & & & s-a-0 & s-a-0 \\
 
 \subsection*{Waveform 1: Global Reset \& Initialisation}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_reset.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_reset.png}
 \end{figure}
 
 \subsection*{Waveform 2: Test 1}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test1.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_test1.png}
 \end{figure}
 
 \subsection*{Waveform 3: Test 2}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test2.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_test2.png}
 \end{figure}
 
 \subsection*{Waveform 4: Test 3}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test3.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_test3.png}
 \end{figure}
 
 We can see `L\_ERR' turning high as the Es-a-1 fault is detected by the first test vector in memory, the one that detects the Ds-a-1 fault (111000). This verifies that the tests are correct as the table in section 3.1.6 shows Ds-a-1 can verify Es-a-1.
@@ -562,7 +566,7 @@ We can see `L\_ERR' turning high as the Es-a-1 fault is detected by the first te
 
 \subsection*{Waveform 5: Test 4}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test4.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_test4.png}
 \end{figure}
 
 Here we can see `L\_ERR' going high as the Hs-a-0 fault is detected by the third test vector in memory, the one that detects the Cs-a-0 fault (111100). Again, this verifies that the tests are correct as the table in section 3.1.6 shows Cs-a-0 can verify the Hs-a-0 fault.
@@ -570,7 +574,7 @@ Here we can see `L\_ERR' going high as the Hs-a-0 fault is detected by the third
 
 \subsection*{Waveform 5: Test 5}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.2.3_test5.png}
+    \includegraphics[width=\columnwidth]{Assets/3.2.3_test5.png}
 \end{figure}
 
 The signal `L\_ERR' goes high as the Fs-a-0 fault is detected by the last test vector in memory, the one that detects the Fs-a-0 fault (110001).
@@ -578,7 +582,7 @@ The signal `L\_ERR' goes high as the Fs-a-0 fault is detected by the last test v
 
 \section*{3.3.1 Phase Shift and Duty Cycle in a Clock Signal}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.1_diagrams.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.1_diagrams.png}
 \end{figure}
 
 The phase shift of a clock signal refers to the displacement of the signal in time relative to some reference point such as a rising edge. For example, if we have a clock signal with a period of 1 microsecond and a phase shift of 90$^{\circ}$, the clock signal will be shifted by 0.5 microseconds relative to the rising edge reference point. The diagram above shows phase shifts of 0$^{\circ}$, 90$^{\circ}$, 180$^{\circ}$ and 270$^{\circ}$.
@@ -591,54 +595,54 @@ The duty cycle of a clock signal is the percentage of time that the signal is in
 \section*{3.3.2 Behavioural Simulation}
 \subsection*{Waveform 1: Global Reset \& Initialisation}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_reset.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_reset.png}
 \end{figure}
 
 \subsection*{Waveform 2: Test 1}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test1.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_test1.png}
 \end{figure}
 
 \subsection*{Waveform 3: Test 2}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test2.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_test2.png}
 \end{figure}
 
 \subsection*{Waveform 4: Test 3}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test3.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_test3.png}
 \end{figure}
 
 \subsection*{Waveform 5: Test 4}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test4.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_test4.png}
 \end{figure}
 
 \subsection*{Waveform 5: Test 5}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.2_test5.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.2_test5.png}
 \end{figure}
 
 
 \section*{3.3.3 ILA Simulation}
 \subsection*{Waveform 1: Fault Free Cycle}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-free.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.3_fault-free.png}
 \end{figure}
 
 \subsection*{Waveform 2: Es-a-1 Fault}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-1.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.3_fault-1.png}
 \end{figure}
 
 \subsection*{Waveform 3: Hs-a-0 Fault}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-2.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.3_fault-2.png}
 \end{figure}
 
 \subsection*{Waveform 4: Fs-a-0 Fault}
 \begin{figure}[H]
-    \includegraphics[width=\columnwidth]{Reports/Lab4/Assets/3.3.3_fault-3.png}
+    \includegraphics[width=\columnwidth]{Assets/3.3.3_fault-3.png}
 \end{figure}
 
 \section*{3.3.4 Nyquist Theorem and the ILA}
