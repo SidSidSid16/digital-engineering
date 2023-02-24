@@ -129,6 +129,16 @@ begin
   end if;
 end process input_regs;
 
+
+
+
+
+
+
+
+
+
+
 -- Pipeline 1 resgisters (D-type, rising edge, synchronous reset)
 pipe1_regs: process (clk) is
 begin
@@ -177,6 +187,18 @@ begin
     end if;
   end if;
 end process pipe3_regs;
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- For-Generate Loop to add a delay for INT5_pipe1 to match the
 -- latency of the divider with an array of 34 pipelines. First
