@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/XilinxProjects/DigEng_Proj_T1_model/TOP_LEVEL_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="digeng" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="top_level_tb" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/top_level_tb/clk_100mhz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_100mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_100mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/brst_inv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">brst_inv</obj_property>
+      <obj_property name="ObjectShortName">brst_inv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/buttons[3]" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">buttons[3]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/led_display" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">led_display[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led_display[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider9" type="divider">
+      <obj_property name="label">INTERNAL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/uut/STUDENT_AREA_component/state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/uut/clk_source" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_source</obj_property>
+      <obj_property name="ObjectShortName">clk_source</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/uut/rst_source" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_source</obj_property>
+      <obj_property name="ObjectShortName">rst_source</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_level_tb/uut/en_source" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en_source</obj_property>
+      <obj_property name="ObjectShortName">en_source</obj_property>
+   </wvobject>
+</wave_config>
