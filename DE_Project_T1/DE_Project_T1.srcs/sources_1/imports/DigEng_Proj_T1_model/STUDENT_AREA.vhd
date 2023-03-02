@@ -117,6 +117,7 @@ DISP_CNT_EN <= '1' when state = DISP else
 -- byte to display.
 BSEL_CNT_EN <= '1' when state = BSEL else
                '0';
+               
 -- Once the DISP state has been reached with the delay and byte select counter at zero,
 -- the data source needs to be enabled so the next value can be computed and displayed.
 EN_SOURCE <= '1' when state = DISP and DISP_CNT_OUT = 0 and BSEL_CNT_OUT = 0 else
@@ -131,4 +132,3 @@ LED_DISPLAY <= SOURCE_DATA(31 downto 24) when state = DISP and BSEL_CNT_OUT = 0 
                "00000000";
 
 end Behavioral;
-

@@ -500,7 +500,7 @@
 	"editor.minimap.autohide": false,
 
 	// Controls whether the minimap is shown.
-	"editor.minimap.enabled": true,
+	"editor.minimap.enabled": false,
 
 	// Limit the width of the minimap to render at most a certain number of columns.
 	"editor.minimap.maxColumn": 120,

@@ -42,7 +42,7 @@
 
 \section*{1 - FSM Description}
 
-\begin{figure}[ht] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+\begin{figure}[h] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
     \centering % centers the figure
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm,semithick]
         \tikzstyle{every state}=[draw=none,text=black]
@@ -59,20 +59,23 @@
     \caption{FSM state graph}
     \label{fig:my_label}
 \end{figure}
-    
-The FSM starts in the IDLE state, when the user presses the enable `en' pushbutton,
-the state goes to DISP. As soon as the DISP state is reached, and the
-DISP\_CNT for the LED delay and BSEL\_CNT byte index counter are reset
-to 0, `EN\_SOURCE' goes high computing the next value in the sequence. Once the display
-delay has reached its max value and there are still more bytes to display, the BSEL state
-is selected, otherwise, once the delay is complete and all bytes have been displayed, the
-logic goes back to the IDLE state. In the BSEL state, the BSEL counter is incremented.
+
+Abbreviations: DISP\_CNT - the counter that adds a delay to the LED display output. BSEL\_CNT - the counter
+that increments for BSEL (byte select) so the correct byte can be displayed.
+
+The FSM starts at IDLE state, where `EN\_SOURCE' is low, all internal counters (BSEL and DISP) are reset and
+the LED array is off. When the `en' pushbutton is toggled, the DISP state is entered. Entering this state
+after IDLE, the counters will be at 0, therefore `EN\_SOURCE' will be set high, then low as soon as either of
+the counters start incrementing. This will trigger `DATA\_SOURCE' to compute the next value which will be
+displayed. The DISP counter will start incrementing to add a delay for the LED display, once the counter
+reaches a maximum and the BSEL counter hasn't yet reached a maximum, the BSEL state will be set. Otherwise,
+the FSM goes back to the IDLE state as all bytes have been displayed with the delay. In the BSEL state, the
+DISP counter is reset and disabled, and the BSEL counter is enabled for an increment. Going back to DISP state
+will reset the BSEL counter.
 
 \newpage
-% Please add the following required packages to your document preamble:
-
 \begin{landscape}
-    \begin{table}[]
+    \begin{table}
     \centering
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{|l|l|l|l|l|l|l|}
@@ -91,10 +94,10 @@ logic goes back to the IDLE state. In the BSEL state, the BSEL counter is increm
       \multirow{4}{*}{0} &
       \multirow{4}{*}{0} &
       \multirow{4}{*}{0} &
-      \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}7:0{]}\\ when DISPL\_CNT\_OUT is 0\end{tabular} \\ \cline{7-7} 
-         &                              &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}15:8{]}\\ when DISPL\_CNT\_OUT is 1\end{tabular}  \\ \cline{2-2} \cline{7-7} 
-         & \multirow{2}{*}{0 otherwise} &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}23:16{]}\\ when DISPL\_CNT\_OUT is 2\end{tabular} \\ \cline{7-7} 
-         &                              &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}31:24{]}\\ when DISPL\_CNT\_OUT is 3\end{tabular} \\ \hline
+      \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}7:0{]}\\ when DISP\_CNT\_OUT is 0\end{tabular} \\ \cline{7-7} 
+         &                              &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}15:8{]}\\ when DISP\_CNT\_OUT is 1\end{tabular}  \\ \cline{2-2} \cline{7-7} 
+         & \multirow{2}{*}{0 otherwise} &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}23:16{]}\\ when DISP\_CNT\_OUT is 2\end{tabular} \\ \cline{7-7} 
+         &                              &   &   &   &   & \begin{tabular}[c]{@{}l@{}}SOURCE\_DATA{[}31:24{]}\\ when DISP\_CNT\_OUT is 3\end{tabular} \\ \hline
     BSEL & 0                            & 0 & 1 & 1 & 0 & 00000000                                                                                    \\ \hline
     \end{tabular}%
     }
@@ -103,6 +106,7 @@ logic goes back to the IDLE state. In the BSEL state, the BSEL counter is increm
 \end{landscape}
 \newpage
 
-
+\section*{2 - VHDL Code for `STUDENT\_AREA'}
+\inputminted{vhdl}{../../../DE_Project_T1/DE_Project_T1.srcs/sources_1/imports/DigEng_Proj_T1_model/STUDENT_AREA.vhd}
 
 \end{document}
