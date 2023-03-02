@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2017.4.1 (64-bit)              -->
+<!-- Product Version: Vivado v2017.4 (64-bit)              -->
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="G:/My Drive/TEACHING/ELE00011H-121M Digital Engineering/VHDL_FILES/DE_Project_T1/DE_Project_T1.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Project_T1/DE_Project_T1.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="177a2fef032d4b42bf8ae9ba168e3de9"/>
@@ -22,6 +22,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -32,7 +33,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zed"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="34"/>
+    <Option Name="WTXSimLaunchSim" Val="149"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -58,7 +59,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/DigEng.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/DigEng.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/DigEng.vhd"/>
           <Attr Name="ImportTime" Val="1361900359"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -66,7 +67,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/Param_Counter.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/Param_Counter.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/Param_Counter.vhd"/>
           <Attr Name="ImportTime" Val="1450114156"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -74,7 +75,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/MEM_A.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_A.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_A.vhd"/>
           <Attr Name="ImportTime" Val="1509975605"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -82,7 +83,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/MEM_B.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_B.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_B.vhd"/>
           <Attr Name="ImportTime" Val="1509975848"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -90,7 +91,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/MEM_C.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_C.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_C.vhd"/>
           <Attr Name="ImportTime" Val="1509976060"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -98,7 +99,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/MEM_D.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_D.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/MEM_D.vhd"/>
           <Attr Name="ImportTime" Val="1509979692"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -106,7 +107,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/DATA_SOURCE.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/DATA_SOURCE.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/DATA_SOURCE.vhd"/>
           <Attr Name="ImportTime" Val="1509978168"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -114,15 +115,21 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/Debouncer.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/Debouncer.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/Debouncer.vhd"/>
           <Attr Name="ImportTime" Val="1265543964"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/parameterizable_counter.vhd">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/STUDENT_AREA.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/STUDENT_AREA.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/STUDENT_AREA.vhd"/>
           <Attr Name="ImportTime" Val="1511866089"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -130,7 +137,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/TOP_LEVEL.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL.vhd"/>
           <Attr Name="ImportTime" Val="1509977709"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -138,7 +145,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T1_model/TOP_LEVEL.wcfg">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL.wcfg"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL.wcfg"/>
           <Attr Name="ImportTime" Val="1509980275"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -153,7 +160,7 @@
       <Filter Type="Constrs"/>
       <File Path="$PSRCDIR/constrs_1/new/ZedBoard_IO.xdc">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/Vivado/DE_Project_T1_full_2020/DE_Project_T1_full.srcs/constrs_1/new/ZedBoard_IO.xdc"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T1_full_2020/DE_Project_T1_full.srcs/constrs_1/new/ZedBoard_IO.xdc"/>
           <Attr Name="ImportTime" Val="1547120635"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -167,9 +174,14 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/imports/DigEng_Proj_T1_model/TOP_LEVEL_tb.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL_tb.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T1_model/TOP_LEVEL_tb.vhd"/>
           <Attr Name="ImportTime" Val="1509980321"/>
           <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/TOP_LEVEL_tb_behav.wcfg">
+        <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -180,7 +192,8 @@
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="XSimWcfgFile" Val="C:/XilinxProjects/Vivado/DE_Project_T1_full_2020/TOP_LEVEL_tb_time_synth.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T1_full_2020/TOP_LEVEL_tb_time_synth.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/TOP_LEVEL_tb_behav.wcfg"/>
       </Config>
     </FileSet>
   </FileSets>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TOP_LEVEL_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TOP_LEVEL_tb" />
+            <top_module name="digeng" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="20612500003fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="171"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/TOP_LEVEL_tb/GCLK" type="logic">
+      <obj_property name="ElementShortName">GCLK</obj_property>
+      <obj_property name="ObjectShortName">GCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SW" type="array">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/LED" type="array">
+      <obj_property name="ElementShortName">LED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/GCLK_period" type="other">
+      <obj_property name="ElementShortName">GCLK_period</obj_property>
+      <obj_property name="ObjectShortName">GCLK_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/BTN[1]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+      <obj_property name="label">BTN[1] RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/BTN[3]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">[3]</obj_property>
+      <obj_property name="label">BTN[3] EN</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider23">
+      <obj_property name="label">Internal</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/\debouncers(1)\/button_debouncer/Deb_Sig" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">Deb_Sig</obj_property>
+      <obj_property name="ObjectShortName">Deb_Sig</obj_property>
+      <obj_property name="label">BTN[1] DEB RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/\debouncers(3)\/button_debouncer/Deb_Sig" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">Deb_Sig</obj_property>
+      <obj_property name="ObjectShortName">Deb_Sig</obj_property>
+      <obj_property name="label">BTN[3] DEB EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/rst_source" type="logic">
+      <obj_property name="ElementShortName">rst_source</obj_property>
+      <obj_property name="ObjectShortName">rst_source</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/en_source" type="logic">
+      <obj_property name="ElementShortName">en_source</obj_property>
+      <obj_property name="ObjectShortName">en_source</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT/count_out" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">count_out[4:0]</obj_property>
+      <obj_property name="ObjectShortName">count_out[4:0]</obj_property>
+      <obj_property name="label">DISP_CNT_OUT</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/BSEL_CNT/count_out" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">count_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">count_out[1:0]</obj_property>
+      <obj_property name="label">BSEL_CNT_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/source_data" type="array">
+      <obj_property name="ElementShortName">source_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">source_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>
