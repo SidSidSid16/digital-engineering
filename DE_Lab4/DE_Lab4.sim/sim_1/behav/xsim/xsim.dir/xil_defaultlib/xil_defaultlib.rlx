@@ -1,0 +1,11 @@
+0.6
+2017.4
+Dec 15 2017
+21:07:18
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.sim/sim_1/behav/xsim/glbl.v,1513215259,verilog,,,,glbl,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sim_1/new/bist_tb.vhd,1677101836,vhdl,,,,bist_tb,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/Debouncer.vhd,1547740499,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd,,,debouncer,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/UUT.vhd,1576157887,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd,,,uut,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd,1576156732,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sim_1/new/bist_tb.vhd,,,top_level,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/ip/Test_Pattern_RAM/sim/Test_Pattern_RAM.v,1677086204,verilog,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/new/BIST_Ctrl.vhd,,,\Test_Pattern_RAM\,,,,,,,,
+C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/new/BIST_Ctrl.vhd,1576171173,vhdl,C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Lab4/DE_Lab4.srcs/sources_1/imports/DigEng3_completetofix/top_level.vhd,,,bist_ctrl,,,,,,,,

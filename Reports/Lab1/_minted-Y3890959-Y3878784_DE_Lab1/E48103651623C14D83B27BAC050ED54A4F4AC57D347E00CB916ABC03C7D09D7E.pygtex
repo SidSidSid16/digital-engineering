@@ -1,0 +1,108 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{library}\PYG{+w}{ }\PYG{n+nn}{IEEE}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.STD\PYGZus{}LOGIC\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{work.DigEng.}\PYG{k}{all}\PYG{p}{;}
+
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The efficient debouncer implements a counter which counts to a defined limit}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} whilst the raw input signal is high and doesn\PYGZsq{}t bounce to low, and the limit}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} hasn\PYGZsq{}t been reached. By defining a limit (\PYGZsh{} of clock cycles), this design can}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} enforce a duration for the raw input signal to be high before the debounced}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} output of high is generated.}
+\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{efficient\PYGZus{}debouncer}\PYG{+w}{ }\PYG{k}{is}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Adjustable value for the \PYGZsh{} of clock cycles until the counter resets.}
+\PYG{+w}{    }\PYG{k}{generic}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{LIMIT}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{NATURAL}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{17}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{Port}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }
+\PYG{+w}{           }\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The raw user input is mapped}
+\PYG{+w}{           }\PYG{n}{input\PYGZus{}raw}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The debounced signal output is mapped}
+\PYG{+w}{           }\PYG{n}{output\PYGZus{}debounced}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}
+\PYG{+w}{    }\PYG{p}{);}
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{efficient\PYGZus{}debouncer}\PYG{p}{;}
+
+\PYG{k}{architecture}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{+w}{ }\PYG{k}{of}\PYG{+w}{ }\PYG{n+nc}{efficient\PYGZus{}debouncer}\PYG{+w}{ }\PYG{k}{is}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signal for the inverted raw user input.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{input\PYGZus{}raw\PYGZus{}inverted}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signal bus for the output from the counter.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{count\PYGZus{}out\PYGZus{}int}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{LIMIT}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signal for the output from the counter max value detector.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{max\PYGZus{}detector}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}Internal signal for the counter enable value.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{counter\PYGZus{}enabler}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signal for the output from the flip flop.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{flip\PYGZus{}flop\PYGZus{}output}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+
+\PYG{k}{begin}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} We need to make sure that the counter resets as soon as the raw input}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} signal bounces from high to low. An inverter is created such that when}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the raw input bounces to low, the \PYGZsq{}input\PYGZus{}raw\PYGZus{}inverted\PYGZsq{} internal signal}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} will be high, this signal can then be mapped to the reset port of the}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} counter.}
+\PYG{+w}{    }\PYG{n}{input\PYGZus{}raw\PYGZus{}inverted}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k}{not}\PYG{+w}{ }\PYG{n}{input\PYGZus{}raw}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The other counter reset condition is when the counter reaches the value}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} defined by \PYGZsq{}LIMIT\PYGZsq{}. The \PYGZsq{}max\PYGZus{}detector\PYGZsq{} internal signal will be set high}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} as soon as the LIMIT is reached, mapping this signal to the counter\PYGZsq{}s}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} reset port will complete this logic.}
+\PYG{+w}{    }\PYG{n}{max\PYGZus{}detector}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{count\PYGZus{}out\PYGZus{}int}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{LIMIT}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{                    }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} As per the debouncer\PYGZsq{}s logic, the counter need to be enabled when the}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} raw input signal is high and the \PYGZsq{}max\PYGZus{}detector\PYGZsq{} internal signal is low}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} (when the counter\PYGZsq{}s LIMIT hasn\PYGZsq{}t been reached). The counter needs to be}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} disabled at all other times. To acheive this logic, the \PYGZsq{}max\PYGZus{}detector\PYGZsq{}}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} signal needs to be inverted, and compared with the raw input signal with}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} an AND gate.}
+\PYG{+w}{    }\PYG{n}{counter\PYGZus{}enabler}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{input\PYGZus{}raw}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{not}\PYG{+w}{ }\PYG{n}{max\PYGZus{}detector}\PYG{p}{);}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The debouncer needs to wait for a number of clock cycles defined by LIMIT}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} and should only output a debounced high output if there is a high output}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} from \PYGZsq{}max\PYGZus{}detector\PYGZsq{} and a low from the \PYGZsq{}max\PYGZus{}detector\PYGZsq{} from the last rising}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} edge. This is to prevent the debouncer from outputting high due to reaching}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the LIMIT value (setting \PYGZsq{}max\PYGZus{}detector\PYGZsq{} to high) for two consecutive clock}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} cycles. This logic is implemented with an AND gate comparing the output from}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} \PYGZsq{}max\PYGZus{}detector\PYGZsq{} and the inverted output from the flip flop.}
+\PYG{+w}{    }\PYG{n}{output\PYGZus{}debounced}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{max\PYGZus{}detector}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{not}\PYG{+w}{ }\PYG{n}{flip\PYGZus{}flop\PYGZus{}output}\PYG{p}{);}
+\PYG{+w}{                    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The parameterizable counter has been implemented as a separate entity, this}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} componenent is used to count the number of clock cycles elapsed since the raw}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} input was set to high.}
+\PYG{+w}{    }\PYG{n}{parameterizable\PYGZus{}counter}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{parameterizable\PYGZus{}counter}
+\PYG{+w}{    }\PYG{k}{generic}\PYG{+w}{ }\PYG{k}{map}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The limit is a parameterizable value allowing for an adjustable number}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} of clock cycles to count.}
+\PYG{+w}{        }\PYG{n}{LIMIT}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{LIMIT}
+\PYG{+w}{    }\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{port}\PYG{+w}{ }\PYG{k}{map}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} (Self explanatory) The clock signal is mapped}
+\PYG{+w}{        }\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The counter needs to reset as soon as the raw input bounces to a low.}
+\PYG{+w}{        }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{input\PYGZus{}raw\PYGZus{}inverted}\PYG{p}{,}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The counter needs to be enabled as per logic defined (and explained)}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} in the \PYGZsq{}counter\PYGZus{}enabler\PYGZsq{} internal signal definition above.}
+\PYG{+w}{        }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{counter\PYGZus{}enabler}\PYG{p}{,}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The counter\PYGZsq{}s output needs to be mapped to an internal signal to implement}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} further logic.}
+\PYG{+w}{        }\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{count\PYGZus{}out\PYGZus{}int}
+\PYG{+w}{    }\PYG{p}{);}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }\PYG{n}{d\PYGZus{}type\PYGZus{}flip\PYGZus{}flop}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{d\PYGZus{}type\PYGZus{}flip\PYGZus{}flop}
+\PYG{+w}{    }\PYG{k}{port}\PYG{+w}{ }\PYG{k}{map}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} (Again, self explanatory)}
+\PYG{+w}{        }\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The output from the \PYGZsq{}max\PYGZus{}detector\PYGZsq{} signal is mapped to the data input}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} of the flip flop, this is stored until the next clock rising edge.}
+\PYG{+w}{        }\PYG{n}{data}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{max\PYGZus{}detector}\PYG{p}{,}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The data that was stored in the last clock rising edge is outputted}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} from the flip flop to the \PYGZsq{}flip\PYGZus{}flop\PYGZus{}output\PYGZsq{} internal signal to}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} facilitate additional logic for the \PYGZsq{}output\PYGZus{}debounced\PYGZsq{} internal signal}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} as mentioned above.}
+\PYG{+w}{        }\PYG{n}{output}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{flip\PYGZus{}flop\PYGZus{}output}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{p}{;}
+\end{Verbatim}
