@@ -212,6 +212,18 @@ BEGIN
         
         wait for GCLK_period*18;
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         -- TEST 3
         test_3_test_check_loop : for i in 0 to 11 loop
             -- Wait for the enable signal to toggle
@@ -251,7 +263,4 @@ BEGIN
         
         wait;
     end process;
-    
-    
-
 END;
