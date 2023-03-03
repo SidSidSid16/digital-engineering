@@ -253,10 +253,10 @@ BEGIN
         wait for GCLK_period*6;
         -- wait for reset to be toggled
         wait for GCLK_period*31;
-        assert (( LED = valid_outputs(0) ))
+        assert (( LED = X"00" ))
         report "TEST 4 " &
                 " FAIL. Observed LED Output = " & integer'image(to_integer(unsigned(LED))) & 
-                " Expected LED Output = " & integer'image(to_integer(unsigned(valid_outputs(0))))
+                " Expected LED Output = 0"
         severity warning;
         report "TEST 4 PASS."
         severity note;

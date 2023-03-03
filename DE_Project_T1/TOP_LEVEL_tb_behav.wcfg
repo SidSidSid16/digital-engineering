@@ -11,30 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1652000001fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomStartTime time="34635000000fs"></ZoomStartTime>
+      <ZoomEndTime time="36273000001fs"></ZoomEndTime>
+      <Cursor1Time time="36000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="171"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="153"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="13" />
    <wvobject fp_name="/TOP_LEVEL_tb/GCLK" type="logic">
       <obj_property name="ElementShortName">GCLK</obj_property>
       <obj_property name="ObjectShortName">GCLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/TOP_LEVEL_tb/SW" type="array">
-      <obj_property name="ElementShortName">SW[7:0]</obj_property>
-      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/LED" type="array">
       <obj_property name="ElementShortName">LED[7:0]</obj_property>
       <obj_property name="ObjectShortName">LED[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_LEVEL_tb/GCLK_period" type="other">
-      <obj_property name="ElementShortName">GCLK_period</obj_property>
-      <obj_property name="ObjectShortName">GCLK_period</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/BTN[1]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
@@ -88,6 +80,7 @@
       <obj_property name="ElementShortName">count_out[1:0]</obj_property>
       <obj_property name="ObjectShortName">count_out[1:0]</obj_property>
       <obj_property name="label">BSEL_CNT_OUT</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/uut/source_data" type="array">
       <obj_property name="ElementShortName">source_data[31:0]</obj_property>

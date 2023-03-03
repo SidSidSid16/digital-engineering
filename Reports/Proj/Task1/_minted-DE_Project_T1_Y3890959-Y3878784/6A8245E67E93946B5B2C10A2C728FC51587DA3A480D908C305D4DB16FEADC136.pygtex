@@ -254,10 +254,10 @@
 \PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{6}\PYG{p}{;}
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} wait for reset to be toggled}
 \PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{31}\PYG{p}{;}
-\PYG{+w}{        }\PYG{k}{assert}\PYG{+w}{ }\PYG{p}{((}\PYG{+w}{ }\PYG{n}{LED}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valid\PYGZus{}outputs}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{))}
+\PYG{+w}{        }\PYG{k}{assert}\PYG{+w}{ }\PYG{p}{((}\PYG{+w}{ }\PYG{n}{LED}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mh}{X\PYGZdq{}00\PYGZdq{}}\PYG{+w}{ }\PYG{p}{))}
 \PYG{+w}{        }\PYG{n}{report}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}TEST 4 \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}
 \PYG{+w}{                }\PYG{l+s}{\PYGZdq{} FAIL. Observed LED Output = \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{to\PYGZus{}integer}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{LED}\PYG{p}{)))}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }
-\PYG{+w}{                }\PYG{l+s}{\PYGZdq{} Expected LED Output = \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{to\PYGZus{}integer}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{valid\PYGZus{}outputs}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{))))}
+\PYG{+w}{                }\PYG{l+s}{\PYGZdq{} Expected LED Output = 0\PYGZdq{}}
 \PYG{+w}{        }\PYG{k}{severity}\PYG{+w}{ }\PYG{n}{warning}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{report}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}TEST 4 PASS.\PYGZdq{}}
 \PYG{+w}{        }\PYG{k}{severity}\PYG{+w}{ }\PYG{n}{note}\PYG{p}{;}

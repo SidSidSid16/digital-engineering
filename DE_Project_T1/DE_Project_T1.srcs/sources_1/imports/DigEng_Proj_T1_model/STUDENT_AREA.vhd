@@ -77,7 +77,7 @@ PORT MAP(
 	count_out => BSEL_CNT_OUT
 );
 
-fsm_process : process (state, en, DISP_CNT_OUT, BSEL_CNT_OUT)
+fsm_process : process (state, en, rst, DISP_CNT_OUT, BSEL_CNT_OUT)
 begin
     case state is
         when IDLE => 
@@ -87,7 +87,7 @@ begin
         when DISP =>
             -- When all of the bytes has been displayed and the delay has been completed,
             -- we can go back to the IDLE state to wait for the next enable signal.
-            if (DISP_CNT_OUT = disp_delay-1 and BSEL_CNT_OUT = total_bytes - 1) then
+            if ((DISP_CNT_OUT = disp_delay-1 and BSEL_CNT_OUT = total_bytes - 1) or rst = '1') then
                 next_state <= IDLE;
             -- If the display delay has completed but there are still more bytes to be
             -- displayed, the next state can be set to BSEL (byte select), where the
@@ -98,7 +98,11 @@ begin
         when BSEL =>
             -- Once the BSEL counter is incremented once, we can go back to the DISP state
             -- so the next byte can be displayed.
-            next_state <= DISP;
+            if (rst = '1') then
+                next_state <= IDLE;
+            else
+                next_state <= DISP;
+            end if;
     end case;
 end process fsm_process;
 

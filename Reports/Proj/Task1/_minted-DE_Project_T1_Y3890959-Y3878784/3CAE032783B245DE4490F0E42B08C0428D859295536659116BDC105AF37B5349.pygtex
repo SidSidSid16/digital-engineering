@@ -78,7 +78,7 @@
 \PYG{+w}{	}\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{BSEL\PYGZus{}CNT\PYGZus{}OUT}
 \PYG{p}{);}
 
-\PYG{n}{fsm\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{state}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{en}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BSEL\PYGZus{}CNT\PYGZus{}OUT}\PYG{p}{)}
+\PYG{n}{fsm\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{state}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{en}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rst}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BSEL\PYGZus{}CNT\PYGZus{}OUT}\PYG{p}{)}
 \PYG{k}{begin}
 \PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{k}{is}
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }
@@ -88,7 +88,7 @@
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} When all of the bytes has been displayed and the delay has been completed,}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} we can go back to the IDLE state to wait for the next enable signal.}
-\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{disp\PYGZus{}delay}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{and}\PYG{+w}{ }\PYG{n}{BSEL\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{total\PYGZus{}bytes}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{((}\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{disp\PYGZus{}delay}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{and}\PYG{+w}{ }\PYG{n}{BSEL\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{total\PYGZus{}bytes}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} If the display delay has completed but there are still more bytes to be}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} displayed, the next state can be set to BSEL (byte select), where the}
@@ -99,7 +99,11 @@
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{BSEL}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Once the BSEL counter is incremented once, we can go back to the DISP state}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} so the next byte can be displayed.}
-\PYG{+w}{            }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}
 
