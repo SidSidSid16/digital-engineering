@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../DE_Project_T2.srcs/sources_1/ip/CLK_GEN" \
+"../../../../DE_Project_T2.srcs/sources_1/ip/DUAL_CLOCK_FIFO/sim/DUAL_CLOCK_FIFO.v" \
+"../../../../DE_Project_T2.srcs/sources_1/ip/CLK_GEN/CLK_GEN_clk_wiz.v" \
+"../../../../DE_Project_T2.srcs/sources_1/ip/CLK_GEN/CLK_GEN.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

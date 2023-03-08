@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TOP_LEVEL_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TOP_LEVEL_tb" />
+            <top_module name="digeng" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="39877142000fs"></ZoomStartTime>
+      <ZoomEndTime time="48062142001fs"></ZoomEndTime>
+      <Cursor1Time time="43892142000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="185"></NameColumnWidth>
+      <ValueColumnWidth column_width="59"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="30" />
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/CLK_100MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK_100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK_100MHZ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/CLK_7MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK_7MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK_7MHZ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/LD" type="array">
+      <obj_property name="ElementShortName">LD[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LD[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/BTN[1]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+      <obj_property name="label">BTN[1] RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/BTN[3]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">[3]</obj_property>
+      <obj_property name="label">BTN[3] EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SW" type="array">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider14">
+      <obj_property name="label">INTERNAL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/state" type="other">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+      <obj_property name="label">SOURCE STATE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/state" type="other">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+      <obj_property name="label">OUTPUT STATE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/FIFO_FULL" type="logic">
+      <obj_property name="ElementShortName">FIFO_FULL</obj_property>
+      <obj_property name="ObjectShortName">FIFO_FULL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/FIFO_EMPTY" type="logic">
+      <obj_property name="ElementShortName">FIFO_EMPTY</obj_property>
+      <obj_property name="ObjectShortName">FIFO_EMPTY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/FIFO_WR_EN" type="logic">
+      <obj_property name="ElementShortName">FIFO_WR_EN</obj_property>
+      <obj_property name="ObjectShortName">FIFO_WR_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/FIFO_RD_EN" type="logic">
+      <obj_property name="ElementShortName">FIFO_RD_EN</obj_property>
+      <obj_property name="ObjectShortName">FIFO_RD_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_7MHZ[1]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+      <obj_property name="label">BTN[1] 7Mhz DEB RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHZ[1]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+      <obj_property name="label">BTN[1] 100MHz DEB RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_7MHZ[3]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">[3]</obj_property>
+      <obj_property name="label">BTN[3] 7MHz DEB EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHZ[3]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">[3]</obj_property>
+      <obj_property name="label">BTN[3] 100MHz DEB EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/RST_SOURCE" type="logic">
+      <obj_property name="ElementShortName">RST_SOURCE</obj_property>
+      <obj_property name="ObjectShortName">RST_SOURCE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/EN_SOURCE" type="logic">
+      <obj_property name="ElementShortName">EN_SOURCE</obj_property>
+      <obj_property name="ObjectShortName">EN_SOURCE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_CNT_EN" type="logic">
+      <obj_property name="ElementShortName">LIMT_CNT_EN</obj_property>
+      <obj_property name="ObjectShortName">LIMT_CNT_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_CNT_RST" type="logic">
+      <obj_property name="ElementShortName">LIMT_CNT_RST</obj_property>
+      <obj_property name="ObjectShortName">LIMT_CNT_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_REG_EN" type="logic">
+      <obj_property name="ElementShortName">LIMT_REG_EN</obj_property>
+      <obj_property name="ObjectShortName">LIMT_REG_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_REG_RST" type="logic">
+      <obj_property name="ElementShortName">LIMT_REG_RST</obj_property>
+      <obj_property name="ObjectShortName">LIMT_REG_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_REG_OUT" type="array">
+      <obj_property name="ElementShortName">LIMT_REG_OUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LIMT_REG_OUT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_CONTROL_LOGIC/LIMT_CNT_OUT" type="array">
+      <obj_property name="ElementShortName">LIMT_CNT_OUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LIMT_CNT_OUT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/DISP_CNT_EN" type="logic">
+      <obj_property name="ElementShortName">DISP_CNT_EN</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/DISP_CNT_RST" type="logic">
+      <obj_property name="ElementShortName">DISP_CNT_RST</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/OUTPUT_CONTROL_LOGIC/DISP_CNT_OUT" type="array">
+      <obj_property name="ElementShortName">DISP_CNT_OUT[4:0]</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_OUT[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/SOURCE_DATA" type="array">
+      <obj_property name="ElementShortName">SOURCE_DATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SOURCE_DATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/Synchronization_FIFO/dout" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+      <obj_property name="label">FIFO OUTPUT</obj_property>
+   </wvobject>
+</wave_config>
