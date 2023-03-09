@@ -1,0 +1,73 @@
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\usepackage{lscape}
+\usepackage{multirow}
+
+\usetikzlibrary{automata, positioning, arrows, fit}
+
+\title{Digital Engineering\\Project Task 1}
+\author{Y3890959\\Y3878784}
+\date{28th February 2023}
+
+\pagestyle{fancy}
+\fancyhead{}
+\setlength{\headheight}{14pt}
+\fancyhead[L]{Project Task 1}
+\fancyhead[R]{Y3890959, Y3878784}
+\fancyfoot{}
+\fancyfoot[L]{Digital Engineering}
+\fancyfoot[R]{\thepage}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
+\setminted {
+    fontsize=\footnotesize,
+    frame=single,
+}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Task 2: Clock domain crossing using dual-clock FIFOs}
+
+\section*{1 - Description of FSMs}
+
+\subsection*{SOURCE\_CTRL FSM}
+
+\begin{figure}[h] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+    \centering % centers the figure
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm,semithick]
+        \tikzstyle{every state}=[draw=none,text=black]
+
+        \node[initial,state] (A)              {\textbf{IDLE}};;
+        \node[state]         (B) [right of=A] {\textbf{COMP}};
+        \node[state]         (C) [right of=B] {\textbf{HOLD}};
+
+        \path (A) edge                         node[align=center, scale=0.8] {FROM\_OUTPUT = 0\\en = 1} (B)
+              (B) edge [above, bend left=50]  node[align=center, scale=0.8] {FIFO\_FULL = 1} (C)
+                  edge [above, bend right=50]  node[align=center, scale=0.8] {SWITCHES = COUNTER\\(or rst = 1)} (A)
+              (C) edge                         node[align=center, scale=0.8] {FIFO\_FULL = 0} (B)
+                  edge [above, bend left=50]   node[scale=0.8] {rst = 1} (A);
+    \end{tikzpicture}
+    \caption{SOURCE\_CTRL FSM state graph}
+    \label{fig:my_label}
+\end{figure}
+
+The FSM starts at IDLE state, where all internal signals will reset and the LEDs are off. When the `en'
+pushbutton is pressed and the output logic FSM has completed (FROM\_SOURCE goes low) the state goes to COMP
+where the outputs are computed. As soon as `en' is toggled, when the FSM is still in IDLE, the values of the
+SWITCHES is stored in a register `LIMT\_REG'. In the COMP state, the `LIMT\_CNT' is enabled and counts,
+`EN\_SOURCE' also goes high so the outputs are computed, and the `FIFO\_WR\_EN' goes high so the values are
+stored.
+
+\end{document}
