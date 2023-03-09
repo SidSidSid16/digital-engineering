@@ -209,7 +209,7 @@ begin
     
     -- TEST 1:
     --  The outputs start displaying as soon as the 
-    --  OUTPUT FSM goes to FSM state, which takes 69.5
+    --  OUTPUT FSM goes to DISP state, which takes 69.5
     --  clock periods. We will start checking from 72
     --  clock cycles so that the LEDs would've output
     --  2.5 clock periods before.
