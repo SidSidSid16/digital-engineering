@@ -1,0 +1,101 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{library}\PYG{+w}{ }\PYG{n+nn}{IEEE}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.STD\PYGZus{}LOGIC\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{work.DigEng.}\PYG{k}{all}\PYG{p}{;}
+
+\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{OUTPUT\PYGZus{}CTRL}\PYG{+w}{ }\PYG{k}{is}
+\PYG{+w}{    }\PYG{k}{Generic}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{disp\PYGZus{}delay}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{natural}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{100000000}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{Port}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{n}{CLK}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{USER\PYGZus{}PB}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{SWITCHES}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{FROM\PYGZus{}SOURCE}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{TO\PYGZus{}SOURCE}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{DATA\PYGZus{}FROM\PYGZus{}FIFO}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{LEDS}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{FIFO\PYGZus{}RD\PYGZus{}EN}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{);}
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{OUTPUT\PYGZus{}CTRL}\PYG{p}{;}
+
+\PYG{k}{architecture}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{+w}{ }\PYG{k}{of}\PYG{+w}{ }\PYG{n+nc}{OUTPUT\PYGZus{}CTRL}\PYG{+w}{ }\PYG{k}{is}
+
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{RST}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EN}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{k}{type}\PYG{+w}{ }\PYG{n}{state\PYGZus{}type}\PYG{+w}{ }\PYG{k}{is}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{IDLE}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{DISP}\PYG{p}{);}\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The FSM states}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{next\PYGZus{}state}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{state\PYGZus{}type}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The states as signals}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signals for the counters enable and resets, this is the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} LED delay logic, it holds the value for a number of clock periods.}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{disp\PYGZus{}delay}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}EN}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}RST}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+
+\PYG{k}{begin}
+
+\PYG{n}{RST}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{USER\PYGZus{}PB}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{EN}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{USER\PYGZus{}PB}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Port map for the display delay counter}
+\PYG{n}{DISP\PYGZus{}CNT}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{parameterizable\PYGZus{}counter}\PYG{+w}{ }
+\PYG{k}{GENERIC}\PYG{+w}{ }\PYG{k}{MAP}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{LIMIT}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{disp\PYGZus{}delay}\PYG{p}{)}
+\PYG{k}{PORT}\PYG{+w}{ }\PYG{k}{MAP}\PYG{p}{(}
+\PYG{+w}{	}\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}RST}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}EN}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  Sets the state as IDLE (reset state) when the reset input is set high.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  At each clock cycle if the reset isn\PYGZsq{}t high, the state is set to the next}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  state.}
+\PYG{n}{state\PYGZus{}assignment}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{is}
+\PYG{k}{begin}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rising\PYGZus{}edge}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{            }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{else}
+\PYG{+w}{            }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{next\PYGZus{}state}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}\PYG{+w}{ }
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{state\PYGZus{}assignment}\PYG{p}{;}
+
+\PYG{n}{fsm\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{state}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{p}{)}
+\PYG{k}{begin}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{k}{is}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Start displaying as soon as the FIFO is no longer empty.}
+\PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} As soon as the FIFO is empty we can stop displaying.}
+\PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} We can reset the value of the counter in the IDLE state so}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} when the logic resumes, the delays will be constant.}
+\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}RST}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{                }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The counter needs to be enabled in the DISP state, so that}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the logic knows when to enable FIFO read to pull the new}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} values in, as the counter will roll\PYGZhy{}over.}
+\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}EN}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{               }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} When the logic is not displaying, we need the LEDs to be off.}
+\PYG{n}{LEDS}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{DATA\PYGZus{}FROM\PYGZus{}FIFO}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{        }\PYG{l+s}{\PYGZdq{}00000000\PYGZdq{}}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} We only want the FIFO to be read from when the state is DISP}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} and when the counter is at 0.}
+\PYG{n}{FIFO\PYGZus{}RD\PYGZus{}EN}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{k}{and}\PYG{+w}{ }\PYG{n}{DISP\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{disp\PYGZus{}delay}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{              }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} This OUTPUT logic will always be active as long as the FIFO is not}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} empty, we can invert the FIFO\PYGZus{}EMPTY signal so that when OUTPUT is}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} active (displaying all values via LEDs) this OUTPUT\PYGZus{}ACTIVE signal}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} will be high. This signal can be passed to the SOURCE logic.}
+\PYG{n}{TO\PYGZus{}SOURCE}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{k}{else}
+\PYG{+w}{             }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{p}{;}
+
+\end{Verbatim}
