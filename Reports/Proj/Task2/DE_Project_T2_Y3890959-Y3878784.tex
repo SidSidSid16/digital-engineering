@@ -60,7 +60,6 @@
                   edge [above, bend left=50]   node[scale=0.8] {rst = 1} (A);
     \end{tikzpicture}
     \caption{SOURCE\_CTRL FSM state graph}
-    \label{fig:my_label}
 \end{figure}
 
 The FSM starts at IDLE state, where all internal signals will reset and the LEDs are off. When the `en'
@@ -68,6 +67,104 @@ pushbutton is pressed and the output logic FSM has completed (FROM\_SOURCE goes 
 where the outputs are computed. As soon as `en' is toggled, when the FSM is still in IDLE, the values of the
 SWITCHES is stored in a register `LIMT\_REG'. In the COMP state, the `LIMT\_CNT' is enabled and counts,
 `EN\_SOURCE' also goes high so the outputs are computed, and the `FIFO\_WR\_EN' goes high so the values are
-stored.
+stored. When the FIFO becomes full, the SOURCE, counter, and FIFO\_WR\_EN are disabled, and the FSM goes to
+HOLD state, where it stays until FIFO\_FULL becomes low again, then it goes back to COMP. The counter will
+increment in the COMP state for every output computed and stored, once the counter value reaches the value
+it signifies that the total number of outputs as set by the user via the SWITCHES has been computed, in this
+case the FSM returns to the IDLE state. To make sure that the circuit doesn't break when the user changes the
+SWITCHES mid-operation, the values of the SWITCHES is stored in `LIMT\_REG', and the logic will compare this.
+
+
+\begin{landscape}
+    \begin{table}
+    \centering
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+    \textbf{STATE} & \textit{\textbf{EN\_SOURCE}} & \textit{\textbf{LIMT\_CNT\_EN}} & \textit{\textbf{LIMT\_CNT\_RST}} & \textit{\textbf{FIFO\_WR\_EN}} \\ \hline
+    \multirow{2}{*}{IDLE} & 1 when en = 1 and FROM\_OUTPUT = 0 & \multirow{2}{*}{0}    & \multirow{2}{*}{1} & \multirow{2}{*}{0}    \\ \cline{2-2}
+                          & 0 otherwise                        &                       &                    &                       \\ \hline
+    \multirow{2}{*}{COMP} & 1 when FIFO\_FULL = 0              & 1 when FIFO\_FULL = 0 & \multirow{2}{*}{0} & 1 when FIFO\_FULL = 0 \\ \cline{2-3} \cline{5-5} 
+                          & 0 otherwise                        & 0 otherwise           &                    & 0 otherwise           \\ \hline
+    HOLD                  & 0                                  & 0                     & 0                  & 0                     \\ \hline
+    \end{tabular}%
+    }
+    \caption{SOURCE\_CTRL FSM table of outputs}
+    \end{table}
+\end{landscape}
+
+
+
+
+
+\subsection*{OUTPUT\_CTRL FSM}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm,semithick]
+        \tikzstyle{every state}=[draw=none,text=black]
+
+        \node[initial,state] (A)              {\textbf{IDLE}};;
+        \node[state]         (B) [right of=A] {\textbf{DISP}};
+
+        \path (A) edge [above, bend left=50]  node[align=center, scale=0.8] {FIFO\_EMPTY = 0} (B)
+              (B) edge [below, bend left=50]  node[align=center, scale=0.8] {FIFO\_EMPTY = 1} (A);
+    \end{tikzpicture}
+    \caption{OUTPUT\_CTRL FSM state graph}
+\end{figure}
+
+This FSM is quite simple and efficient with only two states, it completely ignores any user inputs via
+switches and pushbuttons and only relies on whether the FIFO is empty or not. In the IDLE state, the delay
+counter is disabled and reset and a 0 is output to `TO\_SOURCE', this is to tell the SOURCE logic that the
+output logic is inactive. Once `FIFO\_EMPTY' goes low, the FSM goes to the DISP state. In the DISP state,
+the `DISP\_CNT' counter is enabled (this is to add a delay where the LED outputs are held). As the FIFO is
+set to the First-Word-Fall-Through mode, the `FIFO\_WR\_EN' needs to be high to pop the value at the end of
+the delay, therefore that signal goes high as soon as the delay counter reaches the last value. The delay
+counter will roll-over automatically. The LEDs will output the `DATA\_FROM\_FIFO' vector as long as the FIFO
+is in DISP state.
+
+\begin{landscape}
+    \begin{table}
+    \centering
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    \textbf{STATE} &
+      \textit{\textbf{DISP\_CNT\_EN}} &
+      \textit{\textbf{DISP\_CNT\_RST}} &
+      \textit{\textbf{TO\_SOURCE}} &
+      \textit{\textbf{FIFO\_RD\_EN}} &
+      \textit{\textbf{LEDs}} \\ \hline
+    IDLE & 0 & 1 & 0 & 0           & 00 \\ \hline
+    \multirow{2}{*}{DISP} &
+      \multirow{2}{*}{1} &
+      \multirow{2}{*}{0} &
+      \multirow{2}{*}{1} &
+      1 when DISP\_CNT\_OUT = disp\_delay-1 &
+      \multirow{2}{*}{DATA\_FROM\_FIFO} \\ \cline{5-5}
+         &   &   &   & 0 otherwise &    \\ \hline
+    \end{tabular}%
+    }
+    \caption{OUTPUT\_CTRL FSM table of outputs}
+    \end{table}
+\end{landscape}
+
+
+
+
+
+\section*{2 - VHDL Entity Code}
+\subsection*{OUTPUT\_CTRL}
+\inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/SOURCE_CTRL.vhd}
+
+\subsection*{SOURCE\_CTRL}
+\inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/OUTPUT_CTRL.vhd}
+
+
+
+
+
+\section*{3 - VHDL Testbench Code}
+\inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sim_1/imports/DigEng_Proj_T2_model/TOP_LEVEL_tb.vhd}
 
 \end{document}

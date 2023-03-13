@@ -81,7 +81,7 @@ begin
     end if; 
 end process state_assignment;
 
-fsm_process : process (state, en, rst, LIMT_CNT_OUT, FIFO_FULL)
+fsm_process : process (state, en, rst, LIMT_CNT_OUT, FIFO_FULL, FROM_OUTPUT, LIMT_REG_OUT)
 begin
     case state is
         when IDLE =>
