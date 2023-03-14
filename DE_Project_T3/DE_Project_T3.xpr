@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2017.4.1 (64-bit)              -->
+<!-- Product Version: Vivado v2017.4 (64-bit)              -->
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="G:/My Drive/TEACHING/ELE00011H-121M Digital Engineering/VHDL_FILES/DE_Project_T3/DE_Project_T3.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Project_T3/DE_Project_T3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="d7bae909fdc84e26973593db885c9931"/>
@@ -13,7 +13,7 @@
     <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
     <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
     <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
-    <Option Name="CompiledLibDirXcelium" Val="C:/XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.cache/compile_simlib/xcelium"/>
+    <Option Name="CompiledLibDirXcelium" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.cache/compile_simlib/xcelium"/>
     <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
     <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
     <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
@@ -59,7 +59,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/Debouncer.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/Debouncer.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/Debouncer.vhd"/>
           <Attr Name="ImportTime" Val="1510137500"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -67,15 +67,21 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/DigEng.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/DigEng.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/DigEng.vhd"/>
           <Attr Name="ImportTime" Val="1361900359"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/Param_Counter_UpDown.vhd">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/SPI_MASTER.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/SPI_MASTER.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/SPI_MASTER.vhd"/>
           <Attr Name="ImportTime" Val="1511193751"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -83,7 +89,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/STUDENT_AREA.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/STUDENT_AREA.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/STUDENT_AREA.vhd"/>
           <Attr Name="ImportTime" Val="1510938469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -91,7 +97,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/TOP_LEVEL.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/TOP_LEVEL.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/TOP_LEVEL.vhd"/>
           <Attr Name="ImportTime" Val="1510938543"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -100,7 +106,7 @@
       <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/Param_Counter.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/Param_Counter.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/Param_Counter.vhd"/>
           <Attr Name="ImportTime" Val="1450114156"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -116,7 +122,7 @@
       <Filter Type="Constrs"/>
       <File Path="$PSRCDIR/constrs_1/imports/new/ZedBoard_IO.xdc">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.srcs/constrs_1/imports/new/ZedBoard_IO.xdc"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.srcs/constrs_1/imports/new/ZedBoard_IO.xdc"/>
           <Attr Name="ImportTime" Val="1549443489"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -131,7 +137,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/SRAM_Model.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_v2_full.srcs/sim_1/new/SRAM_Model.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_v2_full.srcs/sim_1/new/SRAM_Model.vhd"/>
           <Attr Name="ImportTime" Val="1551204381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -139,7 +145,7 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/DigEng_Proj_T3_model/TOP_LEVEL_tb.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/ISE/DigEng_Proj_T3_model/TOP_LEVEL_tb.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/TOP_LEVEL_tb.vhd"/>
           <Attr Name="ImportTime" Val="1510941102"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -152,14 +158,14 @@
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="XSimWcfgFile" Val="C:/XilinxProjects/Vivado/DE_Project_T3_full/TOP_LEVEL_tb_behav.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T3_full/TOP_LEVEL_tb_behav.wcfg"/>
         <Option Name="xsim.simulate.runtime" Val="10000ns"/>
       </Config>
     </FileSet>
     <FileSet Name="CLK_GEN" Type="BlockSrcs" RelSrcDir="$PSRCDIR/CLK_GEN">
       <File Path="$PSRCDIR/sources_1/ip/CLK_GEN/CLK_GEN.xci">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.srcs/sources_1/ip/CLK_GEN/CLK_GEN.xci"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/Vivado/DE_Project_T3_full/DE_Project_T3_full.srcs/sources_1/ip/CLK_GEN/CLK_GEN.xci"/>
           <Attr Name="ImportTime" Val="1549366163"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
