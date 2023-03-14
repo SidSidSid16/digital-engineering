@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Mar  7 15:46:22 2023
--- Host        : SidS-MacBook-Pro running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               C:/Users/Sid/Documents/GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/ip/DUAL_CLOCK_FIFO/DUAL_CLOCK_FIFO_sim_netlist.vhdl
+-- Date        : Mon Mar 13 13:02:51 2023
+-- Host        : elclas318 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim {H:/Documents/Digital Engineering
+--               GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/ip/DUAL_CLOCK_FIFO/DUAL_CLOCK_FIFO_sim_netlist.vhdl}
 -- Design      : DUAL_CLOCK_FIFO
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

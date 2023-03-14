@@ -31,12 +31,12 @@ END TOP_LEVEL_tb;
 --      that the enable input will be ignored.
 --
 --  TEST 5:
---      Continue from TEST 3, the reset button will be toggled after
+--      Continue from TEST 4, the reset button will be toggled after
 --      the 4th input, this will verify that the circuit can be reset
 --      while the FSM is in operation.
 --
 --  TEST 6:
---      Cycle through the first 5 values just like in TEST 3, but
+--      Cycle through the first 5 values just like in TEST 4, but
 --      the switches will be changed while the FSM is operation
 --      (after the 2nd input). This test will verify that changing
 --      the switches will be ignored when the FSM is in operation.
