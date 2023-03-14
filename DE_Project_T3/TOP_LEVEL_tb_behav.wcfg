@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TOP_LEVEL_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TOP_LEVEL_tb" />
+            <top_module name="digeng" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="3855000001fs"></ZoomEndTime>
+      <Cursor1Time time="100000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="31" />
+   <wvobject fp_name="/TOP_LEVEL_tb/GCLK" type="logic">
+      <obj_property name="ElementShortName">GCLK</obj_property>
+      <obj_property name="ObjectShortName">GCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/CLK_26MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK_26MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK_26MHZ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/CLK_100MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK_100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK_100MHZ</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider13">
+      <obj_property name="label">USER INPUTS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHz[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">RST_DB_100MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHz[1]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+      <obj_property name="label">WRITE_DB_100MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHz[3]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">[3]</obj_property>
+      <obj_property name="label">ENTER_DB_100MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/btn_db_100MHz[2]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[2]</obj_property>
+      <obj_property name="ObjectShortName">[2]</obj_property>
+      <obj_property name="label">READ_DB_100MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SW" type="array">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider30">
+      <obj_property name="label">INTERNAL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/INPT_CNT_EN_UP" type="logic">
+      <obj_property name="ElementShortName">INPT_CNT_EN_UP</obj_property>
+      <obj_property name="ObjectShortName">INPT_CNT_EN_UP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/INPT_CNT_EN_DOWN" type="logic">
+      <obj_property name="ElementShortName">INPT_CNT_EN_DOWN</obj_property>
+      <obj_property name="ObjectShortName">INPT_CNT_EN_DOWN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/INPT_CNT_RST" type="logic">
+      <obj_property name="ElementShortName">INPT_CNT_RST</obj_property>
+      <obj_property name="ObjectShortName">INPT_CNT_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/INPT_CNT_OUT" type="array">
+      <obj_property name="ElementShortName">INPT_CNT_OUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">INPT_CNT_OUT[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT_EN" type="logic">
+      <obj_property name="ElementShortName">DISP_CNT_EN</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_EN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT_RST" type="logic">
+      <obj_property name="ElementShortName">DISP_CNT_RST</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT_OUT" type="array">
+      <obj_property name="ElementShortName">DISP_CNT_OUT[4:0]</obj_property>
+      <obj_property name="ObjectShortName">DISP_CNT_OUT[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DATA_TO_SPI" type="array">
+      <obj_property name="ElementShortName">DATA_TO_SPI[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_TO_SPI[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DATA_FROM_SPI" type="array">
+      <obj_property name="ElementShortName">DATA_FROM_SPI[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_FROM_SPI[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider19">
+      <obj_property name="label">SPI HANDSHAKING</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/uut/en_spi" type="logic">
+      <obj_property name="ElementShortName">en_spi</obj_property>
+      <obj_property name="ObjectShortName">en_spi</obj_property>
+   </wvobject>
+   <wvobject fp_name="group21" type="group">
+      <obj_property name="label">WRITE REQ/ACK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_wr_req" type="logic">
+         <obj_property name="ElementShortName">spi_wr_req</obj_property>
+         <obj_property name="ObjectShortName">spi_wr_req</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_wr_ack" type="logic">
+         <obj_property name="ElementShortName">spi_wr_ack</obj_property>
+         <obj_property name="ObjectShortName">spi_wr_ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/pdata_to_spi" type="array">
+         <obj_property name="ElementShortName">pdata_to_spi[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pdata_to_spi[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group25" type="group">
+      <obj_property name="label">READ REQ/ACK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_rd_req" type="logic">
+         <obj_property name="ElementShortName">spi_rd_req</obj_property>
+         <obj_property name="ObjectShortName">spi_rd_req</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_rd_ack" type="logic">
+         <obj_property name="ElementShortName">spi_rd_ack</obj_property>
+         <obj_property name="ObjectShortName">spi_rd_ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_LEVEL_tb/uut/pdata_from_spi" type="array">
+         <obj_property name="ElementShortName">pdata_from_spi[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pdata_from_spi[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider29">
+      <obj_property name="label">SPI INTERFACE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SPI_MISO" type="logic">
+      <obj_property name="ElementShortName">SPI_MISO</obj_property>
+      <obj_property name="ObjectShortName">SPI_MISO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SPI_MOSI" type="logic">
+      <obj_property name="ElementShortName">SPI_MOSI</obj_property>
+      <obj_property name="ObjectShortName">SPI_MOSI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SPI_CS_INV" type="logic">
+      <obj_property name="ElementShortName">SPI_CS_INV</obj_property>
+      <obj_property name="ObjectShortName">SPI_CS_INV</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/SPI_SCK" type="logic">
+      <obj_property name="ElementShortName">SPI_SCK</obj_property>
+      <obj_property name="ObjectShortName">SPI_SCK</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider18">
+      <obj_property name="label">OUTPUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_LEVEL_tb/LD" type="array">
+      <obj_property name="ElementShortName">LD[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LD[7:0]</obj_property>
+   </wvobject>
+</wave_config>

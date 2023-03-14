@@ -61,12 +61,17 @@ PORT MAP (
         );
 
    -- Stimulus process
-   stim_proc: process
+   set_inputs: process
    begin		
     -- hold reset state for 1000 ns.
     wait for 1000 ns;	
 
-
+    SW <= "00000000";
+    BTN <= "00000";
+    wait for GCLK_period*18;
+    BTN(0) <= '1';
+    wait for GCLK_period*36;
+    BTN(0) <= '0';
        
     wait;
   end process;

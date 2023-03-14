@@ -127,7 +127,7 @@ begin
             -- From IDLE the only state we can go to is the states for WRITE mode. We
             -- therefore wait for the WRITE button to be pressed.
             if (WRITE = '1') then
-                state <= WRINST_REQ;
+                next_state <= WRINST_REQ;
             end if;
             
             
@@ -142,7 +142,7 @@ begin
             -- line goes high, we then enter the WRINST_ACK state where we wait for the
             -- ACK line to go low again.
             if (SPI_WR_ACK = '1') then
-                state <= WRINST_ACK;
+                next_state <= WRINST_ACK;
             end if;
         when WRINST_ACK =>
             -- We have to wait until the SPI ACK line goes back to low again before we
@@ -153,42 +153,42 @@ begin
             -- comments. The next state will be one where the first byte of the address is
             -- sent to the SPI.
             if (SPI_WR_ACK = '0') then
-                state <= WADDR1_REQ;
+                next_state <= WADDR1_REQ;
             end if;
             
         when WADDR1_REQ =>
             -- Here, the first byte of the SRAM address is sent as part of the WRITE mode
             -- transaction.
             if (SPI_WR_ACK = '1') then
-                state <= WADDR1_ACK;
+                next_state <= WADDR1_ACK;
             end if;
         when WADDR1_ACK =>
             -- Wait for the SPI ACK to go low before going to the next FSM state. 
             -- address.
             if (SPI_WR_ACK = '0') then
-                state <= WADDR2_REQ;
+                next_state <= WADDR2_REQ;
             end if;
             
         when WADDR2_REQ =>
             -- Here, the second byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
-                state <= WADDR2_ACK;
+                next_state <= WADDR2_ACK;
             end if;
         when WADDR2_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
-                state <= WADDR3_REQ;
+                next_state <= WADDR3_REQ;
             end if;
             
         when WADDR3_REQ =>
             -- Here, the third and final byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
-                state <= WADDR3_ACK;
+                next_state <= WADDR3_ACK;
             end if;
         when WADDR3_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
-                state <= WRHOLD;
+                next_state <= WRHOLD;
             end if;
             
         when WRHOLD =>
@@ -203,24 +203,24 @@ begin
             -- defined by the input limit, ENTER toggles will be ignored if we've stored
             -- enough inputs.
             if (ENTER = '1' and INPT_CNT_OUT < input_limit) then
-                state <= WRSWCH_REQ;                        -- User wants to enter values
+                next_state <= WRSWCH_REQ;                        -- User wants to enter values
             elsif (WRITE = '1' and INPT_CNT_OUT = 0) then
-                state <= IDLE;                              -- Nothing was written
+                next_state <= IDLE;                              -- Nothing was written
             elsif (WRITE = '1' and INPT_CNT_OUT > 0) then
-                state <= RDHOLD;                            -- Something was written
+                next_state <= RDHOLD;                            -- Something was written
             end if;
             
         when WRSWCH_REQ =>
             -- The value set by SWITCHES needs to be written to SRAM, so a WR req. is
             -- sent.
             if (SPI_WR_ACK = '1') then
-                state <= WRSWCH_ACK;
+                next_state <= WRSWCH_ACK;
             end if;
         when WRSWCH_ACK =>
             -- Wait for ACK low before returning back to WRHOLD so the user can enter
             -- another value into the SRAM or exit WRITE mode.
             if (SPI_WR_ACK = '0') then
-                state <= WRHOLD;
+                next_state <= WRHOLD;
             end if;
             
             
@@ -235,66 +235,66 @@ begin
             -- mode. Here we wait for the user to enter READ mode by toggling READ
             -- before we can send the READ instructions to the SPI.
             if (READ = '1') then
-                state <= RDINST_REQ;
+                next_state <= RDINST_REQ;
             end if;
             
         when RDINST_REQ =>
             -- Send the READ instruction to the SPI and wait for WR ACK.
             if (SPI_WR_ACK = '1') then
-                state <= RDINST_ACK;
+                next_state <= RDINST_ACK;
             end if;
         when RDINST_ACK =>
             -- Wait for RD ACK to return low.
             if (SPI_WR_ACK = '1') then
-                state <= RADDR1_REQ;
+                next_state <= RADDR1_REQ;
             end if;
             
         when RADDR1_REQ =>
             -- Here, the first byte of the SRAM address is sent as part of the READ mode
             -- transaction.
             if (SPI_WR_ACK = '1') then
-                state <= RADDR1_ACK;
+                next_state <= RADDR1_ACK;
             end if;
         when RADDR1_ACK =>
             -- Wait for the SPI ACK to go low before going to the next FSM state. 
             -- address.
             if (SPI_WR_ACK = '0') then
-                state <= RADDR2_REQ;
+                next_state <= RADDR2_REQ;
             end if;
             
         when RADDR2_REQ =>
             -- Here, the second byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
-                state <= RADDR2_ACK;
+                next_state <= RADDR2_ACK;
             end if;
         when RADDR2_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
-                state <= RADDR3_REQ;
+                next_state <= RADDR3_REQ;
             end if;
             
         when RADDR3_REQ =>
             -- Here, the third and final byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
-                state <= RADDR3_ACK;
+                next_state <= RADDR3_ACK;
             end if;
         when RADDR3_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
-                state <= RDOUTP_REQ;
+                next_state <= RDOUTP_REQ;
             end if;
             
         when RDOUTP_REQ =>
             -- We send a RD req. to the SPI so we can return the value that was
             -- previously written to the SRAM.
             if (SPI_RD_ACK = '1') then
-                state <= RDOUTP_ACK;
+                next_state <= RDOUTP_ACK;
             end if;
         when RDOUTP_ACK =>
             -- Wait for the RD ACK to return to low before going to next state to
             -- display the output via the LEDS.
             if (SPI_RD_ACK = '0') then
-                state <= LEDOUT;
+                next_state <= LEDOUT;
             end if;
             
         when LEDOUT =>
@@ -306,9 +306,9 @@ begin
             -- the IDLE state, ready to enter WRITE mode again and write more values
             -- into the SRAM.
             if (INPT_CNT_OUT > 0 and DISP_CNT_OUT = disp_delay) then
-                state <= RDOUTP_REQ;
+                next_state <= RDOUTP_REQ;
             elsif (INPT_CNT_OUT = 0 and DISP_CNT_OUT = disp_delay) then
-                state <= IDLE;
+                next_state <= IDLE;
             end if;
     end case;
 end process fsm_process;
@@ -342,7 +342,7 @@ DATA_TO_SPI <= "00000010" when state = WRINST_REQ else  -- WRITE instruction
                SRAM_ADDRESS(15 downto 8) when state = WADDR2_REQ or state = RADDR2_REQ else
                SRAM_ADDRESS(7 downto 0) when state = WADDR3_REQ or state = RADDR3_REQ else
                SWITCHES when state = WRSWCH_REQ else    -- Send value of SWITCHES
-               "00000010";                              -- zeros otherwise
+               "00000000";                              -- zeros otherwise
 
 LEDS <= STD_LOGIC_VECTOR(INPT_CNT_OUT) when state = WRHOLD or       -- Output # of inputs during
                                             state = WRSWCH_REQ or   -- these states...
