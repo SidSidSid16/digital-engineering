@@ -1,0 +1,126 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Company: University of York}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Engineer: Gianluca Tempesti}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Module Name:    Algorithm \PYGZhy{} Behavioral }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Project Name:   Digital Engineering Labs 2\PYGZhy{}3}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Target Devices: Any device \PYGZhy{} Tested on:}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}                   XC6SLX45\PYGZhy{}3CSG32}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}                   ZedBoard}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}                   Pynq Z2}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Tool versions:  Tested on ISE 14.2 / Vivado 2017.4.1}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Description:    Base circuit for pipeline labs}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Revision: }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Revision 0.01 \PYGZhy{} File Created 25/10/2012 }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Revision 0.02 \PYGZhy{} File updated 04/12/2015}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Revision 0.03 \PYGZhy{} Vivado update and test on Zedboard 06/12/2018}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Revision 0.04 \PYGZhy{} Updated and tested on Pynq Z2 08/12/2020}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Additional Comments: }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{library}\PYG{+w}{ }\PYG{n+nn}{IEEE}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.STD\PYGZus{}LOGIC\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Entity description:}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The entity implements, with no optimization, a sequence of operations:}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}	 O \PYGZlt{}= (A*3 + B*C)/D + C + 5}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} where A,B,C, and D are UNSIGNED vectors of parameterizable size}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Note 1: There is no particular \PYGZdq{}meaning\PYGZdq{} to the equation \PYGZhy{} it is designed for}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  experimentation with logic optimization for performance}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Note 2: There is no provision for overflow. Some input vectors can cause}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  overflow and the result will be incorrect.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Note 3: Inputs and outputs are registered (rising edge, synchronous reset).}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  This introduces a latency of 2 clock cycles between inputs and outputs.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Note 4: D is the divisor in one of the operations, so can never have value 0}
+
+\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{algorithm}\PYG{+w}{ }\PYG{k}{is}
+\PYG{+w}{    }\PYG{k}{generic}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{16}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} defines the size of the data}
+\PYG{+w}{    }\PYG{k}{Port}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{           }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} The four (parameterizable) data inputs}
+\PYG{+w}{           }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }
+\PYG{+w}{           }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{C}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{n}{D}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{           }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Output = (A*3 + B*C)/D + C +5}
+\PYG{+w}{           }\PYG{n}{O}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{  }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }
+\PYG{+w}{           }\PYG{p}{);}
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{algorithm}\PYG{p}{;}
+
+\PYG{k}{architecture}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{+w}{ }\PYG{k}{of}\PYG{+w}{ }\PYG{n+nc}{algorithm}\PYG{+w}{ }\PYG{k}{is}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Registered inputs}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INTA}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{INTB}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{INTC}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{INTD}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal signals for intermediate operations (note the sizes)}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INT1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INTA + 3}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INT2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INTB * INTC}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INT3}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INT1 + INT2}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INT4}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INT3 / INTD}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INT5 needs to be resized to match INTC+1, as this vector size}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} is larger than the required vector size for a decimal \PYGZsq{}5\PYGZsq{}}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INT5}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} [UPDATED] INTC + 5}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INTO needs to be resized to match INT4, as this is the larger}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} vector size compared to INT5 as we updated that to be smaller}
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{INTO}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}size}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} [UPDATED] INT4 + INT5}
+
+\PYG{k}{begin}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Input registers (D\PYGZhy{}type, rising edge, synchronous reset)}
+\PYG{n+nc}{input\PYGZus{}regs}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{is}
+\PYG{k}{begin}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rising\PYGZus{}edge}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{ }
+\PYG{+w}{      }\PYG{n}{INTA}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{others}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{INTB}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{others}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{INTC}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{others}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{);}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}    INTD \PYGZlt{}= (0 =\PYGZgt{} \PYGZsq{}1\PYGZsq{}, others =\PYGZgt{} \PYGZsq{}0\PYGZsq{});  \PYGZhy{}\PYGZhy{} aggregate notation}
+\PYG{+w}{      }\PYG{n}{INTD}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{INTD}\PYG{n+na}{\PYGZsq{}length}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} type conversion notation}
+\PYG{+w}{    }\PYG{k}{else}
+\PYG{+w}{      }\PYG{n}{INTA}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{INTB}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{B}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{INTC}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{C}\PYG{p}{);}
+\PYG{+w}{      }\PYG{n}{INTD}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{D}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{input\PYGZus{}regs}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Mathematical operations on the data (combinational)}
+\PYG{n}{INT1}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INTA}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{n}{INT2}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INTB}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{INTC}\PYG{p}{;}
+\PYG{n}{INT3}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INT1}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{INT2}\PYG{p}{;}
+\PYG{n}{INT4}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INT3}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{INTD}\PYG{p}{;}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} This logic has been moved forward along side the multiplication }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} so that the adders aren\PYGZsq{}t exactly one after the other operations }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} in INT1 and INT2. In the previous design, this logic would\PYGZsq{}ve }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} been carried out by INTO, we need to make sure that the to\PYGZus{}unsigned }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} function has the correct size parameter (width of INTC + 1)}
+\PYG{n}{INT5}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INTC}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{INTC}\PYG{n+na}{\PYGZsq{}length}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Bringing the INT5 logic forward needs to be implemented, therefore}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} INTO has been adapted to take into account this change. Critical }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} path is reduced as the INT5 adder is along side the rest of the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} logic, INTO doesn\PYGZsq{}t have to wait for INT5 like before in the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} pre\PYGZhy{}modifications design.}
+\PYG{n}{INTO}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{INT4}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{INT5}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Input registers (D\PYGZhy{}type, rising edge, synchronous reset)}
+\PYG{n+nc}{output\PYGZus{}regs}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{is}
+\PYG{k}{begin}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rising\PYGZus{}edge}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{ }
+\PYG{+w}{      }\PYG{n}{O}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{others}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{else}
+\PYG{+w}{      }\PYG{n}{O}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{std\PYGZus{}logic\PYGZus{}vector}\PYG{p}{(}\PYG{n}{INTO}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{output\PYGZus{}regs}\PYG{p}{;}
+
+
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{p}{;}
+
+\end{Verbatim}
