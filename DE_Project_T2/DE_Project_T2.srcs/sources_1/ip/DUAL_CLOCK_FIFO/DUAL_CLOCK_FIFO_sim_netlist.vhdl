@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Mon Mar 13 13:02:51 2023
--- Host        : elclas318 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {H:/Documents/Digital Engineering
---               GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/ip/DUAL_CLOCK_FIFO/DUAL_CLOCK_FIFO_sim_netlist.vhdl}
+-- Date        : Tue Mar  7 15:46:22 2023
+-- Host        : SidS-MacBook-Pro running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim -rename_top DUAL_CLOCK_FIFO -prefix
+--               DUAL_CLOCK_FIFO_ DUAL_CLOCK_FIFO_sim_netlist.vhdl
 -- Design      : DUAL_CLOCK_FIFO
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,8 +28,6 @@ entity DUAL_CLOCK_FIFO_xpm_cdc_async_rst is
   attribute INIT_SYNC_FF of DUAL_CLOCK_FIFO_xpm_cdc_async_rst : entity is 0;
   attribute INV_DEF_VAL : string;
   attribute INV_DEF_VAL of DUAL_CLOCK_FIFO_xpm_cdc_async_rst : entity is "1'b1";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_xpm_cdc_async_rst : entity is "xpm_cdc_async_rst";
   attribute RST_ACTIVE_HIGH : integer;
   attribute RST_ACTIVE_HIGH of DUAL_CLOCK_FIFO_xpm_cdc_async_rst : entity is 1;
   attribute VERSION : integer;
@@ -159,8 +157,6 @@ entity DUAL_CLOCK_FIFO_xpm_cdc_gray is
   attribute DEST_SYNC_FF of DUAL_CLOCK_FIFO_xpm_cdc_gray : entity is 2;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of DUAL_CLOCK_FIFO_xpm_cdc_gray : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_xpm_cdc_gray : entity is "xpm_cdc_gray";
   attribute REG_OUTPUT : integer;
   attribute REG_OUTPUT of DUAL_CLOCK_FIFO_xpm_cdc_gray : entity is 1;
   attribute SIM_ASSERT_CHK : integer;
@@ -902,8 +898,6 @@ entity DUAL_CLOCK_FIFO_xpm_cdc_single is
   attribute DEST_SYNC_FF of DUAL_CLOCK_FIFO_xpm_cdc_single : entity is 4;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of DUAL_CLOCK_FIFO_xpm_cdc_single : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_xpm_cdc_single : entity is "xpm_cdc_single";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of DUAL_CLOCK_FIFO_xpm_cdc_single : entity is 0;
   attribute SRC_INPUT_REG : integer;
@@ -1063,8 +1057,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
 end DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper is
@@ -1230,8 +1222,6 @@ entity DUAL_CLOCK_FIFO_rd_bin_cntr is
     rd_clk : in STD_LOGIC;
     AS : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_rd_bin_cntr : entity is "rd_bin_cntr";
 end DUAL_CLOCK_FIFO_rd_bin_cntr;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_rd_bin_cntr is
@@ -1543,8 +1533,6 @@ entity DUAL_CLOCK_FIFO_rd_fwft is
     rd_en : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_rd_fwft : entity is "rd_fwft";
 end DUAL_CLOCK_FIFO_rd_fwft;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_rd_fwft is
@@ -1783,8 +1771,6 @@ entity DUAL_CLOCK_FIFO_rd_status_flags_as is
     rd_clk : in STD_LOGIC;
     AS : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_rd_status_flags_as : entity is "rd_status_flags_as";
 end DUAL_CLOCK_FIFO_rd_status_flags_as;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_rd_status_flags_as is
@@ -1843,8 +1829,6 @@ entity DUAL_CLOCK_FIFO_wr_bin_cntr is
     wr_clk : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_wr_bin_cntr : entity is "wr_bin_cntr";
 end DUAL_CLOCK_FIFO_wr_bin_cntr;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_wr_bin_cntr is
@@ -2150,8 +2134,6 @@ entity DUAL_CLOCK_FIFO_wr_status_flags_as is
     Q : in STD_LOGIC_VECTOR ( 0 to 0 );
     RD_PNTR_WR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_wr_status_flags_as : entity is "wr_status_flags_as";
 end DUAL_CLOCK_FIFO_wr_status_flags_as;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_wr_status_flags_as is
@@ -2229,8 +2211,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_prim_width is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end DUAL_CLOCK_FIFO_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_prim_width is
@@ -2266,8 +2246,6 @@ entity DUAL_CLOCK_FIFO_clk_x_pntrs is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     rd_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_clk_x_pntrs : entity is "clk_x_pntrs";
 end DUAL_CLOCK_FIFO_clk_x_pntrs;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_clk_x_pntrs is
@@ -2377,8 +2355,6 @@ entity DUAL_CLOCK_FIFO_rd_logic is
     \dest_out_bin_ff_reg[3]_0\ : in STD_LOGIC;
     WR_PNTR_RD : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_rd_logic : entity is "rd_logic";
 end DUAL_CLOCK_FIFO_rd_logic;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_rd_logic is
@@ -2432,8 +2408,6 @@ entity DUAL_CLOCK_FIFO_reset_blk_ramfifo is
     wr_clk : in STD_LOGIC;
     rd_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end DUAL_CLOCK_FIFO_reset_blk_ramfifo;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_reset_blk_ramfifo is
@@ -2739,8 +2713,6 @@ entity DUAL_CLOCK_FIFO_wr_logic is
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_wr_logic : entity is "wr_logic";
 end DUAL_CLOCK_FIFO_wr_logic;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_wr_logic is
@@ -2793,8 +2765,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr is
@@ -2828,8 +2798,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_top is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end DUAL_CLOCK_FIFO_blk_mem_gen_top;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_top is
@@ -2863,8 +2831,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
 end DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth is
@@ -2898,8 +2864,6 @@ entity DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1 is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     din : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
 end DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1 is
@@ -2934,8 +2898,6 @@ entity DUAL_CLOCK_FIFO_memory is
     din : in STD_LOGIC_VECTOR ( 31 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_memory : entity is "memory";
 end DUAL_CLOCK_FIFO_memory;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_memory is
@@ -3060,8 +3022,6 @@ entity DUAL_CLOCK_FIFO_fifo_generator_ramfifo is
     wr_en : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end DUAL_CLOCK_FIFO_fifo_generator_ramfifo;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_fifo_generator_ramfifo is
@@ -3168,8 +3128,6 @@ entity DUAL_CLOCK_FIFO_fifo_generator_top is
     wr_en : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_fifo_generator_top : entity is "fifo_generator_top";
 end DUAL_CLOCK_FIFO_fifo_generator_top;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_fifo_generator_top is
@@ -3207,8 +3165,6 @@ entity DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth is
     wr_en : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth : entity is "fifo_generator_v13_2_1_synth";
 end DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth is
@@ -3870,8 +3826,6 @@ entity DUAL_CLOCK_FIFO_fifo_generator_v13_2_1 is
   attribute C_WR_PNTR_WIDTH_WRCH of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1 : entity is "fifo_generator_v13_2_1";
 end DUAL_CLOCK_FIFO_fifo_generator_v13_2_1;
 
 architecture STRUCTURE of DUAL_CLOCK_FIFO_fifo_generator_v13_2_1 is

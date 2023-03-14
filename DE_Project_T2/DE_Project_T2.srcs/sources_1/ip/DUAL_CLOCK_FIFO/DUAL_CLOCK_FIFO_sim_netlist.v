@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Mon Mar 13 13:02:51 2023
-// Host        : elclas318 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {H:/Documents/Digital Engineering
-//               GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/ip/DUAL_CLOCK_FIFO/DUAL_CLOCK_FIFO_sim_netlist.v}
+// Date        : Tue Mar  7 15:46:22 2023
+// Host        : SidS-MacBook-Pro running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim -rename_top DUAL_CLOCK_FIFO -prefix
+//               DUAL_CLOCK_FIFO_ DUAL_CLOCK_FIFO_sim_netlist.v
 // Design      : DUAL_CLOCK_FIFO
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -604,8 +604,8 @@ module DUAL_CLOCK_FIFO
 endmodule
 
 (* DEF_VAL = "1'b0" *) (* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "0" *) 
-(* INV_DEF_VAL = "1'b1" *) (* ORIG_REF_NAME = "xpm_cdc_async_rst" *) (* RST_ACTIVE_HIGH = "1" *) 
-(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* xpm_cdc = "ASYNC_RST" *) 
+(* INV_DEF_VAL = "1'b1" *) (* RST_ACTIVE_HIGH = "1" *) (* VERSION = "0" *) 
+(* XPM_MODULE = "TRUE" *) (* xpm_cdc = "ASYNC_RST" *) 
 module DUAL_CLOCK_FIFO_xpm_cdc_async_rst
    (src_arst,
     dest_clk,
@@ -679,10 +679,9 @@ module DUAL_CLOCK_FIFO_xpm_cdc_async_rst__1
         .Q(arststages_ff[1]));
 endmodule
 
-(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "0" *) (* ORIG_REF_NAME = "xpm_cdc_gray" *) 
-(* REG_OUTPUT = "1" *) (* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) 
-(* VERSION = "0" *) (* WIDTH = "5" *) (* XPM_MODULE = "TRUE" *) 
-(* xpm_cdc = "GRAY" *) 
+(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "0" *) (* REG_OUTPUT = "1" *) 
+(* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) (* VERSION = "0" *) 
+(* WIDTH = "5" *) (* XPM_MODULE = "TRUE" *) (* xpm_cdc = "GRAY" *) 
 module DUAL_CLOCK_FIFO_xpm_cdc_gray
    (src_clk,
     src_in_bin,
@@ -1216,9 +1215,9 @@ module DUAL_CLOCK_FIFO_xpm_cdc_gray__parameterized0
         .R(1'b0));
 endmodule
 
-(* DEST_SYNC_FF = "4" *) (* INIT_SYNC_FF = "0" *) (* ORIG_REF_NAME = "xpm_cdc_single" *) 
-(* SIM_ASSERT_CHK = "0" *) (* SRC_INPUT_REG = "0" *) (* VERSION = "0" *) 
-(* XPM_MODULE = "TRUE" *) (* xpm_cdc = "SINGLE" *) 
+(* DEST_SYNC_FF = "4" *) (* INIT_SYNC_FF = "0" *) (* SIM_ASSERT_CHK = "0" *) 
+(* SRC_INPUT_REG = "0" *) (* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) 
+(* xpm_cdc = "SINGLE" *) 
 module DUAL_CLOCK_FIFO_xpm_cdc_single
    (src_clk,
     src_in,
@@ -1320,7 +1319,6 @@ module DUAL_CLOCK_FIFO_xpm_cdc_single__1
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr
    (D,
     rd_clk,
@@ -1363,7 +1361,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_generic_cstr
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_prim_width
    (D,
     rd_clk,
@@ -1406,7 +1403,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_prim_width
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper
    (D,
     rd_clk,
@@ -1568,7 +1564,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_prim_wrapper
         .WEBWE({E,E,E,E}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_top
    (D,
     rd_clk,
@@ -1611,7 +1606,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_top
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1
    (D,
     rd_clk,
@@ -1654,7 +1648,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth
    (D,
     rd_clk,
@@ -1697,7 +1690,6 @@ module DUAL_CLOCK_FIFO_blk_mem_gen_v8_4_1_synth
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "clk_x_pntrs" *) 
 module DUAL_CLOCK_FIFO_clk_x_pntrs
    (ram_full_i_reg,
     RD_PNTR_WR,
@@ -1796,7 +1788,6 @@ module DUAL_CLOCK_FIFO_clk_x_pntrs
         .src_in_bin(\gic0.gc0.count_d2_reg[4] ));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_ramfifo" *) 
 module DUAL_CLOCK_FIFO_fifo_generator_ramfifo
    (wr_rst_busy,
     AR,
@@ -1906,7 +1897,6 @@ module DUAL_CLOCK_FIFO_fifo_generator_ramfifo
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_top" *) 
 module DUAL_CLOCK_FIFO_fifo_generator_top
    (wr_rst_busy,
     AS,
@@ -2024,7 +2014,7 @@ endmodule
 (* C_WR_DEPTH_WRCH = "16" *) (* C_WR_FREQ = "1" *) (* C_WR_PNTR_WIDTH = "5" *) 
 (* C_WR_PNTR_WIDTH_AXIS = "10" *) (* C_WR_PNTR_WIDTH_RACH = "4" *) (* C_WR_PNTR_WIDTH_RDCH = "10" *) 
 (* C_WR_PNTR_WIDTH_WACH = "4" *) (* C_WR_PNTR_WIDTH_WDCH = "10" *) (* C_WR_PNTR_WIDTH_WRCH = "4" *) 
-(* C_WR_RESPONSE_LATENCY = "1" *) (* ORIG_REF_NAME = "fifo_generator_v13_2_1" *) 
+(* C_WR_RESPONSE_LATENCY = "1" *) 
 module DUAL_CLOCK_FIFO_fifo_generator_v13_2_1
    (backup,
     backup_marker,
@@ -3031,7 +3021,6 @@ module DUAL_CLOCK_FIFO_fifo_generator_v13_2_1
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_1_synth" *) 
 module DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth
    (wr_rst_busy,
     AR,
@@ -3082,7 +3071,6 @@ module DUAL_CLOCK_FIFO_fifo_generator_v13_2_1_synth
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "memory" *) 
 module DUAL_CLOCK_FIFO_memory
    (dout,
     rd_clk,
@@ -3193,7 +3181,6 @@ module DUAL_CLOCK_FIFO_memory
         .R(AS));
 endmodule
 
-(* ORIG_REF_NAME = "rd_bin_cntr" *) 
 module DUAL_CLOCK_FIFO_rd_bin_cntr
    (Q,
     ram_empty_i_reg,
@@ -3437,7 +3424,6 @@ module DUAL_CLOCK_FIFO_rd_bin_cntr
         .O(ram_empty_i_i_5_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "rd_fwft" *) 
 module DUAL_CLOCK_FIFO_rd_fwft
    (empty,
     tmp_ram_rd_en,
@@ -3630,7 +3616,6 @@ module DUAL_CLOCK_FIFO_rd_fwft
         .Q(user_valid));
 endmodule
 
-(* ORIG_REF_NAME = "rd_logic" *) 
 module DUAL_CLOCK_FIFO_rd_logic
    (empty,
     Q,
@@ -3696,7 +3681,6 @@ module DUAL_CLOCK_FIFO_rd_logic
         .rd_clk(rd_clk));
 endmodule
 
-(* ORIG_REF_NAME = "rd_status_flags_as" *) 
 module DUAL_CLOCK_FIFO_rd_status_flags_as
    (out,
     \gc0.count_d1_reg[2] ,
@@ -3738,7 +3722,6 @@ module DUAL_CLOCK_FIFO_rd_status_flags_as
         .Q(ram_empty_i));
 endmodule
 
-(* ORIG_REF_NAME = "reset_blk_ramfifo" *) 
 module DUAL_CLOCK_FIFO_reset_blk_ramfifo
    (AR,
     AS,
@@ -3962,7 +3945,6 @@ module DUAL_CLOCK_FIFO_reset_blk_ramfifo
         .src_arst(rst));
 endmodule
 
-(* ORIG_REF_NAME = "wr_bin_cntr" *) 
 module DUAL_CLOCK_FIFO_wr_bin_cntr
    (Q,
     ram_full_i_reg,
@@ -4204,7 +4186,6 @@ module DUAL_CLOCK_FIFO_wr_bin_cntr
         .O(ram_full_i_i_7_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "wr_logic" *) 
 module DUAL_CLOCK_FIFO_wr_logic
    (full,
     Q,
@@ -4267,7 +4248,6 @@ module DUAL_CLOCK_FIFO_wr_logic
         .wr_clk(wr_clk));
 endmodule
 
-(* ORIG_REF_NAME = "wr_status_flags_as" *) 
 module DUAL_CLOCK_FIFO_wr_status_flags_as
    (full,
     ram_full_i_reg_0,

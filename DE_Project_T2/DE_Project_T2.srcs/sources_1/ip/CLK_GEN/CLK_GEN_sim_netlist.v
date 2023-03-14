@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Mon Mar 13 13:00:43 2023
-// Host        : elclas318 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {H:/Documents/Digital Engineering
-//               GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/ip/CLK_GEN/CLK_GEN_sim_netlist.v}
+// Date        : Thu Mar  9 18:33:28 2023
+// Host        : SidS-MacBook-Pro running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim -rename_top CLK_GEN -prefix
+//               CLK_GEN_ CLK_GEN_sim_netlist.v
 // Design      : CLK_GEN
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,7 +31,6 @@ module CLK_GEN
         .clk_out2(clk_out2));
 endmodule
 
-(* ORIG_REF_NAME = "CLK_GEN_clk_wiz" *) 
 module CLK_GEN_CLK_GEN_clk_wiz
    (clk_out1,
     clk_out2,
