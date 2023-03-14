@@ -2,31 +2,32 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Mar 13 13:06:02 2023
-# Process ID: 2892
+# Start of session at: Tue Mar 14 13:51:19 2023
+# Process ID: 10264
 # Current directory: H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1
 # Command line: vivado.exe -log TOP_LEVEL.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_LEVEL.tcl
 # Log file: H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds
 # Journal file: H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
+INFO: [Common 17-724] Xilinx Tcl Store apps are automatically updated.
 source TOP_LEVEL.tcl -notrace
 Command: synth_design -top TOP_LEVEL -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 14200 
+INFO: Helper process launched with PID 7072 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 407.031 ; gain = 104.891
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 406.762 ; gain = 104.012
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP_LEVEL' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/TOP_LEVEL.vhd:21]
 	Parameter disp_delay bound to: 100000000 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'CLK_GEN' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/realtime/CLK_GEN_stub.vhdl:14]
+INFO: [Synth 8-638] synthesizing module 'CLK_GEN' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/realtime/CLK_GEN_stub.vhdl:14]
 INFO: [Synth 8-638] synthesizing module 'Debouncer' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/Debouncer.vhd:11]
 INFO: [Synth 8-256] done synthesizing module 'Debouncer' (1#1) [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/Debouncer.vhd:11]
 INFO: [Synth 8-638] synthesizing module 'STUDENT_AREA' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/STUDENT_AREA.vhd:32]
 	Parameter disp_delay bound to: 100000000 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'DUAL_CLOCK_FIFO' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/realtime/DUAL_CLOCK_FIFO_stub.vhdl:20]
+INFO: [Synth 8-638] synthesizing module 'DUAL_CLOCK_FIFO' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/realtime/DUAL_CLOCK_FIFO_stub.vhdl:20]
 INFO: [Synth 8-638] synthesizing module 'Single_bit_synchroniser' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/Single_bit_synchroniser.vhd:10]
 INFO: [Synth 8-256] done synthesizing module 'Single_bit_synchroniser' (2#1) [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/Single_bit_synchroniser.vhd:10]
 	Parameter DEST_SYNC_FF bound to: 2 - type: integer 
@@ -91,7 +92,7 @@ WARNING: [Synth 8-3331] design SOURCE_CTRL has unconnected port USER_PB[2]
 WARNING: [Synth 8-3331] design SOURCE_CTRL has unconnected port USER_PB[0]
 WARNING: [Synth 8-3331] design xpm_cdc_single has unconnected port src_clk
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 460.109 ; gain = 157.969
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 459.438 ; gain = 156.688
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -101,17 +102,17 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 460.109 ; gain = 157.969
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 459.438 ; gain = 156.688
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp2/CLK_GEN_in_context.xdc] for cell 'Clock_generator'
-Finished Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp2/CLK_GEN_in_context.xdc] for cell 'Clock_generator'
-Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp3/DUAL_CLOCK_FIFO_in_context.xdc] for cell 'STUDENT_AREA_component/Synchronization_FIFO'
-Finished Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp3/DUAL_CLOCK_FIFO_in_context.xdc] for cell 'STUDENT_AREA_component/Synchronization_FIFO'
+Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp2/CLK_GEN_in_context.xdc] for cell 'Clock_generator'
+Finished Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp2/CLK_GEN_in_context.xdc] for cell 'Clock_generator'
+Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp3/DUAL_CLOCK_FIFO_in_context.xdc] for cell 'STUDENT_AREA_component/Synchronization_FIFO'
+Finished Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp3/DUAL_CLOCK_FIFO_in_context.xdc] for cell 'STUDENT_AREA_component/Synchronization_FIFO'
 Parsing XDC File [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/constrs_1/imports/new/ZedBoard_IO.xdc]
 WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/constrs_1/imports/new/ZedBoard_IO.xdc:362]
 WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/constrs_1/imports/new/ZedBoard_IO.xdc:367]
@@ -129,33 +130,33 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 827.145 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 828.797 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 827.145 ; gain = 525.004
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 828.797 ; gain = 526.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 827.145 ; gain = 525.004
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 828.797 ; gain = 526.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for GCLK. (constraint file  {H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp2/CLK_GEN_in_context.xdc}, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for GCLK. (constraint file  {H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-2892-elclas318/dcp2/CLK_GEN_in_context.xdc}, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for GCLK. (constraint file  {H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp2/CLK_GEN_in_context.xdc}, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for GCLK. (constraint file  {H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/.Xil/Vivado-10264-elclas037/dcp2/CLK_GEN_in_context.xdc}, line 5).
 Applied set_property DONT_TOUCH = true for Clock_generator. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for STUDENT_AREA_component/Sync_source_FSM_state. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for STUDENT_AREA_component/Synchronization_FIFO. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 827.145 ; gain = 525.004
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 828.797 ; gain = 526.047
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "LIMT_CNT_RST" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 WARNING: [Synth 8-327] inferring latch for variable 'next_state_reg' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/SOURCE_CTRL.vhd:79]
 WARNING: [Synth 8-327] inferring latch for variable 'next_state_reg' [H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/OUTPUT_CTRL.vhd:54]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 827.145 ; gain = 525.004
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 828.797 ; gain = 526.047
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -306,7 +307,7 @@ WARNING: [Synth 8-3332] Sequential element (debouncers[4].button_debouncer_100_M
 WARNING: [Synth 8-3332] Sequential element (debouncers[4].button_debouncer_100_MHZ/Q1_reg) is unused and will be removed from module TOP_LEVEL.
 WARNING: [Synth 8-3332] Sequential element (debouncers[4].button_debouncer_100_MHZ/Q2_reg) is unused and will be removed from module TOP_LEVEL.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 827.145 ; gain = 525.004
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 828.797 ; gain = 526.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -348,13 +349,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'Clock_generator/clk_out1'
 INFO: [Synth 8-5578] Moved timing constraint from pin 'Clock_generator/clk_out2' to pin 'Clock_generator/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 860.641 ; gain = 558.500
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:47 . Memory (MB): peak = 864.004 ; gain = 561.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 862.473 ; gain = 560.332
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:48 . Memory (MB): peak = 865.832 ; gain = 563.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -366,7 +367,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:48 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -391,7 +392,7 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3295] tying undriven pin STUDENT_AREA_component/Sync_source_FSM_state:src_in to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -404,7 +405,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -416,25 +417,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -489,11 +490,11 @@ Report Instance Areas:
 |15    |  \debouncers[3].button_debouncer_7MHZ     |Debouncer_1                             |     5|
 +------+-------------------------------------------+----------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 883.867 ; gain = 581.727
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:50 . Memory (MB): peak = 887.031 ; gain = 584.281
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 883.867 ; gain = 214.691
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 883.867 ; gain = 581.727
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 887.031 ; gain = 214.922
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:50 . Memory (MB): peak = 887.031 ; gain = 584.281
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 191 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -506,8 +507,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 51 Infos, 48 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 883.867 ; gain = 593.207
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:55 . Memory (MB): peak = 887.031 ; gain = 595.996
 INFO: [Common 17-1381] The checkpoint 'H:/Documents/Digital Engineering GitHub/DigitalEngineering2023/DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_LEVEL_utilization_synth.rpt -pb TOP_LEVEL_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 883.867 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 13 13:06:56 2023...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 887.031 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 14 13:52:35 2023...
