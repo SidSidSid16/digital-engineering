@@ -199,8 +199,10 @@ begin
             -- or for the user to toggle ENTER to exit WRITE mode. If the user enters
             -- values and exits WRITE mode, then the logic can assume that the user will
             -- enter READ mode next. If the user exits WRITE without writing anything,
-            -- we need to return back to IDLE.
-            if (ENTER = '1') then
+            -- we need to return back to IDLE. We only want to store as many values as
+            -- defined by the input limit, ENTER toggles will be ignored if we've stored
+            -- enough inputs.
+            if (ENTER = '1' and INPT_CNT_OUT < input_limit) then
                 state <= WRSWCH_REQ;                        -- User wants to enter values
             elsif (WRITE = '1' and INPT_CNT_OUT = 0) then
                 state <= IDLE;                              -- Nothing was written
