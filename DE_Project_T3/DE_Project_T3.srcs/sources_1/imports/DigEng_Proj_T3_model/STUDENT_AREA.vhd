@@ -305,14 +305,68 @@ begin
             -- (i.e., the counter has returned back to 0) then we can return back to
             -- the IDLE state, ready to enter WRITE mode again and write more values
             -- into the SRAM.
-            if (INPT_CNT_OUT > 0) then
+            if (INPT_CNT_OUT > 0 and DISP_CNT_OUT = disp_delay) then
                 state <= RDOUTP_REQ;
-            elsif (INPT_CNT_OUT = 0) then
+            elsif (INPT_CNT_OUT = 0 and DISP_CNT_OUT = disp_delay) then
                 state <= IDLE;
             end if;
     end case;
 end process fsm_process;
 
+
+
+----------------------------    
+-- OUTPUT COMBINATIONAL LOGIC
+--------
+
+SPI_WR_REQ <= '1' when state = WRINST_REQ or    -- WRITE MODE
+                       state = WADDR1_REQ or
+                       state = WADDR2_REQ or
+                       state = WADDR3_REQ or
+                       state = WRSWCH_REQ or
+                       state = RDINST_REQ or    -- READ MODE
+                       state = RADDR1_REQ or
+                       state = RADDR2_REQ or
+                       state = RADDR3_REQ else
+              '0';
+              
+SPI_RD_REQ <= '1' when state = RDOUTP_REQ else  -- READ MODE: reading SRAM output
+              '0';
+                       
+EN_SPI <= '0' when state = IDLE else    -- Enable SPI except when logic is IDLE
+          '1';
+          
+DATA_TO_SPI <= "00000010" when state = WRINST_REQ else  -- WRITE instruction
+               "00000011" when state = RDINST_REQ else  -- READ instruction
+               SRAM_ADDRESS(23 downto 16) when state = WADDR1_REQ or state = RADDR1_REQ else
+               SRAM_ADDRESS(15 downto 8) when state = WADDR2_REQ or state = RADDR2_REQ else
+               SRAM_ADDRESS(7 downto 0) when state = WADDR3_REQ or state = RADDR3_REQ else
+               SWITCHES when state = WRSWCH_REQ else    -- Send value of SWITCHES
+               "00000010";                              -- zeros otherwise
+
+LEDS <= STD_LOGIC_VECTOR(INPT_CNT_OUT) when state = WRHOLD or       -- Output # of inputs during
+                                            state = WRSWCH_REQ or   -- these states...
+                                            state = WRSWCH_ACK else
+        DATA_FROM_SPI when state = LEDOUT else                      -- Output value from memory
+        "00000000";                                                 -- Output zeros otherwise
+        
+INPT_CNT_RST <= '1' when state = IDLE else  -- Reset this counter when we come back to IDLE state
+                '0';
+                
+INPT_CNT_EN_UP <= '1' when ENTER = '1' and                  -- Increment this counter only when
+                           state = WRHOLD and               -- another value can be read into SRAM
+                           INPT_CNT_OUT < input_limit else      
+                  '0';
+
+INPT_CNT_EN_DOWN <= '1' when state = LEDOUT and     -- Decrement this counter when a value is popped
+                             DISP_CNT_OUT = 0 else  -- from SRAM, at the start of displaying.
+                    '0';
+                    
+DISP_CNT_RST <= '1' when state = IDLE or state = RDOUTP_REQ else    -- Reset when IDLE or when loading
+                '0';                                                -- next value in.
+                
+DISP_CNT_EN <= '1' when state = LEDOUT else -- Only start counting (add a delay) in the LEDOUT state
+               '0';                         -- when the LED is displaying an output.
 
 end Behavioral;
 
