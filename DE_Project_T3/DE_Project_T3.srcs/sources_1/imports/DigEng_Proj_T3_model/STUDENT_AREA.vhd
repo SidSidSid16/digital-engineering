@@ -67,6 +67,12 @@ signal state, next_state : state_type;
 -- how many values that've been read.
 signal INPT_CNT_OUT : UNSIGNED (log2(input_limit)-1 downto 0);
 signal INPT_CNT_EN_UP, INPT_CNT_EN_DOWN, INPT_CNT_RST : STD_LOGIC;
+-- Internal signal instantiation for the regular parameterisable
+-- counter that's used to add a delay between each LED output for
+-- increased readability for the user. This one's not up-down, it
+-- only counts up and rolls-over to 0.
+signal DISP_CNT_OUT : UNSIGNED (log2(disp_delay)-1 downto 0);
+signal DISP_CNT_EN, DISP_CNT_RST : STD_LOGIC;
 
 begin
 
@@ -87,6 +93,16 @@ PORT MAP(
 	count_out => INPT_CNT_OUT
 );
 
+-- Instantiate the parameterisable counter that's used to add
+-- a delay between each LED output.
+DISP_CNT : entity work.Param_counter 
+GENERIC MAP (LIMIT => disp_delay)
+PORT MAP(
+	clk => clk,
+	rst => DISP_CNT_RST,
+	en => DISP_CNT_EN,
+	count_out => DISP_CNT_OUT
+);
 
 --  Sets the state as IDLE (reset state) when the reset input is set high.
 --  At each clock cycle if the reset isn't high, the state is set to the next

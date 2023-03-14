@@ -73,6 +73,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/Param_Counter.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/Param_Counter.vhd"/>
+          <Attr Name="ImportTime" Val="1450114156"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/Param_Counter_UpDown.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -99,15 +107,6 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/TOP_LEVEL.vhd"/>
           <Attr Name="ImportTime" Val="1510938543"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DigEng_Proj_T3_model/Param_Counter.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../XilinxProjects/ISE/DigEng_Proj_T3_model/Param_Counter.vhd"/>
-          <Attr Name="ImportTime" Val="1450114156"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
