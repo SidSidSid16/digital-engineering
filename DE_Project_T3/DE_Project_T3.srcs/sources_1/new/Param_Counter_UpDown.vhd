@@ -40,7 +40,7 @@ begin
             end if;
         elsif (en_down = '1') then
             if (count_int > 0) then             -- Decrement when en_down until
-                count_int <= count_int + 1;     -- 0 is reached.
+                count_int <= count_int - 1;     -- 0 is reached.
             end if;
         end if;
     end if;

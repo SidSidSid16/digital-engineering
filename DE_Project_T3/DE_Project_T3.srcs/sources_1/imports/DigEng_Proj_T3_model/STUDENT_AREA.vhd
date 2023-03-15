@@ -119,7 +119,7 @@ begin
 end process state_assignment;
 
 
-fsm_process : process (state, WRITE, ENTER, READ, SPI_WR_ACK, SPI_RD_ACK, INPT_CNT_OUT)
+fsm_process : process (state, WRITE, ENTER, READ, SPI_WR_ACK, SPI_RD_ACK, INPT_CNT_OUT, DISP_CNT_OUT)
 begin
     case STATE is
         
@@ -273,7 +273,7 @@ begin
             end if;
         when RDINST_ACK =>
             -- Wait for RD ACK to return low.
-            if (SPI_WR_ACK = '1') then
+            if (SPI_WR_ACK = '0') then
                 next_state <= RADDR1_REQ;
             else 
                 next_state <= state;
@@ -351,9 +351,9 @@ begin
             -- (i.e., the counter has returned back to 0) then we can return back to
             -- the IDLE state, ready to enter WRITE mode again and write more values
             -- into the SRAM.
-            if (INPT_CNT_OUT > 0 and DISP_CNT_OUT = disp_delay) then
+            if (INPT_CNT_OUT > 0 and DISP_CNT_OUT = disp_delay-1) then
                 next_state <= RDOUTP_REQ;
-            elsif (INPT_CNT_OUT = 0 and DISP_CNT_OUT = disp_delay) then
+            elsif (INPT_CNT_OUT = 0 and DISP_CNT_OUT = disp_delay-1) then
                 next_state <= IDLE;
             else 
                 next_state <= state;
@@ -381,8 +381,9 @@ SPI_WR_REQ <= '1' when state = WRINST_REQ or    -- WRITE MODE
 SPI_RD_REQ <= '1' when state = RDOUTP_REQ else  -- READ MODE: reading SRAM output
               '0';
                        
-EN_SPI <= '0' when state = IDLE else    -- Enable SPI except when logic is IDLE
-          '1';
+EN_SPI <= '0' when state = IDLE or      -- Enable SPI except when logic is IDLE,
+                   state = RDHOLD else  -- WRHOLD or RDHOLD, this is where logic
+          '1';                          -- waits for user input (btn toggles).
           
 DATA_TO_SPI <= "00000010" when state = WRINST_REQ else  -- WRITE instruction
                "00000011" when state = RDINST_REQ else  -- READ instruction

@@ -13,12 +13,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7825000000fs"></ZoomStartTime>
-      <ZoomEndTime time="9469000001fs"></ZoomEndTime>
-      <Cursor1Time time="8045000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="8240000001fs"></ZoomEndTime>
+      <Cursor1Time time="3705000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <NameColumnWidth column_width="170"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="30" />
@@ -61,6 +61,7 @@
    <wvobject fp_name="/TOP_LEVEL_tb/SW" type="array">
       <obj_property name="ElementShortName">SW[7:0]</obj_property>
       <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider30">
       <obj_property name="label">INTERNAL</obj_property>
@@ -85,6 +86,7 @@
    <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/INPT_CNT_OUT" type="array">
       <obj_property name="ElementShortName">INPT_CNT_OUT[7:0]</obj_property>
       <obj_property name="ObjectShortName">INPT_CNT_OUT[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT_EN" type="logic">
       <obj_property name="ElementShortName">DISP_CNT_EN</obj_property>
@@ -97,14 +99,17 @@
    <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DISP_CNT_OUT" type="array">
       <obj_property name="ElementShortName">DISP_CNT_OUT[4:0]</obj_property>
       <obj_property name="ObjectShortName">DISP_CNT_OUT[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DATA_TO_SPI" type="array">
       <obj_property name="ElementShortName">DATA_TO_SPI[7:0]</obj_property>
       <obj_property name="ObjectShortName">DATA_TO_SPI[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_LEVEL_tb/uut/STUDENT_AREA_component/DATA_FROM_SPI" type="array">
       <obj_property name="ElementShortName">DATA_FROM_SPI[7:0]</obj_property>
       <obj_property name="ObjectShortName">DATA_FROM_SPI[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider19">
       <obj_property name="label">SPI HANDSHAKING</obj_property>
@@ -117,6 +122,7 @@
    <wvobject fp_name="group21" type="group">
       <obj_property name="label">WRITE REQ/ACK</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_wr_req" type="logic">
          <obj_property name="ElementShortName">spi_wr_req</obj_property>
          <obj_property name="ObjectShortName">spi_wr_req</obj_property>
@@ -133,6 +139,7 @@
    <wvobject fp_name="group25" type="group">
       <obj_property name="label">READ REQ/ACK</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/TOP_LEVEL_tb/uut/spi_rd_req" type="logic">
          <obj_property name="ElementShortName">spi_rd_req</obj_property>
          <obj_property name="ObjectShortName">spi_rd_req</obj_property>
@@ -173,5 +180,6 @@
    <wvobject fp_name="/TOP_LEVEL_tb/LD" type="array">
       <obj_property name="ElementShortName">LD[7:0]</obj_property>
       <obj_property name="ObjectShortName">LD[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
 </wave_config>
