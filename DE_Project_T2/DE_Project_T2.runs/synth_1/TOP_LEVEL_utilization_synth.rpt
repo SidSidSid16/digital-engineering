@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Mar 14 16:40:49 2023
+| Date         : Wed Mar 15 19:26:45 2023
 | Host         : SidS-MacBook-Pro running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TOP_LEVEL_utilization_synth.rpt -pb TOP_LEVEL_utilization_synth.pb
 | Design       : TOP_LEVEL
@@ -30,12 +30,12 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  668 |     0 |     53200 |  1.26 |
-|   LUT as Logic          |  668 |     0 |     53200 |  1.26 |
+| Slice LUTs*             |  667 |     0 |     53200 |  1.25 |
+|   LUT as Logic          |  667 |     0 |     53200 |  1.25 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |  100 |     0 |    106400 |  0.09 |
+| Slice Registers         |   97 |     0 |    106400 |  0.09 |
 |   Register as Flip Flop |   97 |     0 |    106400 |  0.09 |
-|   Register as Latch     |    3 |     0 |    106400 | <0.01 |
+|   Register as Latch     |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 3     |          Yes |           - |        Reset |
+| 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 97    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -150,14 +150,13 @@ Table of Contents
 | LUT3     |  504 |                 LUT |
 | CARRY4   |  176 |          CarryLogic |
 | FDRE     |   97 |        Flop & Latch |
-| LUT6     |   63 |                 LUT |
-| LUT2     |   61 |                 LUT |
-| LUT4     |   48 |                 LUT |
-| LUT1     |   35 |                 LUT |
+| LUT6     |   64 |                 LUT |
+| LUT2     |   59 |                 LUT |
+| LUT4     |   46 |                 LUT |
+| LUT1     |   34 |                 LUT |
+| LUT5     |   10 |                 LUT |
 | IBUF     |   10 |                  IO |
-| LUT5     |    9 |                 LUT |
 | OBUF     |    8 |                  IO |
-| LDCE     |    3 |        Flop & Latch |
 | DSP48E1  |    2 |    Block Arithmetic |
 +----------+------+---------------------+
 
