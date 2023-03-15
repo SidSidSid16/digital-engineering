@@ -128,6 +128,8 @@ begin
             -- therefore wait for the WRITE button to be pressed.
             if (WRITE = '1') then
                 next_state <= WRINST_REQ;
+            else 
+                next_state <= state;
             end if;
             
             
@@ -143,6 +145,8 @@ begin
             -- ACK line to go low again.
             if (SPI_WR_ACK = '1') then
                 next_state <= WRINST_ACK;
+            else 
+                next_state <= state;
             end if;
         when WRINST_ACK =>
             -- We have to wait until the SPI ACK line goes back to low again before we
@@ -154,6 +158,8 @@ begin
             -- sent to the SPI.
             if (SPI_WR_ACK = '0') then
                 next_state <= WADDR1_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when WADDR1_REQ =>
@@ -161,34 +167,46 @@ begin
             -- transaction.
             if (SPI_WR_ACK = '1') then
                 next_state <= WADDR1_ACK;
+            else 
+                next_state <= state;
             end if;
         when WADDR1_ACK =>
             -- Wait for the SPI ACK to go low before going to the next FSM state. 
             -- address.
             if (SPI_WR_ACK = '0') then
                 next_state <= WADDR2_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when WADDR2_REQ =>
             -- Here, the second byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
                 next_state <= WADDR2_ACK;
+            else 
+                next_state <= state;
             end if;
         when WADDR2_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
                 next_state <= WADDR3_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when WADDR3_REQ =>
             -- Here, the third and final byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
                 next_state <= WADDR3_ACK;
+            else 
+                next_state <= state;
             end if;
         when WADDR3_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
                 next_state <= WRHOLD;
+            else 
+                next_state <= state;
             end if;
             
         when WRHOLD =>
@@ -208,6 +226,8 @@ begin
                 next_state <= IDLE;                              -- Nothing was written
             elsif (WRITE = '1' and INPT_CNT_OUT > 0) then
                 next_state <= RDHOLD;                            -- Something was written
+            else 
+                next_state <= state;
             end if;
             
         when WRSWCH_REQ =>
@@ -215,12 +235,16 @@ begin
             -- sent.
             if (SPI_WR_ACK = '1') then
                 next_state <= WRSWCH_ACK;
+            else 
+                next_state <= state;
             end if;
         when WRSWCH_ACK =>
             -- Wait for ACK low before returning back to WRHOLD so the user can enter
             -- another value into the SRAM or exit WRITE mode.
             if (SPI_WR_ACK = '0') then
                 next_state <= WRHOLD;
+            else 
+                next_state <= state;
             end if;
             
             
@@ -236,17 +260,23 @@ begin
             -- before we can send the READ instructions to the SPI.
             if (READ = '1') then
                 next_state <= RDINST_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when RDINST_REQ =>
             -- Send the READ instruction to the SPI and wait for WR ACK.
             if (SPI_WR_ACK = '1') then
                 next_state <= RDINST_ACK;
+            else 
+                next_state <= state;
             end if;
         when RDINST_ACK =>
             -- Wait for RD ACK to return low.
             if (SPI_WR_ACK = '1') then
                 next_state <= RADDR1_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when RADDR1_REQ =>
@@ -254,34 +284,46 @@ begin
             -- transaction.
             if (SPI_WR_ACK = '1') then
                 next_state <= RADDR1_ACK;
+            else 
+                next_state <= state;
             end if;
         when RADDR1_ACK =>
             -- Wait for the SPI ACK to go low before going to the next FSM state. 
             -- address.
             if (SPI_WR_ACK = '0') then
                 next_state <= RADDR2_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when RADDR2_REQ =>
             -- Here, the second byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
                 next_state <= RADDR2_ACK;
+            else 
+                next_state <= state;
             end if;
         when RADDR2_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
                 next_state <= RADDR3_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when RADDR3_REQ =>
             -- Here, the third and final byte of the SRAM address is sent.
             if (SPI_WR_ACK = '1') then
                 next_state <= RADDR3_ACK;
+            else 
+                next_state <= state;
             end if;
         when RADDR3_ACK =>
             -- Wait for ACK line to go low before continuing.
             if (SPI_WR_ACK = '0') then
                 next_state <= RDOUTP_REQ;
+            else 
+                next_state <= state;
             end if;
             
         when RDOUTP_REQ =>
@@ -289,12 +331,16 @@ begin
             -- previously written to the SRAM.
             if (SPI_RD_ACK = '1') then
                 next_state <= RDOUTP_ACK;
+            else 
+                next_state <= state;
             end if;
         when RDOUTP_ACK =>
             -- Wait for the RD ACK to return to low before going to next state to
             -- display the output via the LEDS.
             if (SPI_RD_ACK = '0') then
                 next_state <= LEDOUT;
+            else 
+                next_state <= state;
             end if;
             
         when LEDOUT =>
@@ -309,6 +355,8 @@ begin
                 next_state <= RDOUTP_REQ;
             elsif (INPT_CNT_OUT = 0 and DISP_CNT_OUT = disp_delay) then
                 next_state <= IDLE;
+            else 
+                next_state <= state;
             end if;
     end case;
 end process fsm_process;
