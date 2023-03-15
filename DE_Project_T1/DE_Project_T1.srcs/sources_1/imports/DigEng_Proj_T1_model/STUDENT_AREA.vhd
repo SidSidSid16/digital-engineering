@@ -83,6 +83,8 @@ begin
         when IDLE => 
             if en = '1' then
                 next_state <= DISP;
+            else 
+                next_state <= state;
             end if;
         when DISP =>
             -- When all of the bytes has been displayed and the delay has been completed,
@@ -94,6 +96,8 @@ begin
             -- BSEL counter is incremented.
             elsif (DISP_CNT_OUT = disp_delay-1 and BSEL_CNT_OUT < total_bytes - 1) then
                 next_state <= BSEL;
+            else 
+                next_state <= state;
             end if;
         when BSEL =>
             -- Once the BSEL counter is incremented once, we can go back to the DISP state
