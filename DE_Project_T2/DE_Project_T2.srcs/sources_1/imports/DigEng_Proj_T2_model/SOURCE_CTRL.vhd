@@ -89,6 +89,8 @@ begin
             -- the output has finished displaying.
             if en = '1' and FROM_OUTPUT = '0' then
                 next_state <= COMP;
+            else 
+                next_state <= state;
             end if;
         when COMP =>
             -- When the FIFO is full, we want to wait until the OUTPUT logic
@@ -99,6 +101,8 @@ begin
             -- logic should stop.
             elsif LIMT_CNT_OUT = to_integer(unsigned(LIMT_REG_OUT))-1 then
                 next_state <= IDLE;
+            else 
+                next_state <= state;
             end if;
         when HOLD =>
             -- In this state, we wait until the OUTPUT logic pops values and
@@ -106,6 +110,8 @@ begin
             -- more values can be computed until the switch limit is reached.
             if FIFO_FULL = '0' then
                 next_state <= COMP;
+            else 
+                next_state <= state;
             end if;
     end case;
 end process fsm_process;

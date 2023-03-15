@@ -63,11 +63,15 @@ begin
         when IDLE =>
             if FIFO_EMPTY = '0' then
                 next_state <= DISP;
+            else 
+                next_state <= state;
             end if;
         -- As soon as the FIFO is empty we can stop displaying.
         when DISP =>
             if FIFO_EMPTY = '1' then
                 next_state <= IDLE;
+            else 
+                next_state <= state;
             end if;
     end case;
 end process fsm_process;
