@@ -4,9 +4,6 @@
 \PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
 \PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{work.DigEng.}\PYG{k}{all}\PYG{p}{;}
 
-\PYG{c+c1}{\PYGZhy{}\PYGZhy{} This is where your work goes. Of course, you will have to put}
-\PYG{c+c1}{\PYGZhy{}\PYGZhy{}   your own comments in, to describe your work.}
-
 \PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{STUDENT\PYGZus{}AREA}\PYG{+w}{ }\PYG{k}{is}
 \PYG{+w}{    }\PYG{k}{Generic}\PYG{+w}{ }\PYG{p}{(}
 \PYG{+w}{        }\PYG{n}{disp\PYGZus{}delay}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{natural}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{100000000}\PYG{p}{;}
@@ -57,6 +54,9 @@
 \PYG{+w}{        }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}\PYG{+w}{ }
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{state\PYGZus{}assignment}\PYG{p}{;}
+
+
+
 
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Port map for the display delay counter}
 \PYG{n}{DISP\PYGZus{}CNT}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{parameterizable\PYGZus{}counter}\PYG{+w}{ }
@@ -110,6 +110,14 @@
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}
+
+
+
+
+
+
+
+
 
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} We want the display delay counter to be reset only when the state turns IDLE or BSEL}
 \PYG{n}{DISP\PYGZus{}CNT\PYGZus{}RST}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BSEL}\PYG{+w}{ }\PYG{k}{else}

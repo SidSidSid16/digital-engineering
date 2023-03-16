@@ -3,9 +3,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.DigEng.all;
 
--- This is where your work goes. Of course, you will have to put
---   your own comments in, to describe your work.
-
 entity STUDENT_AREA is
     Generic (
         disp_delay : natural := 100000000;
@@ -56,6 +53,9 @@ begin
         end if;
     end if; 
 end process state_assignment;
+
+
+
 
 -- Port map for the display delay counter
 DISP_CNT: entity work.parameterizable_counter 
@@ -109,6 +109,14 @@ begin
             end if;
     end case;
 end process fsm_process;
+
+
+
+
+
+
+
+
 
 -- We want the display delay counter to be reset only when the state turns IDLE or BSEL
 DISP_CNT_RST <= '1' when state = IDLE or state = BSEL else

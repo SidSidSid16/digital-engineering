@@ -1,8 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
- 
- 
+
 ENTITY TOP_LEVEL_tb IS
 END TOP_LEVEL_tb;
 
@@ -56,6 +55,8 @@ ARCHITECTURE behavior OF TOP_LEVEL_tb IS
         (X"00"),
         (X"CA"),
         (X"5F"),
+        
+        
         -- OUTPUT 3 (0000570E)
         (X"00"),
         (X"00"),
@@ -109,6 +110,13 @@ BEGIN
         BTN(1) <= '0';
         
         wait for GCLK_period*18;
+        
+        
+        
+        
+        
+        
+        
         
         -- TEST 1
         --  Duration:
@@ -168,6 +176,9 @@ BEGIN
         wait;
     end process;
     
+    
+    
+    
     check_outputs : process
     begin
         -- Wait for hold reset state.
@@ -211,6 +222,11 @@ BEGIN
         severity note;
         
         wait for GCLK_period*18;
+        
+        
+        
+        
+        
         
         
         

@@ -2,8 +2,7 @@
 \PYG{k}{LIBRARY}\PYG{+w}{ }\PYG{n+nn}{ieee}\PYG{p}{;}
 \PYG{k}{USE}\PYG{+w}{ }\PYG{n+nn}{ieee.std\PYGZus{}logic\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
 \PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
-\PYG{+w}{ }
-\PYG{+w}{ }
+
 \PYG{k}{ENTITY}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{+w}{ }\PYG{k}{IS}
 \PYG{k}{END}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{p}{;}
 
@@ -57,6 +56,8 @@
 \PYG{+w}{        }\PYG{p}{(}\PYG{l+m+mh}{X\PYGZdq{}00\PYGZdq{}}\PYG{p}{),}
 \PYG{+w}{        }\PYG{p}{(}\PYG{l+m+mh}{X\PYGZdq{}CA\PYGZdq{}}\PYG{p}{),}
 \PYG{+w}{        }\PYG{p}{(}\PYG{l+m+mh}{X\PYGZdq{}5F\PYGZdq{}}\PYG{p}{),}
+\PYG{+w}{        }
+\PYG{+w}{        }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} OUTPUT 3 (0000570E)}
 \PYG{+w}{        }\PYG{p}{(}\PYG{l+m+mh}{X\PYGZdq{}00\PYGZdq{}}\PYG{p}{),}
 \PYG{+w}{        }\PYG{p}{(}\PYG{l+m+mh}{X\PYGZdq{}00\PYGZdq{}}\PYG{p}{),}
@@ -110,6 +111,13 @@
 \PYG{+w}{        }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
 \PYG{+w}{        }
 \PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{18}\PYG{p}{;}
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
 \PYG{+w}{        }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 1}
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  Duration:}
@@ -169,6 +177,9 @@
 \PYG{+w}{        }\PYG{k}{wait}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
 \PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
 \PYG{+w}{    }\PYG{n}{check\PYGZus{}outputs}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}
 \PYG{+w}{    }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait for hold reset state.}
@@ -212,6 +223,11 @@
 \PYG{+w}{        }\PYG{k}{severity}\PYG{+w}{ }\PYG{n}{note}\PYG{p}{;}
 \PYG{+w}{        }
 \PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{18}\PYG{p}{;}
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
 \PYG{+w}{        }
 \PYG{+w}{        }
 \PYG{+w}{        }
