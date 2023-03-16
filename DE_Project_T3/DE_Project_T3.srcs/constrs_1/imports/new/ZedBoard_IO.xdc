@@ -374,3 +374,97 @@ set_property IOSTANDARD LVCMOS18 [get_ports -of_objects [get_iobanks 35]]
 # Note that the bank voltage for IO Bank 13 is fixed to 3.3V on ZedBoard.
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]]
 
+
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list Clock_generator/inst/clk_out2]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 5 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {btn_db_26MHz[0]} {btn_db_26MHz[1]} {btn_db_26MHz[2]} {btn_db_26MHz[3]} {btn_db_26MHz[4]}]]
+create_debug_core u_ila_1 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_1]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_1]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_1]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_1]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_1]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_1]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_1]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_1]
+set_property port_width 1 [get_debug_ports u_ila_1/clk]
+connect_debug_port u_ila_1/clk [get_nets [list Clock_generator/inst/clk_out1]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe0]
+set_property port_width 8 [get_debug_ports u_ila_1/probe0]
+connect_debug_port u_ila_1/probe0 [get_nets [list {LD_INT[0]} {LD_INT[1]} {LD_INT[2]} {LD_INT[3]} {LD_INT[4]} {LD_INT[5]} {LD_INT[6]} {LD_INT[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 8 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {pdata_from_spi[0]} {pdata_from_spi[1]} {pdata_from_spi[2]} {pdata_from_spi[3]} {pdata_from_spi[4]} {pdata_from_spi[5]} {pdata_from_spi[6]} {pdata_from_spi[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list en_spi_sync]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list spi_cs_inv_int]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list spi_miso_int]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list spi_mosi_int]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list spi_rd_ack]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list spi_rd_req_sync]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list spi_sck_int]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list spi_wr_ack]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe1]
+set_property port_width 5 [get_debug_ports u_ila_1/probe1]
+connect_debug_port u_ila_1/probe1 [get_nets [list {btn_db_100MHz[0]} {btn_db_100MHz[1]} {btn_db_100MHz[2]} {btn_db_100MHz[3]} {btn_db_100MHz[4]}]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe2]
+set_property port_width 8 [get_debug_ports u_ila_1/probe2]
+connect_debug_port u_ila_1/probe2 [get_nets [list {pdata_to_spi[0]} {pdata_to_spi[1]} {pdata_to_spi[2]} {pdata_to_spi[3]} {pdata_to_spi[4]} {pdata_to_spi[5]} {pdata_to_spi[6]} {pdata_to_spi[7]}]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe3]
+set_property port_width 1 [get_debug_ports u_ila_1/probe3]
+connect_debug_port u_ila_1/probe3 [get_nets [list en_spi]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe4]
+set_property port_width 1 [get_debug_ports u_ila_1/probe4]
+connect_debug_port u_ila_1/probe4 [get_nets [list spi_rd_ack_sync]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe5]
+set_property port_width 1 [get_debug_ports u_ila_1/probe5]
+connect_debug_port u_ila_1/probe5 [get_nets [list spi_rd_req]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe6]
+set_property port_width 1 [get_debug_ports u_ila_1/probe6]
+connect_debug_port u_ila_1/probe6 [get_nets [list spi_wr_req]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets CLK_100MHZ]
