@@ -276,6 +276,112 @@ of what state it's in when RESET is pressed.
 \section*{3 - VHDL Testbench Code}
 \inputminted{vhdl}{../../../DE_Project_T3/DE_Project_T3.srcs/sim_1/imports/DigEng_Proj_T3_model/TOP_LEVEL_tb.vhd}
 
+\newpage
+
+\section*{4 - Behavioural Simulation}
+
+\subsection*{Waveform 1: Global Reset \& Initialisation Showing Output}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Assets/GlobalReset.png}
+\end{figure}
+
+Above shows the global Reset \& initialisation: All inputs are initialised to zero, followed by a reset button click.
+
+\subsection*{Waveform 2: Test 1}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test1.PNG}
+\end{figure}
+
+Waveform 2 shows the code entering `WRITE' mode by pressing the write button, ensure all handshaking aspects of the `SPI' are working correctly, mainly SPI enables, requests are sent, acknowledgements are received and the correct data is sent.
+
+\subsection*{Waveform 3: Test 2}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test2.PNG}
+\end{figure}
+
+Waveform 3 follows from Test 1. It begins by exiting `WRITE' mode by toggling the write button. The logic should be able to deactivate the SPI and return back to `IDLE' state.
+
+\subsection*{Waveform 4: Test 3}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test3.PNG}
+\end{figure}
+
+Toggle the `READ' button to try to enter read mode. This is be blocked by the logic as you can only enter read mode after storing 1 or more values into the `SRAM' in the write mode.
+
+\subsection*{Waveform 5: Test 4\_1}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test4_1.PNG}
+\end{figure}
+
+\subsection*{Waveform 6: Test 4\_2}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test4_2.PNG}
+\end{figure}
+
+\subsection*{Waveform 7: Test 4\_3}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test4_3.PNG}
+\end{figure}
+
+Waveforms 5, 6 and 7 show a follow on from TEST 2, toggle the write button again to enter `WRITE' mode, then store 10 switch values, starting from h"00" and incrementing by 1 each time. Then exit WRITE mode in preparation for the next test. This test should verify that the SPI handshaking logic works when writing data to the SRAM.
+
+\subsection*{Waveform 8: Test 5}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test5.PNG}
+\end{figure}
+
+The above waveform shows a toggle of the `WRITE' button to try to enter write mode again. This is blocked by the logic which prevents write mode to be entered after writing 1 or more values and exiting beforehand.
+
+\subsection*{Waveform 9: Test 6\_1}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test6_1.PNG}
+\end{figure}
+
+\subsection*{Waveform 10: Test 6\_2}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test6_2.PNG}
+\end{figure}
+
+\subsection*{Waveform 11: Test 6\_3}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test6_3.PNG}
+\end{figure}
+
+The waveforms above show  the 10 stored (more than 0) switch values and exited `WRITE' mode in the previous test, the circuit should now be in `RDHOLD' state, waiting for the user to toggle the READ button. As soon as that button is toggled, the circuit should read and display the exact values that we're previously written, and should stop as soon as all values previously written have been displayed. This test will verify that the circuit can perform this function.
+
+\subsection*{Log File: Test 6}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/Test6Console.PNG}
+\end{figure}
+
+Above shows the output of the self checking test for Test 6.
+
+\section*{5 - ChipScope ILA Waveforms}
+
+\subsection*{ILA Waveform of READ}
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{Reports/Proj/Task3/Assets/ILA_read.PNG}
+\end{figure}
+
+Read mode is entered as the instruction is sent first (binary 3), the next three instructions are the memory address byte-by-byte (01, aa, 05). Finally, the logic will send a read request, which the waveform proves as we see a READ ACK.
+
+Unfortunately for some reason, we couldn't figure out why the output wasn't working with the MISO line staying high even after the read ack, which was really abnormal. This caused our logic to output h'ff.
+
+\subsection*{ILA Waveform of WRITE}
+\begin{figure}[H]
+    \includegraphics[angle=-90,origin=c,width=\columnwidth]{Reports/Proj/Task3/Assets/ILA_write.jpeg}
+\end{figure}
+
+The logic enters write mode with as the write instruction is first sent (binary 1), then 3 bytes of the address is also sent (01, aa, 05), each transmission followed by a write ack from the SPI. 
+
+\subsection*{ILA Waveform of ENTER}
+\begin{figure}[H]
+    \includegraphics[angle=-90,origin=c,width=\columnwidth]{Reports/Proj/Task3/Assets/ILA_enter.jpeg}
+\end{figure}
+
+With the switches to binary 01 and pressing the ENTER button, we send that signal to the SPI, and SPI responds with a WR ACK.
+
+\newpage
 
 \section*{6 - Synthesis Report}
 
@@ -286,6 +392,5 @@ of what state it's in when RESET is pressed.
 
 \subsection*{RTL Hierarchical Component Statistics}
 \inputminted[firstline=239,lastline=290]{text}{../../../DE_Project_T3/DE_Project_T3.runs/synth_1/TOP_LEVEL.vds}
-
 
 \end{document}
