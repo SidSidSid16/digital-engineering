@@ -34,6 +34,28 @@
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} 128K x 8\PYGZhy{}bit organisation where we can store 128K bytes, we will}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} set a limit of 255.}
 \PYG{k}{constant}\PYG{+w}{ }\PYG{n}{input\PYGZus{}limit}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{255}\PYG{p}{;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Defining the FSM states and instantiating the state signals, a}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} grand total of 24 states have been designed for this circuit. }
 \PYG{k}{type}\PYG{+w}{ }\PYG{n}{state\PYGZus{}type}\PYG{+w}{ }\PYG{k}{is}\PYG{+w}{ }\PYG{p}{(}
@@ -94,6 +116,7 @@
 \PYG{+w}{	}\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{INPT\PYGZus{}CNT\PYGZus{}OUT}
 \PYG{p}{);}
 
+
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} Instantiate the parameterisable counter that\PYGZsq{}s used to add}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} a delay between each LED output.}
 \PYG{n}{DISP\PYGZus{}CNT}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{Param\PYGZus{}counter}\PYG{+w}{ }
@@ -133,8 +156,6 @@
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{            }
-\PYG{+w}{            }
-\PYG{+w}{        }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} WRITE TRANSACTION LOGIC    }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
@@ -149,6 +170,14 @@
 \PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{WRINST\PYGZus{}ACK}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} We have to wait until the SPI ACK line goes back to low again before we}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} send the next instruction/value to the SPI. This state essentially waits}
@@ -249,7 +278,6 @@
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{            }
 \PYG{+w}{            }
-\PYG{+w}{        }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} READ TRANSACTION LOGIC    }
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
@@ -327,6 +355,12 @@
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{            }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
+\PYG{+w}{        }
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{RDOUTP\PYGZus{}REQ}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} We send a RD req. to the SPI so we can return the value that was}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} previously written to the SRAM.}
@@ -362,8 +396,6 @@
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}
 
-
-
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{} OUTPUT COMBINATIONAL LOGIC}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
@@ -386,6 +418,10 @@
 \PYG{+w}{                   }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RDHOLD}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{  }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} WRHOLD or RDHOLD, this is where logic}
 \PYG{+w}{          }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{                          }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} waits for user input (btn toggles).}
 \PYG{+w}{          }
+
+
+
+
 \PYG{n}{DATA\PYGZus{}TO\PYGZus{}SPI}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}00000010\PYGZdq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{WRINST\PYGZus{}REQ}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{  }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} WRITE instruction}
 \PYG{+w}{               }\PYG{l+s}{\PYGZdq{}00000011\PYGZdq{}}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RDINST\PYGZus{}REQ}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{  }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} READ instruction}
 \PYG{+w}{               }\PYG{n}{SRAM\PYGZus{}ADDRESS}\PYG{p}{(}\PYG{l+m+mi}{23}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{16}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{WADDR1\PYGZus{}REQ}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RADDR1\PYGZus{}REQ}\PYG{+w}{ }\PYG{k}{else}

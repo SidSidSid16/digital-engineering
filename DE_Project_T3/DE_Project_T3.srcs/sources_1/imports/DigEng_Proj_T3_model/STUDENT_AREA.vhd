@@ -33,6 +33,28 @@ signal WRITE, ENTER, READ: STD_LOGIC;
 -- 128K x 8-bit organisation where we can store 128K bytes, we will
 -- set a limit of 255.
 constant input_limit : integer := 255;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Defining the FSM states and instantiating the state signals, a
 -- grand total of 24 states have been designed for this circuit. 
 type state_type is (
@@ -93,6 +115,7 @@ PORT MAP(
 	count_out => INPT_CNT_OUT
 );
 
+
 -- Instantiate the parameterisable counter that's used to add
 -- a delay between each LED output.
 DISP_CNT : entity work.Param_counter 
@@ -132,8 +155,6 @@ begin
                 next_state <= state;
             end if;
             
-            
-        
         ----------------------------    
         -- WRITE TRANSACTION LOGIC    
         --------
@@ -148,6 +169,14 @@ begin
             else 
                 next_state <= state;
             end if;
+        
+        
+        
+        
+        
+        
+        
+        
         when WRINST_ACK =>
             -- We have to wait until the SPI ACK line goes back to low again before we
             -- send the next instruction/value to the SPI. This state essentially waits
@@ -248,7 +277,6 @@ begin
             end if;
             
             
-        
         ----------------------------    
         -- READ TRANSACTION LOGIC    
         --------
@@ -326,6 +354,12 @@ begin
                 next_state <= state;
             end if;
             
+        
+        
+        
+        
+        
+        
         when RDOUTP_REQ =>
             -- We send a RD req. to the SPI so we can return the value that was
             -- previously written to the SRAM.
@@ -361,8 +395,6 @@ begin
     end case;
 end process fsm_process;
 
-
-
 ----------------------------    
 -- OUTPUT COMBINATIONAL LOGIC
 --------
@@ -385,6 +417,10 @@ EN_SPI <= '0' when state = IDLE or      -- Enable SPI except when logic is IDLE,
                    state = RDHOLD else  -- WRHOLD or RDHOLD, this is where logic
           '1';                          -- waits for user input (btn toggles).
           
+
+
+
+
 DATA_TO_SPI <= "00000010" when state = WRINST_REQ else  -- WRITE instruction
                "00000011" when state = RDINST_REQ else  -- READ instruction
                SRAM_ADDRESS(23 downto 16) when state = WADDR1_REQ or state = RADDR1_REQ else

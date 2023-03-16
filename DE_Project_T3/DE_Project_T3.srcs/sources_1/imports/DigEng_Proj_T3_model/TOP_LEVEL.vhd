@@ -270,4 +270,3 @@ SPI_MOSI <= spi_mosi_int;
 spi_miso_int <= SPI_MISO; -- not strictly necessary (for completeness only)
 
 end Behavioral;
-

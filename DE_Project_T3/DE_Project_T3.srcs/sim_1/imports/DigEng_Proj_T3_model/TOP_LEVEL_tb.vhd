@@ -48,6 +48,15 @@ END TOP_LEVEL_tb;
 --      soon as all values previously written have been displayed. This
 --      test will verify that the circuit can perform this function.
 
+
+
+
+
+
+
+
+
+
 ARCHITECTURE behavior OF TOP_LEVEL_tb IS 
     
     --Inputs
@@ -164,6 +173,12 @@ begin
     wait for GCLK_period*450;   -- the SPI and enter WRHOLD
                                 -- before entering vals.
     
+    
+    
+    
+    
+    
+    
     test_4_input_loop : for i in 0 to 9 loop
         SW <= STD_LOGIC_VECTOR(
                 to_unsigned(i, SW'length)
@@ -212,6 +227,18 @@ begin
     wait for GCLK_period*136;
     wait for GCLK_period*2182;
     wait for GCLK_period*136;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     -- Wait until logic starts displaying to the LED + a few clock
     -- cycles (~12 clock cycles).

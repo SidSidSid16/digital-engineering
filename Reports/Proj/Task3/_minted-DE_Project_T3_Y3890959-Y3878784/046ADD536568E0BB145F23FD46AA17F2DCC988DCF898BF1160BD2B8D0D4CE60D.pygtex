@@ -49,6 +49,15 @@
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      soon as all values previously written have been displayed. This}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      test will verify that the circuit can perform this function.}
 
+
+
+
+
+
+
+
+
+
 \PYG{k}{ARCHITECTURE}\PYG{+w}{ }\PYG{n+nc}{behavior}\PYG{+w}{ }\PYG{k}{OF}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }
 \PYG{+w}{    }
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}Inputs}
@@ -165,6 +174,12 @@
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{450}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the SPI and enter WRHOLD}
 \PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} before entering vals.}
 \PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
 \PYG{+w}{    }\PYG{n}{test\PYGZus{}4\PYGZus{}input\PYGZus{}loop}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{k}{to}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{+w}{ }\PYG{k}{loop}
 \PYG{+w}{        }\PYG{n}{SW}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{p}{(}
 \PYG{+w}{                }\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SW}\PYG{n+na}{\PYGZsq{}length}\PYG{p}{)}
@@ -198,8 +213,7 @@
 \PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} mode. The circuit will send the}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} correct instructions to the SPI and}
 \PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} will read values until all inputted }
-\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} are read.                               }
-
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} are read.}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
 
@@ -214,6 +228,18 @@
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{136}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{2182}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{136}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
+\PYG{+w}{    }
 \PYG{+w}{    }
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait until logic starts displaying to the LED + a few clock}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} cycles (\PYGZti{}12 clock cycles).}
