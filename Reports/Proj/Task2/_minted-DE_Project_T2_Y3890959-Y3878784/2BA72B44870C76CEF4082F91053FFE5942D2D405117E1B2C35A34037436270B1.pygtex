@@ -32,12 +32,12 @@
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      that the enable input will be ignored.}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 5:}
-\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Continue from TEST 3, the reset button will be toggled after}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Continue from TEST 4, the reset button will be toggled after}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      the 4th input, this will verify that the circuit can be reset}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      while the FSM is in operation.}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 6:}
-\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Cycle through the first 5 values just like in TEST 3, but}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Cycle through the first 5 values just like in TEST 4, but}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      the switches will be changed while the FSM is operation}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      (after the 2nd input). This test will verify that changing}
 \PYG{c+c1}{\PYGZhy{}\PYGZhy{}      the switches will be ignored when the FSM is in operation.}
@@ -210,7 +210,7 @@
 \PYG{+w}{    }
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 1:}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  The outputs start displaying as soon as the }
-\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  OUTPUT FSM goes to FSM state, which takes 69.5}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  OUTPUT FSM goes to DISP state, which takes 69.5}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  clock periods. We will start checking from 72}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  clock cycles so that the LEDs would\PYGZsq{}ve output}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  2.5 clock periods before.}

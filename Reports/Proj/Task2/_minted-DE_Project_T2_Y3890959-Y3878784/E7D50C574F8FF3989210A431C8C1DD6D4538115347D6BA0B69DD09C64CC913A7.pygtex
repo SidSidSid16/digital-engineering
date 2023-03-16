@@ -64,11 +64,15 @@
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{DISP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} As soon as the FIFO is empty we can stop displaying.}
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{DISP}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}

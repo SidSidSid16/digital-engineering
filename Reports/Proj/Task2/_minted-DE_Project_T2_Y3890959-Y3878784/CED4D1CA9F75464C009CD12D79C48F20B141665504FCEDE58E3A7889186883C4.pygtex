@@ -90,6 +90,8 @@
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the output has finished displaying.}
 \PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{en}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{+w}{ }\PYG{k}{and}\PYG{+w}{ }\PYG{n}{FROM\PYGZus{}OUTPUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{COMP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{COMP}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} When the FIFO is full, we want to wait until the OUTPUT logic}
@@ -100,6 +102,8 @@
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} logic should stop.}
 \PYG{+w}{            }\PYG{k}{elsif}\PYG{+w}{ }\PYG{n}{LIMT\PYGZus{}CNT\PYGZus{}OUT}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}integer}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{LIMT\PYGZus{}REG\PYGZus{}OUT}\PYG{p}{))}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{IDLE}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{        }\PYG{k}{when}\PYG{+w}{ }\PYG{n}{HOLD}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} In this state, we wait until the OUTPUT logic pops values and}
@@ -107,6 +111,8 @@
 \PYG{+w}{            }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} more values can be computed until the switch limit is reached.}
 \PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}FULL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{+w}{ }\PYG{k}{then}
 \PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{COMP}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{                }\PYG{n}{next\PYGZus{}state}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{case}\PYG{p}{;}
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{fsm\PYGZus{}process}\PYG{p}{;}
