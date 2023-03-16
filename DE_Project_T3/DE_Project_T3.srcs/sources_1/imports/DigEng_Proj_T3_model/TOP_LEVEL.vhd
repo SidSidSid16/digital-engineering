@@ -69,27 +69,27 @@ signal pdata_to_spi, pdata_from_spi : STD_LOGIC_VECTOR(7 downto 0);
 -- Attributes to enable observation of internal signals
 --   through the ChipScope ILA
 -- UNCOMMENT TO USE ILA
---attribute keep : string;
---attribute keep of btn_db_26MHz : signal is "true";
---attribute keep of btn_db_100MHz : signal is "true";
---attribute keep of LD_INT : signal is "true";
---attribute keep of spi_sck_int : signal is "true";
---attribute keep of spi_cs_inv_int : signal is "true";
---attribute keep of spi_hold_inv_int : signal is "true";
---attribute keep of spi_mosi_int : signal is "true";
---attribute keep of spi_miso_int : signal is "true";
---attribute keep of en_spi : signal is "true";
---attribute keep of en_spi_sync : signal is "true";
---attribute keep of spi_wr_ack : signal is "true";
---attribute keep of spi_wr_ack_sync : signal is "true";
---attribute keep of spi_wr_req : signal is "true";
---attribute keep of spi_wr_req_sync : signal is "true";
---attribute keep of spi_rd_ack : signal is "true";
---attribute keep of spi_rd_ack_sync : signal is "true";
---attribute keep of spi_rd_req : signal is "true";
---attribute keep of spi_rd_req_sync : signal is "true";
---attribute keep of pdata_to_spi : signal is "true";
---attribute keep of pdata_from_spi : signal is "true";
+attribute keep : string;
+attribute keep of btn_db_26MHz : signal is "true";
+attribute keep of btn_db_100MHz : signal is "true";
+attribute keep of LD_INT : signal is "true";
+attribute keep of spi_sck_int : signal is "true";
+attribute keep of spi_cs_inv_int : signal is "true";
+attribute keep of spi_hold_inv_int : signal is "true";
+attribute keep of spi_mosi_int : signal is "true";
+attribute keep of spi_miso_int : signal is "true";
+attribute keep of en_spi : signal is "true";
+attribute keep of en_spi_sync : signal is "true";
+attribute keep of spi_wr_ack : signal is "true";
+attribute keep of spi_wr_ack_sync : signal is "true";
+attribute keep of spi_wr_req : signal is "true";
+attribute keep of spi_wr_req_sync : signal is "true";
+attribute keep of spi_rd_ack : signal is "true";
+attribute keep of spi_rd_ack_sync : signal is "true";
+attribute keep of spi_rd_req : signal is "true";
+attribute keep of spi_rd_req_sync : signal is "true";
+attribute keep of pdata_to_spi : signal is "true";
+attribute keep of pdata_from_spi : signal is "true";
 
 
 begin
