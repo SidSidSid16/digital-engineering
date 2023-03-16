@@ -1,0 +1,54 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{library}\PYG{+w}{ }\PYG{n+nn}{IEEE}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.STD\PYGZus{}LOGIC\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
+
+\PYG{k}{use}\PYG{+w}{ }\PYG{n+nn}{work.DigEng.}\PYG{k}{all}\PYG{p}{;}
+
+\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{Param\PYGZus{}Counter\PYGZus{}UpDown}\PYG{+w}{ }\PYG{k}{is}
+\PYG{+w}{    }\PYG{k}{generic}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{LIMIT}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{NATURAL}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{17}
+\PYG{+w}{    }\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{port}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{clk}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{en\PYGZus{}up}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{en\PYGZus{}down}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{out}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{LIMIT}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{Param\PYGZus{}Counter\PYGZus{}UpDown}\PYG{p}{;}
+
+\PYG{k}{architecture}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{+w}{ }\PYG{k}{of}\PYG{+w}{ }\PYG{n+nc}{Param\PYGZus{}Counter\PYGZus{}UpDown}\PYG{+w}{ }\PYG{k}{is}
+
+\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{UNSIGNED}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{LIMIT}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+
+\PYG{k}{begin}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} An up\PYGZhy{}down counter without roll\PYGZhy{}over with two synchronous enables}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} (one for increment and another for decrement) and a synchronous}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} reset. When en\PYGZus{}up is high, the counter will increment up to the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} value set by LIMIT without rolling over to 0. When en\PYGZus{}down is high}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the counter will decrement until 0 is reached without rolling over}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} to LIMIT.}
+\PYG{n+nc}{counter}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clk}\PYG{p}{)}
+\PYG{k}{begin}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{rising\PYGZus{}edge}\PYG{p}{(}\PYG{n}{CLK}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{ }
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{rst}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{ }
+\PYG{+w}{            }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{others}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{);}\PYG{+w}{       }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Counter resets.}
+\PYG{+w}{        }\PYG{k}{elsif}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{en\PYGZus{}up}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{LIMIT}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{         }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Increment when en\PYGZus{}up until}
+\PYG{+w}{                }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} LIMIT is reached.}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{elsif}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{en\PYGZus{}down}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{then}\PYG{+w}{             }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Decrement when en\PYGZus{}down until}
+\PYG{+w}{                }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{count\PYGZus{}int}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 0 is reached.}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{counter}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Maps the internal counter value to the output signal.}
+\PYG{n}{count\PYGZus{}out}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{count\PYGZus{}int}\PYG{p}{;}
+
+\PYG{k}{end}\PYG{+w}{ }\PYG{n+nc}{Behavioral}\PYG{p}{;}
+\end{Verbatim}

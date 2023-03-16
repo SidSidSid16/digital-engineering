@@ -1,0 +1,238 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{LIBRARY}\PYG{+w}{ }\PYG{n+nn}{ieee}\PYG{p}{;}
+\PYG{k}{USE}\PYG{+w}{ }\PYG{n+nn}{ieee.std\PYGZus{}logic\PYGZus{}1164.}\PYG{k}{ALL}\PYG{p}{;}
+\PYG{k}{USE}\PYG{+w}{ }\PYG{n+nn}{IEEE.NUMERIC\PYGZus{}STD.}\PYG{k}{ALL}\PYG{p}{;}
+
+\PYG{k}{ENTITY}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{+w}{ }\PYG{k}{IS}
+\PYG{k}{END}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST STRATEGY}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  Global Reset \PYGZam{} Initialisation:}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Outside of this vector, all inputs will initialise to}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      zeros, followed by a reset button click.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 1 (verify by inspecting waveform):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Enter WRITE mode by pressing the write btn, ensure all}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      handshaking aspects of the SPI is working correctly,}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      mainly SPI enables, reqs are sent, acks are received and}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      the correct data is sent.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 2 (verify by inspecting waveform):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Following from Test 1, exit WRITE mode by toggling the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      write btn. The logic should be able to deactivate the SPI}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      and return back to IDLE.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 3 (verify by inspecting waveform):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Toggle the READ btn to try to enter read mode. This will be blocked}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      by the logic as you can only enter read mode after storing 1 or more}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      values into the SRAM in the write mode.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 4 (verify by inspecting waveform):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Following from TEST 2, toggle the write button again to enter}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      WRITE mode, then store 10 switch values, starting from h\PYGZdq{}00\PYGZdq{} and}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      incrementing by 1 each time. Then exit WRITE mode in preparation}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      for the next test. This test should verify that the SPI handshaking}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      logic works when writing data to the SRAM.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 5 (verify by inspecting waveform):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      Toggle the WRITE btn to try to enter write mode again. This should be}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      blocked by the logic which prevents write mode to be entered after}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      writing 1 or more values and exiting beforehand.}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  TEST 6 (verify by inspecting self\PYGZhy{}check console output):}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      As we\PYGZsq{}ve stored 10 (more than 0) switch values and exited WRITE}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      mode in the previous test, the circuit should now be in RDHOLD}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      state, waiting for the user to toggle the READ btn. As soon as}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      that btn is toggled, the circuit should read and display the}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      exact values that we\PYGZsq{}re previously written, and should stop as}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      soon as all values previously written have been displayed. This}
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{}      test will verify that the circuit can perform this function.}
+
+\PYG{k}{ARCHITECTURE}\PYG{+w}{ }\PYG{n+nc}{behavior}\PYG{+w}{ }\PYG{k}{OF}\PYG{+w}{ }\PYG{n+nc}{TOP\PYGZus{}LEVEL\PYGZus{}tb}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}Inputs}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{std\PYGZus{}logic}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{BTN}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{std\PYGZus{}logic\PYGZus{}vector}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SW}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{std\PYGZus{}logic\PYGZus{}vector}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}Outputs}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{std\PYGZus{}logic\PYGZus{}vector}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{k}{downto}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Internal SPI signals}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MISO}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MOSI}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}CS\PYGZus{}INV}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}HOLD\PYGZus{}INV}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{signal}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}SCK}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Clock period definitions}
+\PYG{+w}{    }\PYG{k}{constant}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{time}\PYG{+w}{ }\PYG{o}{:=}\PYG{+w}{ }\PYG{l+m+mi}{10}\PYG{+w}{ }\PYG{n}{ns}\PYG{p}{;}
+\PYG{+w}{ }
+\PYG{k}{BEGIN}
+\PYG{+w}{ }
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Instantiate the Unit Under Test (UUT)}
+\PYG{n}{uut}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{TOP\PYGZus{}LEVEL}\PYG{+w}{ }
+\PYG{k}{GENERIC}\PYG{+w}{ }\PYG{k}{MAP}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{disp\PYGZus{}delay}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{30}\PYG{p}{)}
+\PYG{k}{PORT}\PYG{+w}{ }\PYG{k}{MAP}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{GCLK}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{BTN}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SW}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SW}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{LD}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{LD}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}MISO}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MISO}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}SCK}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}SCK}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}CS\PYGZus{}INV}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}CS\PYGZus{}INV}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}HOLD\PYGZus{}INV}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}HOLD\PYGZus{}INV}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}MOSI}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MOSI}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Clock process definitions}
+\PYG{n}{GCLK\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{k}{process}
+\PYG{k}{begin}
+\PYG{+w}{    }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
+\PYG{+w}{ }
+\PYG{n}{SRAM}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{entity}\PYG{+w}{ }\PYG{n+nc}{work}\PYG{p}{.}\PYG{n}{SRAM\PYGZus{}Model}
+\PYG{k}{PORT}\PYG{+w}{ }\PYG{k}{MAP}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}MISO}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MISO}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}SCK}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}SCK}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}CS\PYGZus{}INV}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}CS\PYGZus{}INV}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}HOLD\PYGZus{}INV}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}HOLD\PYGZus{}INV}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{SPI\PYGZus{}MOSI}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{SPI\PYGZus{}MOSI}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Stimulus process}
+\PYG{n+nc}{set\PYGZus{}inputs}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}
+\PYG{k}{begin}\PYG{+w}{		}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} hold reset state for 1000 ns.}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{l+m+mi}{1000}\PYG{+w}{ }\PYG{n}{ns}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Global Reset \PYGZam{} Initialisation}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{SW}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}00000000\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}00000\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{18}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the RESET btn}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{120}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 1}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the WRITE btn}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} check if WRITE mode is}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{500}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} entered by verifying SPI}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} handshaking int. signals.}
+\PYG{+w}{                                  }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 2}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the WRITE btn}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} check if WRITE mode is}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} exited.}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 3}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the READ btn}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} check if READ mode request}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} is ignored.}
+\PYG{+w}{                              }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 4}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the WRITE btn to}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} enter WRITE MODE}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait for logic to init}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{450}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} the SPI and enter WRHOLD}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} before entering vals.}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{test\PYGZus{}4\PYGZus{}input\PYGZus{}loop}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{k}{to}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{+w}{ }\PYG{k}{loop}
+\PYG{+w}{        }\PYG{n}{SW}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{p}{(}
+\PYG{+w}{                }\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SW}\PYG{n+na}{\PYGZsq{}length}\PYG{p}{)}
+\PYG{+w}{              }\PYG{p}{);}\PYG{+w}{                    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} SW set to for\PYGZhy{}loop counter value}
+\PYG{+w}{        }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the ENTER btn to enter the}
+\PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} switch val to SRAM}
+\PYG{+w}{        }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }
+\PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{120}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} wait before next input.}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{loop}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the WRITE btn to}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} exit WRITE MODE, prepping}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} for TEST 4.}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 5}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the WRITE btn}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} check if WRITE mode request}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} is ignored.}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 6}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} toggle the READ btn to enter READ}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} mode. The circuit will send the}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{36}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} correct instructions to the SPI and}
+\PYG{+w}{    }\PYG{n}{BTN}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}\PYG{+w}{              }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} will read values until all inputted }
+\PYG{+w}{                                }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} are read.                               }
+
+\PYG{+w}{    }\PYG{k}{wait}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
+
+\PYG{n}{check\PYGZus{}outputs}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}
+\PYG{k}{begin}
+
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait for hold and the global reset}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{274}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait for TEST 1, 2, 3, 4 and 5}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{536}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{136}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{136}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{2182}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{136}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Wait until logic starts displaying to the LED + a few clock}
+\PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} cycles (\PYGZti{}12 clock cycles).}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{455}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{test\PYGZus{}6\PYGZus{}check\PYGZus{}loop}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{k}{to}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{+w}{ }\PYG{k}{loop}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Check if correct LED outputs are displayed.}
+\PYG{+w}{        }\PYG{k}{assert}\PYG{+w}{ }\PYG{p}{((}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{STD\PYGZus{}LOGIC\PYGZus{}VECTOR}\PYG{p}{(}\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SW}\PYG{n+na}{\PYGZsq{}length}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{))}
+\PYG{+w}{        }\PYG{n}{report}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}TEST 6 VECTOR \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}
+\PYG{+w}{        }\PYG{l+s}{\PYGZdq{} FAIL. Observed LED Output = \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{to\PYGZus{}integer}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{(}\PYG{n}{LD}\PYG{p}{)))}\PYG{+w}{ }\PYG{o}{\PYGZam{}}
+\PYG{+w}{        }\PYG{l+s}{\PYGZdq{} Expected LED Output = \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{to\PYGZus{}integer}\PYG{p}{(}\PYG{n}{to\PYGZus{}unsigned}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SW}\PYG{n+na}{\PYGZsq{}length}\PYG{p}{)))}
+\PYG{+w}{        }\PYG{k}{severity}\PYG{+w}{ }\PYG{n}{warning}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{report}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}TEST 6 VECTOR \PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k+kt}{integer}\PYG{n+na}{\PYGZsq{}image}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} PASS.\PYGZdq{}}
+\PYG{+w}{        }\PYG{k}{severity}\PYG{+w}{ }\PYG{n}{note}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} It takes 119 clock cycles between each LEDOUT state}
+\PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{119}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{loop}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{k}{wait}\PYG{p}{;}
+\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
+
+\PYG{k}{END}\PYG{p}{;}
+\end{Verbatim}
