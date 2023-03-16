@@ -106,19 +106,25 @@
 \PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Clock process definitions}
 \PYG{+w}{   }\PYG{n}{GCLK\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{k}{process}
 \PYG{+w}{   }\PYG{k}{begin}
-\PYG{+w}{		}\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
-\PYG{+w}{		}\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
-\PYG{+w}{		}\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
-\PYG{+w}{		}\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{GCLK}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
 \PYG{+w}{   }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{p}{;}
 \PYG{+w}{ }
+
+
+
+
+
+
 
 \PYG{+w}{   }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Stimulus process}
 \PYG{+w}{   }\PYG{n+nc}{set\PYGZus{}inputs}\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}
 \PYG{+w}{   }\PYG{k}{begin}\PYG{+w}{		}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} hold reset state for at least 2000 ns.}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{l+m+mi}{2500}\PYG{+w}{ }\PYG{n}{ns}\PYG{p}{;}\PYG{+w}{	}
-\PYG{+w}{	}\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{until}\PYG{+w}{ }\PYG{n}{falling\PYGZus{}edge}\PYG{p}{(}\PYG{n}{GCLK}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{until}\PYG{+w}{ }\PYG{n}{falling\PYGZus{}edge}\PYG{p}{(}\PYG{n}{GCLK}\PYG{p}{);}
 
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 0:}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  Global Reset \PYGZam{} Initialisation}
@@ -232,6 +238,8 @@
 \PYG{+w}{        }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{30}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{loop}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{wait}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{GCLK\PYGZus{}period}\PYG{o}{*}\PYG{l+m+mi}{94}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }
 \PYG{+w}{    }
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{} TEST 2:}
 \PYG{+w}{    }\PYG{c+c1}{\PYGZhy{}\PYGZhy{}  The sequence has finished, the LEDs should be outputting 0, we need to check this.}

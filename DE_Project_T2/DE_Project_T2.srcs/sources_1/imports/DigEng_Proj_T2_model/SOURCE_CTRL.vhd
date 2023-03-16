@@ -3,7 +3,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.DigEng.all;
 
-
 entity SOURCE_CTRL is
     -- Max value that the board switches can represent stored as a
     -- Generic.
@@ -54,6 +53,8 @@ PORT MAP(
 	enable => LIMT_CNT_EN,
 	count_out => LIMT_CNT_OUT
 );
+
+
 
 -- A register to store the value of SWITCHES when enabled.
 switch_register : process (clk) is

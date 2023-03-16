@@ -56,6 +56,8 @@ begin
     end if; 
 end process state_assignment;
 
+
+
 fsm_process : process (state, FIFO_EMPTY)
 begin
     case state is

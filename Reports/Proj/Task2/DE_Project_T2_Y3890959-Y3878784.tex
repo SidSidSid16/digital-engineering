@@ -14,7 +14,7 @@
 
 \title{Digital Engineering\\Project Task 2}
 \author{Y3890959\\Y3878784}
-\date{28th February 2023}
+\date{7th March 2023}
 
 \pagestyle{fancy}
 \fancyhead{}
@@ -154,15 +154,20 @@ is in DISP state.
 
 
 \section*{2 - VHDL Entity Code}
-\subsection*{OUTPUT\_CTRL}
+\subsection*{SOURCE\_CTRL}
 \inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/SOURCE_CTRL.vhd}
 
-\subsection*{SOURCE\_CTRL}
+\newpage
+
+\subsection*{OUTPUT\_CTRL}
 \inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sources_1/imports/DigEng_Proj_T2_model/OUTPUT_CTRL.vhd}
 
+\newpage
 
 \section*{3 - VHDL Testbench Code}
 \inputminted{vhdl}{../../../DE_Project_T2/DE_Project_T2.srcs/sim_1/imports/DigEng_Proj_T2_model/TOP_LEVEL_tb.vhd}
+
+\newpage
 
 \section*{3.1 Behavioural Simulation}
 
@@ -199,7 +204,7 @@ LED's flash a value for a second at a time.
        \includegraphics[width=\columnwidth]{Assets/Test1_3.png}
 \end{figure}
 
-Waveform 5 shows the source state entering `Comp' mode and storing the value of the switches so that a change mid 
+Waveform 5 shows the source state entering `COMP' mode and storing the value of the switches so that a change mid 
 operation doesn't affect the circuit\\
 
 TEST 2: Following from Test 1, once the last byte has been output, we need to verify that the LEDs output zeros.
@@ -274,13 +279,15 @@ Shows full cycle from source side\\
        \includegraphics[width=\columnwidth]{Assets/Test7_2.png}
 \end{figure}
 
-Shows the source state going into hold after `FIFI\_FUll' goes to logic high,
+Shows the source state going into hold after `FIFO\_FULL' goes to logic high,
 
 \subsection*{RTL Component Statistics}
-\inputminted[firstline=170,lastline=191]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
+\inputminted[firstline=165,lastline=190]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
+
+\newpage
 
 \subsection*{RTL Hierarchical Component Statistics}
-\inputminted[firstline=198,lastline=266]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
+\inputminted[firstline=193,lastline=264]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
 
 
 \end{document}

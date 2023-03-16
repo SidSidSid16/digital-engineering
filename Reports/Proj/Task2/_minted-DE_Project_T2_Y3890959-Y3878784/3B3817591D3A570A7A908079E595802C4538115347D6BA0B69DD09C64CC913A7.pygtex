@@ -57,6 +57,8 @@
 \PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{;}\PYG{+w}{ }
 \PYG{k}{end}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{n+nc}{state\PYGZus{}assignment}\PYG{p}{;}
 
+
+
 \PYG{n}{fsm\PYGZus{}process}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{process}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{state}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{FIFO\PYGZus{}EMPTY}\PYG{p}{)}
 \PYG{k}{begin}
 \PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{k}{is}

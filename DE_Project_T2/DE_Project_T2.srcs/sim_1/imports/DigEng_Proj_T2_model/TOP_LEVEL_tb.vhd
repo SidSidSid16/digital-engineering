@@ -105,19 +105,25 @@ BEGIN
    -- Clock process definitions
    GCLK_process :process
    begin
-		GCLK <= '0';
-		wait for GCLK_period/2;
-		GCLK <= '1';
-		wait for GCLK_period/2;
+        GCLK <= '0';
+        wait for GCLK_period/2;
+        GCLK <= '1';
+        wait for GCLK_period/2;
    end process;
  
+
+
+
+
+
+
 
    -- Stimulus process
    set_inputs: process
    begin		
     -- hold reset state for at least 2000 ns.
     wait for 2500 ns;	
-	wait until falling_edge(GCLK);
+    wait until falling_edge(GCLK);
 
     -- TEST 0:
     --  Global Reset & Initialisation
@@ -231,6 +237,8 @@ begin
         wait for GCLK_period*30;
     end loop;
     wait for GCLK_period*94;
+    
+    
     
     -- TEST 2:
     --  The sequence has finished, the LEDs should be outputting 0, we need to check this.
