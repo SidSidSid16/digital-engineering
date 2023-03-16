@@ -176,87 +176,111 @@ is in DISP state.
        \includegraphics[width=\columnwidth]{Assets/Source_Reset.png}
 \end{figure}
 
+TEST 1: involves cycling through the first 5 values, this is the ensure that
+all logic within this circuit is functioning properly.
+
 \subsection*{Waveform 3: Test 1.1 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test1_1.png}
 \end{figure}
 
-(zoomed out showing full cycle of first 5 values)
+Zoomed out showing full cycle of first 5 values from btye `48' to `6C'.
 
 \subsection*{Waveform 4: Test 1.2 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test1_2.png}
 \end{figure}
 
-(Shows first cycle of dispcount 0-29)
+Waveform 4 shows the display counter incrementing from 0-29 as soon as `DISP\_CNT\_OUT' goes high. This ensures that the
+LED's flash a value for a second at a time.
 
 \subsection*{Waveform 5: Test 1.3 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test1_3.png}
 \end{figure}
 
-(Shows switch value being stored and entering the comp state)
+Waveform 5 shows the source state entering `Comp' mode and storing the value of the switches so that a change mid 
+operation doesn't affect the circuit\\
+
+TEST 2: Following from Test 1, once the last byte has been output, we need to verify that the LEDs output zeros.
 
 \subsection*{Waveform 6: Test 2 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test2.png}
 \end{figure}
 
-(shows output returns to 0 after full cycle)
+Above waveform shows that the output returns to 0 after a full cycle.\\
+
+TEST 3: Following from TEST 1, a reset will be inputted via the push-button. This is the verify that the circuit resets
+properly and goes back to the initial state.
 
 \subsection*{Waveform 7: Test 3.1 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test3_1.png}
 \end{figure}
 
-(Shows output side being reset after operation)
+Above shows output signals being reset after operation.
 
 \subsection*{Waveform 8: Test 3.2 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test3_2.png}
 \end{figure}
 
-(Shows source side being reset after operation)
+Above shows source signals being reset after operation.\\
+
+TEST 4: Cycle through the first 5 values just like in TEST 1, but the enable button will be pressed while the logic is in
+operation (after the 1st input). This test will verify that the enable input will be ignored.
 
 \subsection*{Waveform 9: Test 4 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test4.png}
 \end{figure}
 
-(Enable pressed mid-operation)
+Above shows enable pressed mid-operation the value of `LMT\_REG\_OUT' changes to 5 for one clock cycle then returns back to zero. 
+This is the expected output as you can see that the source state never changes from idle.\\ 
+
+TEST 5: Continue from TEST 4, the reset button will be toggled after the 4th input, this will verify that the circuit can be reset
+while the FSM is in operation.
 
 \subsection*{Waveform 10: Test 5 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test5.png}
 \end{figure}
 
-(reset mid way through operation)
+Waveform 10 shows a reset mid way through operation. The state goes back to idle and the LED outputs zeros.\\
+
+TEST 6: Cycle through the first 5 values just like in TEST 4, but the switches will be changed while the FSM is operation
+(after the 2nd input). This test will verify that changing the switches will be ignored when the FSM is in operation.
 
 \subsection*{Waveform 11: Test 6 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test6.png}
 \end{figure}
 
-(shows switch change not affecting output)
+Waveform 11 shows that changing the switch value from 5 to 3 doesn't have any effect on the output\\
+
+TEST 7: Cycle through as many inputs as it takes to cause the FIFO to become full, verify that the circuit can still function
+as designed and handle the FIFO becoming full.
 
 \subsection*{Waveform 12: Test 7.1 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test7_1.png}
 \end{figure}
 
-(shows full cycle from source side)
+Shows full cycle from source side\\
 
 \subsection*{Waveform 13: Test 7.2 }
 \begin{figure}[H]
        \includegraphics[width=\columnwidth]{Assets/Test7_2.png}
 \end{figure}
 
-(shows state going into hold)
+Shows the source state going into hold after `FIFI\_FUll' goes to logic high,
 
-\subsection*{RTL Componenet Statistics}
-\inputminted[firstline=170,lastline=191]{text}{../../../DE_Project_T2/DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
+\subsection*{RTL Component Statistics}
+\inputminted[firstline=170,lastline=191]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
 
-
+\subsection*{RTL Hierarchical Component Statistics}
+\inputminted[firstline=198,lastline=266]{text}{../../../DE_Project_T2/DE_Project_T2.runs/synth_1/TOP_LEVEL.vds}
 
 
 \end{document}
